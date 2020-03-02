@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to t(".forgot"), new_password_path(resource_name),
+      class: "nav-link #{"active" if current_page? new_user_password_path}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t(".confirmation"), new_confirmation_path(resource_name),
+      class: "nav-link #{"active" if current_page? new_user_confirmation_path}" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t(".unlock"), new_unlock_path(resource_name),
+      class: "nav-link #{"active" if current_page? new_user_unlock_path}" %>
+  </li>
+</ul>

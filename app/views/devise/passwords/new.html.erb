@@ -1,0 +1,33 @@
+<% provide :page_name, t(".forgot") %>
+<div id="form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="form-content-2">
+          <%= render "devise/shared/links" %>
+          <br>
+          <h3 class="text-center"><%= t ".forgot" %></h3>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+            <%= render "shared/errors", object: resource %>
+            <div class="form-group">
+              <label><%= t ".email" %> <span class="require">*</span></label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+            <div class="text-right">
+              <%= f.submit t(".confirm"), class: "btn btn-success" %>
+              <%= link_to t(".signin"), new_user_session_path, class: "btn btn-outline-danger" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="review">
+          <h2 class="title"><%= t ".title" %></h2>
+          <p><i class="fas fa-check"></i><%= t(".review-1").html_safe %></p>
+          <p><i class="fas fa-check"></i><%= t(".review-2").html_safe %></p>
+          <p><i class="fas fa-check"></i><%= t(".review-3").html_safe %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

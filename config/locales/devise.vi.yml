@@ -1,0 +1,150 @@
+vi:
+  devise:
+    confirmations:
+      confirmed: Địa chỉ email của bạn đã được xác nhận thành công
+      send_instructions: Bạn sẽ nhận được một email với các hướng dẫn về cách xác nhận địa chỉ email của bạn trong vài phút
+      send_paranoid_instructions: Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được email có hướng dẫn về cách xác nhận địa chỉ email của bạn trong vài phút
+      new:
+        confirmation: Xác thực tài khoản
+        email: Email
+        confirm: Xác nhận
+        signup: Đăng ký
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: <strong>Xác thực tài khoản</strong> bằng email
+        review-2: Kiểm tra <strong>email của bạn</strong> để xác thực
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+    failure:
+      already_authenticated: Bạn đang đăng nhập
+      inactive: Tài khoản của bạn chưa được kích hoạt
+      invalid: Sai email hoặc mật khẩu
+      locked: Tài khoản của bạn đã bị khóa
+      last_attempt: Bạn chỉ còn 1 lần đăng nhập trước khi tài khoản bị khóa
+      not_found_in_database: Sai email hoặc mật khẩu
+      timeout: Phiên làm việc của bạn đã hết hạn. Vui lòng đăng nhập lại để tiếp tục
+      unauthenticated: Bạn cần đăng nhập hoặc đăng ký để tiếp tục
+      unconfirmed: Bạn phải xác nhận địa chỉ email của bạn trước khi tiếp tục
+    mailer:
+      confirmation_instructions:
+        subject: Hướng dẫn xác thực
+      reset_password_instructions:
+        subject: Hướng dẫn thiết lập lại mật khẩu
+      unlock_instructions:
+        subject: Hướng dẫn mở khóa tài khoản
+      email_changed:
+        subject: Đã thay đổi email
+      password_change:
+        subject: Đã đổi mật khẩu
+    passwords:
+      no_token: Bạn không thể truy cập trang này mà không đến từ email đặt lại mật khẩu. Nếu bạn đến từ email đặt lại mật khẩu, vui lòng đảm bảo rằng bạn đã sử dụng URL đầy đủ được cung cấp
+      send_instructions: Bạn sẽ nhận được email hướng dẫn đặt lại mật khẩu trong ít phút nữa
+      send_paranoid_instructions: Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được liên kết khôi phục mật khẩu tại địa chỉ email của mình sau vài phút
+      updated: Mật khẩu của bạn đã được thay đổi
+      updated_not_active: Mật khẩu của bạn đã được thanh đổi thành công
+      new:
+        forgot: Quên mật khẩu
+        email: Email
+        confirm: Xác nhận
+        signin: Đăng nhập
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: Bạn đã <strong>quên mật khẩu</strong>
+        review-2: Kiểm tra <strong>email của bạn</strong> để đặt lại mật khẩu
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+      edit:
+        change_password: Đổi mật khẩu
+        new_password: Mật khẩu mới
+        confirm_new_password: Xác nhận mật khẩu mới
+        confirm: Xác nhận
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: Bạn đã <strong>quên mật khẩu</strong>
+        review-2: <strong>Tự động đăng nhập</strong> sau khi đổi mật khẩu thành công
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+    registrations:
+      destroyed: Tài khoản của bạn đã bị hủy bỏ, mong rằng chúng tôi sẽ sớm gặp lại bạn
+      signed_up: Chào mừng! Bạn đã đăng ký thành công
+      signed_up_but_inactive: Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn vì tài khoản của bạn chưa được kích hoạt
+      signed_up_but_locked: Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn vì tài khoản của bạn đã bị khóa
+      signed_up_but_unconfirmed: Một liên kết có nội dung xác thực được gửi tới email của bạn. Vui lòng kiểm tra email để tiếp tục
+      update_needs_confirmation: Một liên kết có nội dung xác thực được gửi tới email của bạn. Vui lòng kiểm tra email để tiếp tục
+      updated: Tài khoản của bạn đã được cập nhật thành công
+      updated_but_not_signed_in: Tài khoản của bạn đã được cập nhật thành công, nhưng vì mật khẩu của bạn đã được thay đổi, bạn cần đăng nhập lại
+      new:
+        signup: Đăng ký tài khoản
+        email: Email
+        password: Mật khẩu
+        confirm: Xác nhận mật khẩu
+        name: Tên của bạn
+        submit: Đăng ký
+        already_account: Tôi đã có tài khoản
+        confirmation: Xác thực tài khoản
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: Hoàn toàn <strong>miễn phí</strong>
+        review-2: <strong>Tìm đối thủ</strong> giao lưu, kết bạn dễ dàng
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+        review-4: <strong>Giảm thiểu tối đa</strong> tình trạng trống sân, cháy đối
+        review-5: <strong>Giao diện</strong> trực quan, dễ sử dụng
+      edit:
+        email: Email
+        change_password: Đổi mật khẩu
+        back: Quay lại
+        submit: Đổi mật khẩu
+        current_password: Mật khẩu hiện tại
+        new_password: Mật khẩu mới
+        confirm_new_password: Xác nhận mật khẩu mới
+        waiting: Đang chờ xác thực từ
+    sessions:
+      signed_in: Đăng nhập thành công
+      signed_out: Đăng xuất thành công
+      already_signed_out: Bạn đã đăng xuất
+      new:
+        signin: Đăng nhập hệ thống
+        email: Email
+        password: Mật khẩu
+        remember: Lưu tài khoản
+        forgot: Quên mật khẩu?
+        submit: Đăng nhập
+        signup: Đăng ký ngay
+        facebook: facebook
+        google: google
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: Hoàn toàn <strong>miễn phí</strong>
+        review-2: <strong>Tìm đối thủ</strong> giao lưu, kết bạn dễ dàng
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+        review-4: <strong>Giảm thiểu tối đa</strong> tình trạng trống sân, cháy đối
+        review-5: <strong>Giao diện</strong> trực quan, dễ sử dụng
+    unlocks:
+      send_instructions: Bạn sẽ nhận được một email với các hướng dẫn về cách mở khóa tài khoản của bạn trong vài phút
+      send_paranoid_instructions: Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được email có hướng dẫn cách mở khóa
+      unlocked: Tài khoản của bạn đã được mở khóa. Vui lòng đăng nhập để tiếp tục
+      new:
+        unlock: Mở khóa tài khoản
+        email: Email
+        confirm: Xác nhận
+        signin: Đăng nhập
+        title: QUẢN LÝ SÂN, TÌM ĐỐI GIAO LƯU, ĐẶT SÂN TRỰC TUYẾN
+        review-1: <strong>Mở khóa</strong> tài khoản của bạn
+        review-2: Kiểm tra <strong>email của bạn</strong> để mở khóa
+        review-3: Quản lý sân, lịch biểu hiệu quả, <strong>tiết kiệm tối đa thời gian</strong>
+    shared:
+      links:
+        forgot: Quên mật khẩu
+        confirmation: Xác thực tài khoản
+        unlock: Mở khóa tài khoản
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Mật khẩu
+        password_confirmation: Mật khẩu xác nhận
+        name: Tên
+        phone: Số điện thoại
+        current_password: Mật khẩu hiện tại
+        confirmation_token: Mã xác thực
+    errors:
+      messages:
+        blank: không được để trống
+        wrong_length: không chính xác
+        invalid: không chính xác
+        confirmation: không đúng
+        too_short: quá ngắn
+        too_long: quá dài
+        already_confirmed: đã được xác thực
