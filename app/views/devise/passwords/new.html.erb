@@ -2,24 +2,29 @@
 <div id="form">
   <div class="container">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-6">
         <div class="form-content-2">
-          <%= render "devise/shared/links" %>
-          <br>
+          <div class="link-area"><%= render "devise/shared/links" %></div>
           <h3 class="text-center"><%= t ".forgot" %></h3>
           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
-            <%= render "shared/errors", object: resource %>
             <div class="form-group">
-              <label><%= t ".email" %> <span class="require">*</span></label>
+              <div class="group-errors">
+                <label><%= t ".email" %> <span class="require">*</span></label>
+                <%= render "shared/errors", object: resource %>
+              </div>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
             </div>
-            <div class="text-right">
-              <%= f.submit t(".confirm"), class: "btn btn-success" %>
-              <%= link_to t(".signin"), new_user_session_path, class: "btn btn-outline-danger" %>
+            <br>
+            <div class="row">
+              <div class="col-6"><%= f.submit t(".confirm"), class: "btn btn-success btn-block" %></div>
+              <div class="col-6">
+                <%= link_to t(".signin"), new_user_session_path, class: "btn btn-outline-black btn-block" %>
+              </div>
             </div>
           <% end %>
         </div>
       </div>
+      <div class="col-md-1"></div>
       <div class="col-md-5">
         <div class="review">
           <h2 class="title"><%= t ".title" %></h2>

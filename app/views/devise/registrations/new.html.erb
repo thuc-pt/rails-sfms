@@ -6,9 +6,11 @@
         <div class="form-content">
           <h3 class="text-center"><%= t ".signup" %></h3>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "shared/errors", object: resource %>
             <div class="form-group">
-              <label><%= t ".email" %> <span class="require">*</span></label>
+              <div class="group-errors">
+                <label><%= t ".email" %> <span class="require">*</span></label>
+                <%= render "shared/errors", object: resource %>
+              </div>
               <%= f.email_field :email, autofocus: true, autocomplete: "email",
                 class: "form-control" %>
             </div>
@@ -32,11 +34,11 @@
           <div class="row">
             <div class="col-6">
               <%= link_to t(".already_account"), new_session_path(resource_name),
-                class: "btn btn-outline-danger btn-block" %>
+                class: "btn btn-outline-black btn-block" %>
             </div>
             <div class="col-6">
               <%= link_to t(".confirmation"), new_confirmation_path(resource_name),
-                class: "btn btn-outline-warning btn-block" %>
+                class: "btn btn-outline-black btn-block" %>
             </div>
           </div>
         </div>
