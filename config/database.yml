@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS"){5} %>
+  username: root
+  password: "20011998"
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: sfms_development
+
+test:
+  <<: *default
+  database: sfms_test
+
+production:
+  <<: *default
+  database: sfms_production
+  username: sfms
+  password: <%= ENV["SFMS_DATABASE_PASSWORD"] %>
