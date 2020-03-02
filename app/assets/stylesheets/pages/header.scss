@@ -1,0 +1,49 @@
+#header {
+  background: $nav;
+  padding-top: 0;
+  padding-bottom: 0;
+  .navbar-brand {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+  .nav-link {
+    text-transform: uppercase;
+    color: white;
+    padding: 1rem;
+    transition: 0.3s all;
+  }
+  .fas {
+    margin-right: 0.5rem;
+  }
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  .active, .nav-link:hover {
+    background: #388e3c;
+    color: black;
+  }
+  .dropdown-menu {
+    border-radius: 0 0 0.25rem 0.25rem;
+    margin: 0;
+    padding: 1rem 0.75rem;
+    border: none;
+    border-top: 3px solid #04f73c;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+  }
+  .dropdown-item {
+    padding: 0.75rem;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    color: gray;
+    &:hover {
+      background: none;
+      color: #388e3c;
+    }
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .none-border {
+    border: none;
+  }
+}

@@ -1,0 +1,77 @@
+<div class="navbar navbar-expand-md" id="header">
+  <div class="container">
+    <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-content">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+      <ul class="navbar-nav">
+        <li class="nav-items dropdown">
+          <%= link_to "", class: "nav-link" do %>
+            <i class="fas fa-compass"></i><%= t ".find_team" %>
+          <% end %>
+          <div class="dropdown-menu">
+            <%= link_to "", class: "dropdown-item" do %>
+              <i class="fas fa-rss"></i><%= t ".waiting" %>
+            <% end %>
+            <%= link_to "", class: "dropdown-item" do %>
+              <i class="fas fa-list-ul"></i><%= t ".list_team" %>
+            <% end %>
+            <%= link_to "", class: "dropdown-item" do %>
+              <i class="fas fa-handshake"></i><%= t ".invite" %>
+            <% end %>
+          </div>
+        </li>
+        <li class="nav-items">
+          <%= link_to "", class: "nav-link" do %>
+            <i class="fas fa-futbol"></i><%= t ".booking" %>
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-items dropdown">
+            <%= link_to "", class: "nav-link" do %>
+              <i class="fa fa-bell"><sup class="badge badge-pill badge-danger">10</sup></i>
+            <% end %>
+            <div class="dropdown-menu">
+              <div class="dropdown-item none-border"><%= t ".no_notification" %></div>
+            </div>
+          </li>
+          <li class="nav-items dropdown">
+            <%= link_to current_user,
+              class: "nav-link #{"active" if current_page? current_user}" do %>
+              <i class="fas fa-cog"></i>
+              <%= current_user.name %>
+            <% end %>
+            <div class="dropdown-menu">
+              <%= link_to current_user, class: "dropdown-item" do %>
+                <i class="fas fa-user"></i><%= t ".account_info" %>
+              <% end %>
+              <%= link_to "", class: "dropdown-item" do %>
+                <i class="fas fa-history"></i><%= t ".history_booking" %>
+              <% end %>
+              <%= link_to "", class: "dropdown-item" do %>
+                <i class="fas fa-futbol"></i><%= t ".catching" %>
+              <% end %>
+              <%= link_to "", class: "dropdown-item" do %>
+                <i class="fas fa-users"></i><%= t ".my_team" %>
+              <% end %>
+              <%= link_to pitches_path, class: "dropdown-item" do %>
+                <i class="fas fa-project-diagram"></i></i><%= t ".my_pitch" %>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fas fa-sign-out-alt"></i><%= t ".logout" %>
+              <% end %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-items">
+            <%= link_to new_user_session_path,
+              class: "nav-link #{"active" if current_page? new_user_session_path}" do %>
+              <i class="fas fa-sign-in-alt"></i><%= t ".login" %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
