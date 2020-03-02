@@ -38,7 +38,39 @@ a {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
 }
-#notification {
+#notification-error {
   font-size: 13px;
-  font-weight: bold;
+  color: $error;
+}
+.custom-tabs {
+  justify-content: space-between;
+  border: none;
+  .nav-link {
+    border: 1px solid $border;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+    font-size: 15px;
+    color: #6c757d;
+    &:hover {
+      background: $border;
+      color: black;
+    }
+  }
+  .nav-link.active {
+    background: $border;
+    color: black;
+  }
+}
+.link-area {
+  margin-bottom: 2rem;
+}
+.btn-outline-black {
+  border: 1px solid #7d7b7b;
+  color: #6c757d;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    color: #6c757d;
+  }
 }

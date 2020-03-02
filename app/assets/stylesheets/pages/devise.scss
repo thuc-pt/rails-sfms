@@ -30,7 +30,7 @@
     }
   }
   .form-content-2 {
-    padding: 2rem;
+    padding: 3rem 1rem;
     background: white;
     border-radius: 10px;
   }
@@ -47,6 +47,12 @@
     }
     strong {
       color: $nav;
+    }
+  }
+  .group-errors {
+    display: flex;
+    label {
+      margin-right: 1rem;
     }
   }
 }

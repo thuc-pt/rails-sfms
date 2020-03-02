@@ -15,4 +15,6 @@ Devise.setup do |config|
   config.lock_strategy = :failed_attempts
   config.maximum_attempts = 4
   config.unlock_in = 3.days
+  config.omniauth :google_oauth2, ENV["GOOGLE_APP_ID"], ENV["GOOGLE_APP_SECRET"]
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
 end
