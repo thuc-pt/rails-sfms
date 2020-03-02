@@ -1,0 +1,66 @@
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div><%= image_tag "logogray.png" %></div>
+        <br>
+        <%= link_to "", class: "icon-social fb" do %>
+          <i class="fab fa-facebook-square"></i>
+        <% end %>
+        <%= link_to "", class: "icon-social gg" do %>
+          <i class="fab fa-google-plus-square"></i>
+        <% end %>
+        <%= link_to "", class: "icon-social tw" do %>
+          <i class="fab fa-twitter-square"></i>
+        <% end %>
+        <%= link_to "", class: "icon-social yt" do %>
+          <i class="fab fa-youtube-square"></i>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <p class="title"><%= t ".link" %></p>
+        <div class="content">
+          <p><i class="fas fa-envelope"></i><%= t ".email" %></p>
+          <p><i class="fas fa-phone"></i><%= t ".phone" %></p>
+          <p><i class="fas fa-map-marker-alt"></i><%= t ".address" %></p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <p class="title"><%= t ".info" %></p>
+        <div class="content">
+          <p>
+            <%= link_to "" do %>
+              <i class="fas fa-caret-right"></i>
+              <%= t ".introduce" %>
+            <%end %>
+          </p>
+          <p>
+            <%= link_to "" do %>
+              <i class="fas fa-caret-right"></i>
+              <%= t ".rules" %>
+            <%end %>
+          </p>
+          <p>
+            <%= link_to "" do %>
+              <i class="fas fa-caret-right"></i>
+              <%= t ".security" %>
+            <%end %>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <p class="title"><%= t ".app" %></p>
+        <div class="row">
+          <div class="col-6"><%= image_tag "chplay.png", class: "img-fluid" %></div>
+          <div class="col-6"><%= image_tag "appstore.png", class: "img-fluid" %></div>
+        </div>
+        <br>
+        <div class="content"><%= t ".content" %></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="end-page">
+  <p><%= t(".author").html_safe %></p>
+  <div>&copy; <%= t ".copy" %></div>
+</div>

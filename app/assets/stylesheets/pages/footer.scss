@@ -1,0 +1,49 @@
+#footer {
+  padding: 3rem 0;
+  color: gray;
+  background-image: url('bgfooter.jpg');
+  background-repeat: repeat;
+  .icon-social {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+    color: gray;
+    transition: 0.3s all;
+  }
+  .fb:hover {
+    color: #044a96;
+  }
+  .gg:hover {
+    color: #f11429;
+  }
+  .tw:hover {
+    color:  #17a2b8;
+  }
+  .yt:hover {
+    color: $error;
+  }
+  .title {
+    text-transform: uppercase;
+  }
+  .content {
+    font-size: 13px;
+    a {
+      text-decoration: none;
+      color: gray;
+
+      &:hover {
+        color: $nav;
+      }
+    }
+  }
+  .fas {
+    margin-right: 0.5rem;
+  }
+}
+.end-page {
+  font-size: 13px;
+  padding: 0.5rem 0;
+  background: $body;
+  text-align: center;
+  box-shadow: inset 0 8px 14px -9px rgba(50,50,50,.25);
+}
