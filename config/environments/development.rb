@@ -23,4 +23,17 @@ Rails.application.configure do
   config.assets.debug = true
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+  host = "localhost:3000"
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "localhost:3000",
+    authentication: "plain",
+    user_name: ENV["username"],
+    password: ENV["password"],
+    enable_starttls_auto: true
+  }
 end

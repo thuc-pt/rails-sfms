@@ -1,0 +1,52 @@
+#form {
+  padding: 5rem 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bglock.jpg');
+  .login-social {
+    text-align: center;
+    padding: 0.5rem 0 1rem 0;
+    img {
+      width: 3rem;
+      height: auto;
+      border-radius: 50%;
+    }
+    .fb {
+      margin-right: 1.5rem;
+    }
+    .google {
+      margin-left: 1.5rem;
+    }
+  }
+  .form-content {
+    padding: 1.5rem 3rem 2rem 3rem;
+    background: white;
+    border-radius: 10px;
+    width: 75%;
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .form-content-2 {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+  }
+  .review {
+    color: white;
+    .title {
+      font-weight: bold;
+      margin-bottom: 4rem;
+    }
+    .fas {
+      color: $nav;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+    }
+    strong {
+      color: $nav;
+    }
+  }
+}

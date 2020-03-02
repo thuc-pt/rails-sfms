@@ -6,9 +6,12 @@ ruby "2.5.5"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.4.1"
 gem "coffee-rails", "~> 4.2"
+gem "devise"
+gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
+gem "omniauth"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.4", ">= 5.2.4.1"
 gem "sass-rails", "~> 5.0"
@@ -33,9 +36,8 @@ end
 
 group :test do
   gem "capybara", ">= 2.15"
-  gem "chromedriver-helper"
   gem "database_cleaner", "~> 1.5"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "~> 3.0"
   gem "shoulda-matchers", "~> 3.0", require: false
 end
 
