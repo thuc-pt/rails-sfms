@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <div class="form-content-2">
           <div class="link-area"><%= render "devise/shared/links" %></div>
-          <h3 class="text-center"><%= t ".confirmation" %></h3>
+          <h3 class="text-right title-custom"><%= t ".confirmation" %></h3>
           <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
             <div class="form-group">
               <div class="group-errors">

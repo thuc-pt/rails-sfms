@@ -1,0 +1,57 @@
+<%= provide :page_name, t(".profile") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><%= render "users/links" %></div>
+    <div class="col-md-9">
+      <div class="account-info">
+        <div class="row">
+          <div class="col-md-3"><%= render "users/avatar" %></div>
+          <div class="col-md-9">
+            <table class="table">
+              <tr>
+                <th><%= t ".name" %></th>
+                <td><%= @user.name %></td>
+              </tr>
+              <tr>
+                <th><%= t ".birthday" %></th>
+                <td><%= @user.birthday.present? ? @user.birthday.strftime("%d/%m/%Y") : t("users.unknow") %></td>
+              </tr>
+              <tr>
+                <th><%= t ".gender" %></th>
+                <td><%= gender_for @user %></td>
+              </tr>
+              <tr>
+                <th><%= t ".email" %></th>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+                <th><%= t ".phone" %></th>
+                <td><%= @user.phone_number.present? ? @user.phone_number : t("users.unknow") %></td>
+              </tr>
+              <tr>
+                <th><%= t ".address" %></th>
+                <td><%= @user.address.present? ? @user.address : t("users.unknow") %></td>
+              </tr>
+              <tr>
+                <th><%= t ".login_from" %></th>
+                <td><%= login_from_by @user %></td>
+              </tr>
+            </table>
+            <div class="row">
+              <div class="col-4">
+                <%= link_to t(".edit"), edit_user_path(@user), class: "btn btn-outline-black btn-block" %>
+              </div>
+              <div class="col-4">
+                <%= link_to t(".change_password"), edit_user_registration_path(current_user), class: "btn btn-outline-black btn-block #{"disabled" if @user.uid.present?}" %>
+              </div>
+              <div class="col-4">
+                <%= link_to t(".delete"), registration_path(@user), method: :delete,
+                  data: {confirm: t(".confirm")}, class: "btn btn-outline-black btn-block" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="menu-user">
+  <ul class="nav flex-column">
+    <div class="info">
+      <%= image_for current_user %>
+      <strong><%= @user.name %></strong>
+    </div>
+    <li class="nav-items">
+      <%= link_to current_user, class: "nav-link #{"active" if current_user}" do %>
+        <i class="fas fa-user"></i><%= t ".info" %>
+      <% end %>
+    </li>
+    <li class="nav-items">
+      <%= link_to "", class: "nav-link" do %>
+        <i class="fas fa-history"></i><%= t ".history_booking" %>
+      <% end %>
+    </li>
+    <li class="nav-items">
+      <%= link_to "", class: "nav-link" do %>
+        <i class="fas fa-futbol"></i><%= t ".waiting" %>
+      <% end %>
+    </li>
+    <li class="nav-items">
+      <%= link_to "", class: "nav-link" do %>
+        <i class="fas fa-users"></i><%= t ".my_team" %>
+      <% end %>
+    </li>
+    <li class="nav-items">
+      <%= link_to "", class: "nav-link" do %>
+        <i class="fas fa-project-diagram"></i><%= t ".my_pitch" %>
+      <% end %>
+    </li>
+    <li class="nav-items">
+      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+        <i class="fas fa-sign-out-alt"></i><%= t ".signout" %>
+      <% end %>
+    </li>
+  </ul>
+</div>

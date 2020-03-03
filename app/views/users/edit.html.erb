@@ -1,0 +1,66 @@
+<% provide :page_name, t(".update") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "users/links" %>
+    </div>
+    <div class="col-md-9">
+      <div class="account-info">
+        <div class="row">
+          <div class="col-md-3">
+            <%= render "users/avatar" %><br>
+            <%= render "shared/errors", object: @user %>
+          </div>
+          <div class="col-md-9">
+            <%= form_for @user do |f| %>
+              <div class="form-group">
+                <%= f.text_field :email, class: "form-control", placeholder: t(".email") %>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.text_field :birthday, class: "form-control", placeholder: "yyyy-mm-dd" %>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="gender-btn">
+                    <div>
+                      <label class="combo-radio">
+                        <%= t ".male" %>
+                        <%= f.radio_button :gender, true, id: "male" %>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div>
+                      <label class="combo-radio">
+                        <%= t ".female" %>
+                        <%= f.radio_button :gender, false, id: "female" %>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.text_field :phone_number, class: "form-control", placeholder: t(".phone") %>
+              </div>
+              <div class="form-group">
+                <%= f.text_area :address, class: "form-control", placeholder: t(".address") %>
+              </div>
+              <div class="text-right">
+                <%= f.submit t(".submit"), class: "btn btn-success" %>
+                <%= link_to t(".back"), current_user, class: "btn btn-outline-black" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#user_birthday').datepicker({dateFormat: 'yy-mm-dd'});
+</script>

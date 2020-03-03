@@ -8,8 +8,7 @@
       <div class="account-info">
         <div class="row">
           <div class="col-md-3">
-            <%= render "users/avatar" %>
-            <br><br>
+            <%= render "users/avatar" %><br>
             <%= render "shared/errors", object: resource %>
           </div>
           <div class="col-md-9">
@@ -26,16 +25,16 @@
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
               </div>
               <div class="form-group">
-                <label><%= t ".new_password" %></label>
+                <label><%= t ".new_password" %> <span class="require">*</span></label>
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
               </div>
               <div class="form-group">
-                <label><%= t ".confirm_new_password" %></label>
+                <label><%= t ".confirm_new_password" %> <span class="require">*</span></label>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
               <div class="text-right">
-                <%= f.submit t(".submit"), class: "btn btn-success" %>
-                <%= link_to t(".back"), :back, class: "btn btn-outline-secondary" %>
+                <%= f.submit t(".submit"), class: "btn btn-success", disabled: true, id: "change-password" %>
+                <%= link_to t(".back"), current_user, class: "btn btn-outline-black" %>
               </div>
             <% end %>
           </div>

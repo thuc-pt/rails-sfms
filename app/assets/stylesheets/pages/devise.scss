@@ -33,6 +33,23 @@
     padding: 3rem 1rem;
     background: white;
     border-radius: 10px;
+    .title-custom {
+      color: $nav;
+      font-size: 18px;
+      padding-right: 9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: -30px;
+    }
+    .title-custom::after {
+      content: "";
+      width: 7rem;
+      height: 19px;
+      background: $nav;
+      position: absolute;
+      right: 15px;
+      top: 35%;
+    }
   }
   .review {
     color: white;
