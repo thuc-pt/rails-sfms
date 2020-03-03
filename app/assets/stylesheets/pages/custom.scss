@@ -51,26 +51,74 @@ a {
     transition: 0.3s;
     font-size: 15px;
     color: #6c757d;
-    &:hover {
-      background: $border;
-      color: black;
-    }
   }
-  .nav-link.active {
-    background: $border;
-    color: black;
+  .nav-link.active, .nav-link:hover {
+    border: 1px solid purple;
+    color: purple;
   }
 }
 .link-area {
   margin-bottom: 2rem;
 }
 .btn-outline-black {
-  border: 1px solid #7d7b7b;
+  border: 1px solid $border;
   color: #6c757d;
+  transition: all 0.3s;
   &:focus {
     box-shadow: none;
   }
   &:hover {
-    color: #6c757d;
+    color: purple;
+    border: 1px solid purple;
   }
+}
+
+// Radio button
+.combo-radio {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.combo-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.combo-radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.combo-radio input:checked ~ .checkmark {
+  background-color: $nav;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.combo-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+.combo-radio .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
 }

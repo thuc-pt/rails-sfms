@@ -2,6 +2,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable, :recoverable,
     :rememberable, :validatable, :lockable, :timeoutable, :trackable, :omniauthable
 
+  PARAMS = %i(name email phone_number address birthday gender).freeze
+
+  validates :name, presence: true, length: {maximum: Settings.length.max_name}
+  validates :phone_number, numericality: true,
+    length: {minimum: Settings.length.min_phone, maximum: Settings.length.max_phone},
+    allow_nil: true
+  validates :role, presence: true
+
+  mount_uploader :image, ImageUploader
+
+  enum roles: {admin: 0, owner: 1, player: 2}
+
   class << self
     def from_omniauth auth
       result = User.find_by email: auth.info.email

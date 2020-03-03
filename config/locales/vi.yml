@@ -105,6 +105,12 @@ vi:
       all: Tất cả
       enter_search: Nhập tên hoặc địa chỉ để tìm kiếm
   users:
+    unknow: Chưa cập nhật
+    male: Nam
+    female: Nữ
+    login_by_system: Bằng tài khoản hệ thống
+    login_by_gg: Bằng tài khoản google
+    login_by_fb: Bằng tài khoản facebook
     links:
       info: Thông tin tài khoản
       history_booking: Lịch sử đặt sân
@@ -118,16 +124,10 @@ vi:
       name: Họ và tên
       birthday: Ngày sinh
       gender: Giới tính
-      none: chưa cập nhật
-      male: nam
-      female: nữ
       email: Email
       phone: Số điện thoại
       address: Địa chỉ
-      login_from: Đăng nhập từ
-      fb: tài khoản facebook
-      gg: tài khoản google
-      system: hệ thống
+      login_from: Đăng nhập
       edit: Chỉnh sửa
       delete: Xóa tài khoản
       confirm: Bạn chắc chắn muốn xóa tài khoản?
