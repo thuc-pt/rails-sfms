@@ -10,7 +10,208 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_075157) do
+ActiveRecord::Schema.define(version: 2020_03_04_121015) do
+
+  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.boolean "is_fixed"
+    t.text "passing_note"
+    t.date "date"
+    t.integer "price"
+    t.integer "status", default: 0
+    t.bigint "timesheet_id"
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_bookings_on_created_at"
+    t.index ["status"], name: "index_bookings_on_status"
+    t.index ["team_id"], name: "index_bookings_on_team_id"
+    t.index ["timesheet_id"], name: "index_bookings_on_timesheet_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.string "image"
+    t.string "tbl_name"
+    t.integer "tbl_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_comments_on_created_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_districts_on_province_id"
+  end
+
+  create_table "getting_matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message"
+    t.bigint "match_id"
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.bigint "pitch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_getting_matches_on_district_id"
+    t.index ["match_id"], name: "index_getting_matches_on_match_id"
+    t.index ["pitch_id"], name: "index_getting_matches_on_pitch_id"
+    t.index ["province_id"], name: "index_getting_matches_on_province_id"
+    t.index ["team_id"], name: "index_getting_matches_on_team_id"
+    t.index ["user_id"], name: "index_getting_matches_on_user_id"
+  end
+
+  create_table "levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_levels_on_name", unique: true
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "tbl_name"
+    t.integer "tbl_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "category", default: 0
+    t.string "ward"
+    t.string "betting"
+    t.datetime "time"
+    t.string "competitor"
+    t.string "captain_name"
+    t.string "phone_number"
+    t.text "invition"
+    t.integer "status", default: 0
+    t.bigint "level_id"
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.bigint "pitch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_matches_on_category"
+    t.index ["district_id"], name: "index_matches_on_district_id"
+    t.index ["level_id"], name: "index_matches_on_level_id"
+    t.index ["pitch_id"], name: "index_matches_on_pitch_id"
+    t.index ["province_id"], name: "index_matches_on_province_id"
+    t.index ["status"], name: "index_matches_on_status"
+    t.index ["team_id"], name: "index_matches_on_team_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
+  end
+
+  create_table "pitches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.string "image"
+    t.time "open_at"
+    t.time "close_at"
+    t.string "email"
+    t.string "link_facebook"
+    t.text "description"
+    t.boolean "active"
+    t.string "address"
+    t.bigint "user_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_pitches_on_district_id"
+    t.index ["province_id"], name: "index_pitches_on_province_id"
+    t.index ["user_id"], name: "index_pitches_on_user_id"
+  end
+
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.string "image"
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_posts_on_created_at"
+    t.index ["team_id"], name: "index_posts_on_team_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "provinces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_provinces_on_name", unique: true
+  end
+
+  create_table "sub_pitch_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sub_pitch_types_on_name", unique: true
+  end
+
+  create_table "sub_pitches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_new", default: true
+    t.text "description"
+    t.boolean "active"
+    t.bigint "pitch_id"
+    t.bigint "sub_pitch_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pitch_id"], name: "index_sub_pitches_on_pitch_id"
+    t.index ["sub_pitch_type_id"], name: "index_sub_pitches_on_sub_pitch_type_id"
+  end
+
+  create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "logo"
+    t.string "image"
+    t.integer "average_age"
+    t.string "member"
+    t.integer "win", default: 0
+    t.integer "lost", default: 0
+    t.text "description"
+    t.bigint "user_id"
+    t.bigint "level_id"
+    t.bigint "province_id"
+    t.bigint "district_id"
+    t.bigint "pitch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_teams_on_district_id"
+    t.index ["level_id"], name: "index_teams_on_level_id"
+    t.index ["name"], name: "index_teams_on_name", unique: true
+    t.index ["pitch_id"], name: "index_teams_on_pitch_id"
+    t.index ["province_id"], name: "index_teams_on_province_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
+  end
+
+  create_table "timesheets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.time "start_at"
+    t.time "end_at"
+    t.integer "price"
+    t.bigint "sub_pitch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_pitch_id"], name: "index_timesheets_on_sub_pitch_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,4 +249,35 @@ ActiveRecord::Schema.define(version: 2020_03_02_075157) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "bookings", "teams"
+  add_foreign_key "bookings", "timesheets"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "users"
+  add_foreign_key "districts", "provinces"
+  add_foreign_key "getting_matches", "districts"
+  add_foreign_key "getting_matches", "matches"
+  add_foreign_key "getting_matches", "pitches"
+  add_foreign_key "getting_matches", "provinces"
+  add_foreign_key "getting_matches", "teams"
+  add_foreign_key "getting_matches", "users"
+  add_foreign_key "likes", "users"
+  add_foreign_key "matches", "districts"
+  add_foreign_key "matches", "levels"
+  add_foreign_key "matches", "pitches"
+  add_foreign_key "matches", "provinces"
+  add_foreign_key "matches", "teams"
+  add_foreign_key "matches", "users"
+  add_foreign_key "pitches", "districts"
+  add_foreign_key "pitches", "provinces"
+  add_foreign_key "pitches", "users"
+  add_foreign_key "posts", "teams"
+  add_foreign_key "posts", "users"
+  add_foreign_key "sub_pitches", "pitches"
+  add_foreign_key "sub_pitches", "sub_pitch_types"
+  add_foreign_key "teams", "districts"
+  add_foreign_key "teams", "levels"
+  add_foreign_key "teams", "pitches"
+  add_foreign_key "teams", "provinces"
+  add_foreign_key "teams", "users"
+  add_foreign_key "timesheets", "sub_pitches"
 end
