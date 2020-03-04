@@ -1,4 +1,15 @@
 length:
   max_name: 30
-  min_phone: 10
-  max_phone: 15
+  phone: 10
+  max_district_name: 50
+  max_ward_name: 50
+  max_province_name: 30
+  max_pitch_name: 50
+  max_address: 100
+  max_sub_pitch_type: 50
+  max_sub_pitch_name: 30
+  max_team_name: 30
+minimum:
+  min_avg_age: 5
+  min_score: 0
+  min_price: 1000
