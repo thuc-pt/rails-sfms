@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :level do
-    name{"MyString"}
-    description{"MyText"}
+    name{Faker::Name.name}
+    description{Faker::Lorem.paragraph}
   end
 end

@@ -6,6 +6,6 @@ FactoryBot.define do
     association :province
     association :district
     association :pitch
-    message{"MyText"}
+    message{Faker::Lorem.paragraph}
   end
 end
