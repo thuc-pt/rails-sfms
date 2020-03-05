@@ -1,16 +1,16 @@
 FactoryBot.define do
   factory :pitch do
-    name {"MyString"}
-    phone_number{"MyString"}
-    image{"MyString"}
-    open_at{"2020-03-04 16:33:21"}
-    close_at{"2020-03-04 16:33:21"}
-    description{"MyText"}
+    name{Faker::Name.name}
+    phone_number{Faker::PhoneNumber.phone_number}
+    image{Faker::Avatar.image}
+    open_at{Time.now}
+    close_at{Time.now + 18.hours}
+    description{Faker::Lorem.paragraph}
     active{true}
-    email{}
+    email{"example#{Faker::Number.number}@gmail.com"}
     association :user
     association :province
     association :district
-    address{"MyString"}
+    address{Faker::Address.street_address}
   end
 end

@@ -6,14 +6,14 @@ FactoryBot.define do
     association :district
     association :pitch
     association :level
-    category{1}
-    ward{"MyString"}
-    betting{"MyString"}
-    time{"2020-03-04 17:13:18"}
-    competitor{"MyString"}
-    captain_name{"MyString"}
-    phone_number{"MyString"}
-    invition{"MyText"}
+    category{Faker::Number.number(from: 0, to: 1)}
+    ward{Faker::Address.street_address}
+    betting{Faker::String.random(length: 12)}
+    time{Date.current}
+    competitor{Faker::Name.name}
+    captain_name{Faker::Name.name}
+    phone_number{Faker::PhoneNumber.phone_number}
+    invition{Faker::Lorem.paragraph}
     status{0}
   end
 end

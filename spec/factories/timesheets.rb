@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :timesheet do
-    start_at{"2020-03-04 16:41:53"}
-    end_at{"2020-03-04 16:41:53"}
-    price{100000}
+    start_at{Time.now}
+    end_at{Time.now + 1.hour}
+    price{Faker::Number.number(digits: 6)}
     association :sub_pitch
   end
 end

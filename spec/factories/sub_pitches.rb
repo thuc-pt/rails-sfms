@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :sub_pitch do
-    name{"MyString"}
+    name{Faker::Name.name}
     is_new{true}
-    description{"MyText"}
+    description{Faker::Lorem.paragraph}
     active{true}
     association :pitch
     association :sub_pitch_type
