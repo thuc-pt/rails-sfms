@@ -1,0 +1,34 @@
+<tr>
+  <td class="text-center"><%= pitch_counter + 1 %></td>
+  <td><%= image_of pitch, "img-index" %></td>
+  <td>
+    <p class="name-info"><strong><i class="fas fa-futbol"></i><%= pitch.name %></strong></p>
+    <p><i class="fas fa-map-marker-alt"></i><%= pitch.full_address %></p>
+    <p><i class="fas fa-phone"></i><%= pitch.phone_number %></p>
+    <div id="spin-active-<%= pitch.id %>"><%= render "spin", pitch: pitch %></div>
+  </td>
+  <td class="custom-bs4">
+    <%= link_to "", class: "btn btn-outline-black btn-block" do %>
+      <i class="fas fa-tasks"></i><%= t "pitches.manage" %>
+    <% end %>
+    <div class="row">
+      <div class="col-4 col-left">
+        <%= link_to pitch, class: "btn btn-outline-black btn-block" do %>
+          <i class="fa fa-eye"></i>
+        <% end %>
+      </div>
+      <div class="col-4 col-center">
+        <%= link_to edit_pitch_path(pitch), class: "btn btn-outline-black btn-block" do %>
+          <i class="fa fa-edit"></i>
+        <% end %>
+      </div>
+      <div class="col-4 col-right">
+        <%= link_to pitch, method: :delete, data: {confirm: t("confirm_delete")},
+          class: "btn btn-outline-black delete_pitch btn-block", remote: true do %>
+          <i class="fa fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+    <div id="status-<%= pitch.id %>"><%= render "active", pitch: pitch %></div>
+  </td>
+</tr>

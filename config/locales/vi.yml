@@ -2,9 +2,7 @@ vi:
   base: Sân bóng đá
   sign_in_success: Xác thực danh tính thành công
   sign_in_failure: Không thể xác thực danh tính của bạn
-  must_greater_than_start_time: phải lớn hơn giờ mở cửa
-  must_greater_than_start_at: phải lớn hơn giờ vào
-  must_greater_than_from: phải lớn hơn giờ bắt đầu
+  must_greater_than_open_at: phải sau giờ mở cửa
   confirm_delete: Bạn chắc chắn muốn xóa?
   activerecord:
     attributes:
@@ -12,18 +10,17 @@ vi:
         name: Tên sân
         province_id: Tỉnh / thành phố
         district_id: Quận / huyện
-        ward_id: Phường / xã
         address: Địa chỉ
-        phone: Số điện thoại
-        email: Email
-        facebook: Facebook
+        phone_number: Số điện thoại
+        email: Địa chỉ email
+        link_facebook: Trang facebook
         image: Ảnh đại diện
         description: Mô tả
-        start_time: Giờ mở cửa
-        end_time: Giờ đóng cửa
+        open_at: Giờ mở cửa
+        close_at: Giờ đóng cửa
         province: Tỉnh / thành phố
         district: Quận / huyện
-        ward: Phường / xã
+        active: Hoạt động
     errors:
       messages:
         required: được yêu cầu
@@ -41,7 +38,6 @@ vi:
     delete_success: Xóa thành công
     delete_failure: Không thể xóa
     not_found: Không tìm thấy tài nguyên
-    already_exist: Đã cập nhật số lượng
   number:
     currency:
       format:
@@ -91,9 +87,6 @@ vi:
     district:
       select_district: Chọn quận huyện
       district: Quận / huyện
-    ward:
-      ward: Phường / xã
-      select_ward: Chọn phường xã
     province:
       province: Tỉnh / thành phố
     prices:
@@ -144,36 +137,42 @@ vi:
       female: Nữ
       back: Quay lại
   pitches:
+    manage: Quản lý
+    close: Đang đóng cửa
+    open: Đang hoạt động
+    confirm_open: Bạn muốn mở hoạt động?
+    confirm_close: Bạn muốn ngưng hoạt động?
     links:
       list_pitches: Danh sách sân
       booking_request: Yêu cầu đặt sân
+      new_pitches: Thêm sân mới
     index:
       list_pitches: Sân bóng của tôi
-      new_pitches: Thêm sân mới
       image: Ảnh đại diện
       info: Thông tin sân bóng
       action: Hoạt động
       no_data: Không có dữ liệu
-    pitch:
-      close_pitch: Tạm đóng cửa
-      open_pitch: Đang mở cửa
-      confirm: Bạn chắc chắn muốn xóa?
-      manage: Quản lý
+    spin:
+      active: Đang hoạt động
+      unactive: Đang đóng cửa
     new:
       new_pitch: Tạo sân bóng mới
       create_pitch: Tạo mới
     form:
-      name: Nhập tên sân
-      address: Địa chỉ sân bóng
-      phone: Số điện thoại liên hệ đặt sân
-      email: Địa chỉ email
-      facebook: Địa chỉ facebook
+      name: Nhập tên sân bóng
+      address: Nhập khu vực và địa chỉ cụ thể
+      phone: Nhập số điện thoại liên hệ đặt sân
+      facebook: Đường dẫn đến trang facebook
       description: Giới thiệu sơ lược sân bóng
       save: Tạo mới
       back: Quay lại
-      select_province: Chọn tỉnh thành
-      select_district: Chọn quận huyện
-      select_ward: Chọn phường xã
+      pitch_name: Tên sân
+      province: Tỉnh / thành phố
+      district: Quận / huyện
+      lb_address: Địa chỉ
+      phone_number: Số điện thoại
+      open_at: Giờ mở cửa
+      close_at: Giờ đóng cửa
     show:
       pitch_info: Thông tin sân bóng
       contact: Liên hệ đặt sân
@@ -185,65 +184,6 @@ vi:
       pitch_price_pitch_9: Giá thuê sân 9 người
       pitch_price_pitch_11: Giá thuê sân 11 người
       booking: Đặt sân
-    picker:
-      booking: Đặt sân
     edit:
       edit_pitch: Chỉnh sửa thông tin sân bóng
       update_pitch: Cập nhật
-    status:
-      close: Tạm đóng cửa
-      open: Đang hoạt động
-      cfm_open: Xác nhận mở cửa hoạt động?
-      cfm_close: Xác nhận ngưng hoạt động?
-  sub_pitches:
-    pitch_5: Sân 5 người
-    pitch_7: Sân 7 người
-    pitch_9: Sân 9 người
-    pitch_11: Sân 11 người
-    form:
-      new: Tạo sân
-      edit: Lưu thay đổi
-      category: Thể loại
-      quantity: Số lượng
-    index:
-      page_title: Quản lý sân bóng
-    sub_pitch:
-      quantity: "%{quantity} sân"
-      add_timeline: Thêm khung giờ
-      edit: Chỉnh sửa
-      delete: Xóa
-    links:
-      sub_pitch_page: Quản lý sân
-      price_page: Quản lý giá
-  prices:
-    mon_fri: Thứ 2 đến thứ 6
-    mon_sat: Thứ 2 đến thứ 7
-    every_day: Tất cả các ngày
-    sat_sun: Thứ 7 và chủ nhật
-    only_sun: Chỉ chủ nhật
-    category: Thể loại
-    from: Bắt đầu
-    to: Kết thúc
-    day_in_week: Ngày trong tuần
-    price: Đơn giá
-    pitch: Tên sân
-    index:
-      action: Hoạt động
-      page_title: Quản lý giá sân
-    form:
-      new: Tạo
-      edit: Chỉnh sửa
-  timelines:
-    index:
-      timeline: Khung giờ
-      price: Giá giờ
-      action: Hoạt động
-      page_title: Quản lý khung giờ
-    form:
-      new: Tạo mới
-      edit: Chỉnh sửa
-      text_select: "%{price} # %{from} đến %{to} # %{day}"
-      back: Quay lại
-      start_at: Giờ vào
-      end_at: Giờ ra
-      price: Tiền sân

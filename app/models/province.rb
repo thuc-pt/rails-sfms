@@ -7,4 +7,6 @@ class Province < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: Settings.length.max_province_name},
     uniqueness: {case_sensitive: false}
+
+  scope :availability, ->{where "provinces.id in (?)", District.pluck(:province_id).uniq}
 end

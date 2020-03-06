@@ -55,7 +55,7 @@
               <%= link_to "", class: "dropdown-item" do %>
                 <i class="fas fa-users"></i><%= t ".my_team" %>
               <% end %>
-              <%= link_to "", class: "dropdown-item" do %>
+              <%= link_to pitches_path, class: "dropdown-item" do %>
                 <i class="fas fa-project-diagram"></i></i><%= t ".my_pitch" %>
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>

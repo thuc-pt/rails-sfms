@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="pitches-page">
+    <div class="title">
+      <i class="fas fa-info-circle"></i><%= yield :page_name %>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-6"><%= render "shared/errors", object: @pitch %></div>
+    </div>
+    <%= form_for @pitch do |f| %>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_name">
+              <%= t ".pitch_name" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :name, class: "form-control text-center", placeholder: t(".name") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_province_id">
+              <%= t ".province" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.select :province_id, load_provinces, {}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_district_id">
+              <%= t ".district" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.grouped_collection_select :district_id, load_districts,
+              :districts, :name, :id, :name, {}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_address">
+              <%= t ".lb_address" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :address, class: "form-control text-center",
+              placeholder: t(".address") %>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_phone_number">
+              <%= t ".phone_number" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :phone_number, class: "form-control text-center",
+              placeholder: t(".phone") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_open_at">
+              <%= t ".open_at" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :open_at, value: "4:00 AM", class: "form-control text-center" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_close_at">
+              <%= t ".close_at" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :close_at, value: "10:00 PM", class: "form-control text-center" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :email %></div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :email, class: "form-control text-center",
+              value: @pitch.new_record? ? current_user.email : @pitch.email %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :link_facebook %></div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :link_facebook, class: "form-control text-center",
+              placeholder: t(".facebook") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-5 col-md-3"><%= f.label :active %></div>
+          <div class="col-7">
+            <%= f.check_box :active, class: "css-checkbox" %>
+            <label for="pitch_active" class="css-label"></label>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :image %></div>
+          <div class="col-12 col-md-6">
+            <img id="preview_image", class="img-fluid">
+            <%= f.file_field :image, class: "file-input" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :description %></div>
+          <div class="col-12 col-md-6">
+            <%= f.text_area :description, class: "form-control", placeholder: t(".description") %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-3 col-6">
+          <%= f.button type: :submit, class: "btn btn-success btn-block" do %>
+            <i class="fas fa-save"></i><%= submit_name %>
+          <% end %>
+        </div>
+        <div class="col-md-3 col-6">
+          <%= link_to t(".back"), :back, class: "btn btn-outline-black btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

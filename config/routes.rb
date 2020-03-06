@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     patch :update_avatar, on: :member
   end
+  resources :pitches do
+    get :toggle_activation, on: :member
+  end
 end

@@ -8,4 +8,5 @@ $(document).ready(function() {
     else
       $('#change-password').prop('disabled', true);
   });
+  $('#user_birthday').datepicker({dateFormat: 'yy-mm-dd'});
 });

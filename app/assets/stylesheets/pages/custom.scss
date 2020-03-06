@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 body {
   font-family: 'Roboto', sans-serif !important;
   padding: 0;
   background: $body !important;
 }
-.form-control:focus {
-  box-shadow: none !important;
-}
 label {
   font-weight: bold;
   font-size: 14px;
-}
-.require {
-  color: $error;
 }
 a {
   text-decoration: none !important;
@@ -24,15 +17,14 @@ a {
 .table-custom th, .table-custom td {
   vertical-align: unset !important;
 }
-.btn-white {
-  background: white;
-  border: 1px solid $border;
-}
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-thumb {
   background: $nav;
+}
+.require {
+  color: $error;
 }
 .alert {
   border-radius: 0 !important;
@@ -43,7 +35,7 @@ a {
   color: $error;
 }
 .custom-tabs {
-  justify-content: space-between;
+  display: unset;
   border: none;
   .nav-link {
     border: 1px solid $border;
@@ -51,14 +43,12 @@ a {
     transition: 0.3s;
     font-size: 15px;
     color: #6c757d;
+    text-align: center;
   }
   .nav-link.active, .nav-link:hover {
     border: 1px solid purple;
     color: purple;
   }
-}
-.link-area {
-  margin-bottom: 2rem;
 }
 .btn-outline-black {
   border: 1px solid $border;
@@ -72,53 +62,10 @@ a {
     border: 1px solid purple;
   }
 }
-
-// Radio button
-.combo-radio {
-  display: block;
-  position: relative;
-  padding-left: 2rem;
-  margin-top: 0.25rem;
-  cursor: pointer;
-  font-size: 14px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.combo-radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  border-radius: 50%;
-}
-.combo-radio:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-.combo-radio input:checked ~ .checkmark {
-  background-color: $nav;
-}
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.combo-radio input:checked ~ .checkmark:after {
-  display: block;
-}
-.combo-radio .checkmark:after {
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: white;
+.form-control {
+  transition: 0.5s;
+  &:focus {
+    box-shadow: none !important;
+    border-color: purple;
+  }
 }
