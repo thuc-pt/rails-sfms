@@ -17,4 +17,17 @@ module ApplicationHelper
     return t "users.login_by_system" if user.provider.nil?
     user.provider == "facebook" ? t("users.login_by_fb") : t("users.login_by_gg")
   end
+
+  def image_of pitch, text
+    return image_tag pitch.image.url, class: text if pitch.image.present?
+    image_tag "pitch_default.jpg", class: text
+  end
+
+  def load_provinces
+    Province.availability.pluck :name, :id
+  end
+
+  def load_districts
+    Province.includes :districts
+  end
 end

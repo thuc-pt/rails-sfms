@@ -1,0 +1,74 @@
+<% provide :page_name, @pitch.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="pitches-page">
+        <div class="title">
+          <i class="fas fa-info-circle"></i><%= t ".pitch_info" %>
+        </div>
+        <div class="info">
+          <h4 class="pitch-name"><i class="fas fa-futbol"></i><%= @pitch.name %></h4>
+          <p class="address">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= @pitch.full_address %>
+          </p>
+          <div class="clock">
+            <i class="fas fa-clock"></i>
+            <%= t ".time_open" %> <%= @pitch.open_at.strftime("%H:%M %p")<<" ---> "<<
+              @pitch.close_at.strftime("%H:%M %p") %>
+          </div>
+        </div>
+        <div class="info-contact">
+          <p class="contact"><%= t ".contact" %></p>
+          <h5 class="pitch-name">
+            <i class="fas fa-phone-square-alt">
+            </i><%= @pitch.user_name << " - " << @pitch.phone_number %>
+          </h5>
+          <div><i class="fas fa-envelope"></i><%= @pitch.email %></div>
+        </div>
+        <p class="introduce"><%= t ".introduce" %></p>
+        <%= image_of @pitch, "show-image" %>
+        <div class="paragraph"><%= @pitch.description %></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="pitches-page">
+        <div class="title-slide">
+          <i class="fas fa-map-marker-alt"></i><%= t ".on_the_same" %>
+        </div>
+        <% if @fields.present? %>
+          <div class="carousel slide" data-ride="carousel" id="slide_pitches">
+            <div class="carousel-inner">
+              <%= @fields.each_with_index do |field, stt| %>
+                <div class="carousel-item <%= "active" if stt == 0 %>">
+                  <%= link_to field, class: "link-to-pitch" do %>
+                    <%= image_of field, "show-image-slide" %>
+                    <h5><%= field.name %></h5>
+                    <% end %>
+                  <p class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <%= field.full_address %>
+                  </p>
+                  <div class="info-slide">
+                    <p class="contact"><%= t ".contact" %></p>
+                    <p class="pitch-name">
+                      <i class="fas fa-phone-square-alt">
+                      </i><%= field.user_name << " - " << field.phone_number %>
+                    </h5>
+                    <div><i class="fas fa-envelope"></i><%= field.email %></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#slide_pitches" data-slide="prev">
+              <i class="fa fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#slide_pitches" data-slide="next">
+              <i class="fa fa-chevron-right"></i>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

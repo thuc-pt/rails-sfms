@@ -1,0 +1,48 @@
+.combo-radio {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.combo-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.combo-radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.combo-radio input:checked ~ .checkmark {
+  background-color: $nav;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.combo-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+.combo-radio .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}

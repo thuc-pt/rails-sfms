@@ -2,6 +2,6 @@
 //= require bootstrap
 //= require rails-ujs
 //= require jquery-ui
+//= require bootstrap-timepicker
 //= require activestorage
 //= require turbolinks
-//= require_tree ./pages

@@ -1,0 +1,6 @@
+$('.delete_pitch').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+  '<% if @pitch_surplus.empty? %>'
+    $('#no_data').append('<td>Không có dữ liệu</td><td></td><td></td><td></td>');
+  '<% end %>'
+});

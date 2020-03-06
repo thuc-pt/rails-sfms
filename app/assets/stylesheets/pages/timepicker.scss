@@ -1,0 +1,36 @@
+.bootstrap-timepicker-widget {
+  width: 230px;
+  border: 1px solid purple;
+  left: 650px !important;
+  .bootstrap-timepicker-hour, .bootstrap-timepicker-minute, .bootstrap-timepicker-meridian {
+    width: 4rem;
+    border: none;
+    background: purple;
+    color: white;
+    padding: 0.5rem;
+    outline: none;
+    font-weight: bold;
+  }
+  .separator {
+    display: none;
+  }
+  table td a {
+    padding: 5px;
+    border: none;
+    color: purple;
+    &:hover {
+      background: none;
+    }
+  }
+}
+.bootstrap-timepicker-widget.timepicker-orient-left:before, .bootstrap-timepicker-widget.dropdown-menu:after {
+  content: none;
+}
+#ui-datepicker-div {
+  width: 278px !important;
+  .ui-datepicker-calendar {
+    .ui-state-default {
+      text-align: center;
+    }
+  }
+}

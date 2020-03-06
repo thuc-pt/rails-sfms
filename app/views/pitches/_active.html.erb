@@ -1,0 +1,8 @@
+<%= link_to toggle_activation_pitch_path(pitch), class: "btn btn-outline-black btn-block",
+  data: {confirm: pitch.active ? t("pitches.confirm_close") : t("pitches.confirm_open")}, remote: true do %>
+  <% if pitch.active %>
+    <i class="fab fa-windows"></i><%= t "pitches.open" %>
+  <% else %>
+    <i class="fas fa-ban"></i><%= t "pitches.close" %>
+  <% end %>
+<% end %>

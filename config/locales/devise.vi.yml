@@ -127,8 +127,8 @@ vi:
     shared:
       links:
         forgot: Quên mật khẩu
-        confirmation: Xác thực tài khoản
-        unlock: Mở khóa tài khoản
+        confirmation: Xác thực email
+        unlock: Mở khóa
   activerecord:
     attributes:
       user:

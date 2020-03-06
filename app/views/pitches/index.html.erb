@@ -1,0 +1,23 @@
+<% provide :page_name, t(".list_pitches") %>
+<div class="container">
+  <div class="pitches-page">
+    <%= render "pitches/links" %>
+    <br><br>
+    <div class="table-responsive">
+      <table class="table">
+      <tr>
+        <th class="text-center">#</th>
+        <th class="text-center th-custom-20"><%= t ".image" %></th>
+        <th><%= t ".info" %></th>
+        <th class="text-center th-custom-20"><%= t ".action" %></th>
+      </tr>
+      <% if @pitches.any? %>
+        <%= render @pitches %>
+      <% else %>
+        <tr><td><%= t ".no_data" %></td><td></td><td></td><td></td></tr>
+      <% end %>
+      <tr id="no_data"></tr>
+    </table>
+    </div>
+  </div>
+</div>
