@@ -17,12 +17,6 @@ a {
 .table-custom th, .table-custom td {
   vertical-align: unset !important;
 }
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  background: $nav;
-}
 .require {
   color: $error;
 }
