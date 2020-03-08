@@ -1,0 +1,8 @@
+<% if @sub_pitch.valid? %>
+  $('<%= escape_javascript(render @sub_pitch) %>').prependTo('#list-sub-pitches');
+  $('#form-sub-pitch').html('<%= j render "form", sub_pitch: SubPitch.new, url: pitch_sub_pitches_path, options: @sub_pitch_types %>');
+<% else %>
+  $('#error-name').html('<%= @sub_pitch.errors["name"][0] %>');
+  $('#error-type').html('<%= @sub_pitch.errors["sub_pitch_type_id"][0] %>');
+<% end %>
+$('#sub_pitch_sub_pitch_type_id').select2({width: '100%'});

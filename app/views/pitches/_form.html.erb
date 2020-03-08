@@ -109,8 +109,10 @@
         <div class="row">
           <div class="col-5 col-md-3"><%= f.label :active %></div>
           <div class="col-7">
-            <%= f.check_box :active, class: "css-checkbox" %>
-            <label for="pitch_active" class="css-label"></label>
+            <label class="container-checkbox">
+              <%= f.check_box :active %>
+              <span class="checkmark"></span>
+            </label>
           </div>
         </div>
       </div>
@@ -135,11 +137,11 @@
         <div class="col-md-6"></div>
         <div class="col-md-3 col-6">
           <%= f.button type: :submit, class: "btn btn-success btn-block" do %>
-            <i class="fas fa-save"></i><%= submit_name %>
+            <i class="fas fa-save"></i><%= t "#{@pitch.new_record? ? "new" : "edit"}" %>
           <% end %>
         </div>
         <div class="col-md-3 col-6">
-          <%= link_to t(".back"), :back, class: "btn btn-outline-black btn-block" %>
+          <%= link_to t("back"), pitches_path, class: "btn btn-outline-black btn-block" %>
         </div>
       </div>
     <% end %>

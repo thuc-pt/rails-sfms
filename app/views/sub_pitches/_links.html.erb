@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs custom-tabs" role="tab-list">
+  <div class="row">
+    <div class="col-md-3">
+      <li class="nav-item">
+        <%= link_to pitch_sub_pitches_path,
+          class: "nav-link #{"active" if current_page? pitch_sub_pitches_path}" do %>
+          <i class="fas fa-info-circle"></i><%= t ".sub_pitch_page" %>
+        <% end %>
+      </li>
+    </div>
+    <div class="col-md-3">
+      <li class="nav-item">
+        <%= link_to "",
+          class: "nav-link" do %>
+          <i class="fas fa-dollar-sign"></i><%= t ".booking" %>
+        <% end %>
+      </li>
+    </div>
+  </div>
+</ul>

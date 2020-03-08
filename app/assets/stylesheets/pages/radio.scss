@@ -1,7 +1,7 @@
 .combo-radio {
   display: block;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
   margin-top: 0.25rem;
   cursor: pointer;
   font-size: 14px;
@@ -9,40 +9,42 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-.combo-radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  border-radius: 50%;
-}
-.combo-radio:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-.combo-radio input:checked ~ .checkmark {
-  background-color: $nav;
-}
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.combo-radio input:checked ~ .checkmark:after {
-  display: block;
-}
-.combo-radio .checkmark:after {
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: white;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    border: 1px solid $border;
+  }
+  .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: purple;
+  }
+  &:hover input ~ .checkmark {
+    border: 1px solid purple;
+  }
+  input:checked ~ {
+    .checkmark {
+      border: 1px solid purple;
+    }
+    .checkmark:after {
+      display: block;
+    }
+  }
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
 }

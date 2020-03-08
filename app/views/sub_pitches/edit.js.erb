@@ -1,0 +1,3 @@
+$('#form-sub-pitch').html('<%= j render "form", sub_pitch: @sub_pitch, url: pitch_sub_pitch_path(@sub_pitch.pitch_id, @sub_pitch.id), options: @sub_pitch_types %>');
+$('#sub_pitch_sub_pitch_type_id').select2({width: '100%'});
+$('#submit-sub-pitch').removeAttr('disabled');

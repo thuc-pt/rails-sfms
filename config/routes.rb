@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
   resources :pitches do
     get :toggle_activation, on: :member
+    resources :sub_pitches, except: [:show, :new]
   end
 end

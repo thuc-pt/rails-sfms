@@ -1,0 +1,15 @@
+<% provide :page_name, t(".page_title") %>
+<div id="flash-box"></div>
+<div class="container">
+  <div class="pitches-page">
+    <%= render "links" %>
+    <br>
+    <div id="form-sub-pitch"><div id="flash-box"></div>
+      <%= render "form", sub_pitch: @sub_pitch, url: pitch_sub_pitches_path,
+        options: @sub_pitch_types %>
+    </div>
+    <div id="list-sub-pitches">
+      <%= render @sub_pitches %>
+    </div>
+  </div>
+</div>
