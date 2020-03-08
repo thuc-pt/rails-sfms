@@ -8,7 +8,7 @@
     <div id="spin-active-<%= pitch.id %>"><%= render "spin", pitch: pitch %></div>
   </td>
   <td class="custom-bs4">
-    <%= link_to "", class: "btn btn-outline-black btn-block" do %>
+    <%= link_to pitch_sub_pitches_path(pitch), class: "btn btn-outline-black btn-block" do %>
       <i class="fas fa-tasks"></i><%= t "pitches.manage" %>
     <% end %>
     <div class="row">

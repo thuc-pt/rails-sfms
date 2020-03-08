@@ -1,5 +1,9 @@
 vi:
   base: Sân bóng đá
+  back: Quay lại
+  new: Tạo mới
+  edit: Chỉnh sửa
+  delete: Xóa
   sign_in_success: Xác thực danh tính thành công
   sign_in_failure: Không thể xác thực danh tính của bạn
   must_greater_than_open_at: phải sau giờ mở cửa
@@ -76,22 +80,6 @@ vi:
   home:
     index:
       home_page: Trang chủ
-    pitches:
-      detail: Chi tiết
-      pitch_price_: Giá sân
-      pitch_price_pitch_5: Giá thuê sân 5 người
-      pitch_price_pitch_7: Giá thuê sân 7 người
-      pitch_price_pitch_9: Giá thuê sân 9 người
-      pitch_price_pitch_11: Giá thuê sân 11 người
-      select_province: Chọn tỉnh thành
-    district:
-      select_district: Chọn quận huyện
-      district: Quận / huyện
-    province:
-      province: Tỉnh / thành phố
-    prices:
-      price: Giá thuê / trận
-      select_price: Chọn giá sân
   shared:
     search:
       search: Tìm kiếm
@@ -157,15 +145,12 @@ vi:
       unactive: Đang đóng cửa
     new:
       new_pitch: Tạo sân bóng mới
-      create_pitch: Tạo mới
     form:
       name: Nhập tên sân bóng
       address: Nhập khu vực và địa chỉ cụ thể
       phone: Nhập số điện thoại liên hệ đặt sân
       facebook: Đường dẫn đến trang facebook
       description: Giới thiệu sơ lược sân bóng
-      save: Tạo mới
-      back: Quay lại
       pitch_name: Tên sân
       province: Tỉnh / thành phố
       district: Quận / huyện
@@ -179,11 +164,21 @@ vi:
       introduce: Giới thiệu
       time_open: Mở cửa từ
       on_the_same: Sân bóng trên cùng địa bàn
-      pitch_price_pitch_5: Giá thuê sân 5 người
-      pitch_price_pitch_7: Giá thuê sân 7 người
-      pitch_price_pitch_9: Giá thuê sân 9 người
-      pitch_price_pitch_11: Giá thuê sân 11 người
-      booking: Đặt sân
     edit:
       edit_pitch: Chỉnh sửa thông tin sân bóng
-      update_pitch: Cập nhật
+  sub_pitches:
+    index:
+      page_title: Quản lý sân
+    form:
+      sub_pitch_name: Tên sân
+      plh_name: Nhập tên sân
+      category: Thể loại
+      plh_description: Mô tả sơ lược
+      type: Chọn loại sân
+      is_new: là sân mới
+      active: hoạt động ngay
+    sub_pitch:
+      add_timeline: Thêm khung giờ
+    links:
+      sub_pitch_page: Quản lý sân
+      booking: Đặt sân

@@ -1,0 +1,29 @@
+<div class="sub-pitch">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="cover-name">
+        <strong><i class="fas fa-check-square"></i><%= sub_pitch.name %></strong>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "#", class: "sub-pitch-link btn btn-outline-black btn-block" do %>
+        <i class="fas fa-clock"></i><%= t ".add_timeline" %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <%= link_to edit_pitch_sub_pitch_path(sub_pitch.pitch_id, sub_pitch.id),
+        class: "sub-pitch-link update-sub-pitch btn btn-outline-black btn-block", remote: true do %>
+        <i class="fas fa-edit"></i><%= t "edit" %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <%= link_to pitch_sub_pitch_path(sub_pitch.pitch_id, sub_pitch.id),
+        method: :delete, remote: true, data: {confirm: t("confirm_delete")},
+        class: "delete-sub-pitch sub-pitch-link btn btn-outline-black btn-block" do %>
+        <i class="fas fa-trash-alt"></i><%= t "delete" %>
+      <% end %>
+    </div>
+  </div>
+</div>

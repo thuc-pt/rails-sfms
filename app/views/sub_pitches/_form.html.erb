@@ -1,0 +1,47 @@
+<div class="cover-form">
+  <%= form_for sub_pitch, url: url, remote: true do |f| %>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <%= f.select :sub_pitch_type_id, options, {prompt: t(".type")}, {class: "form-control"} %>
+        <div id="error-type" class="has-error"></div>
+      </div>
+      <div class="col-md-5">
+        <%= f.text_field :name, class: "form-control text-center", placeholder: t(".plh_name")  %>
+        <div id="error-name" class="has-error"></div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5 component-checkbox">
+        <label class="container-checkbox"><%= t ".is_new" %>
+          <%= f.check_box :is_new %>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container-checkbox"><%= t ".active" %>
+          <%= f.check_box :active %>
+          <span class="checkmark"></span>
+        </label>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="col-md-5">
+        <%= f.text_area :description, class: "form-control", placeholder: t(".plh_description") %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-3">
+        <%= f.button type: :submit, class: "btn btn-success btn-block", disabled: true,
+          id: "submit-sub-pitch" do %>
+          <i class="fas fa-save"></i><%= t "#{sub_pitch.new_record? ? "new" : "edit"}" %>
+        <% end %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to t("back"), pitches_path, class: "btn btn-block btn-outline-black" %>
+      </div>
+    </div>
+  <% end %>
+</div>
