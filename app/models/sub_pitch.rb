@@ -8,7 +8,7 @@ class SubPitch < ApplicationRecord
 
   PARAMS = %i(name is_new description active pitch_id sub_pitch_type_id).freeze
 
-  scope :correct_pitch, ->(pitch_id){where "sub_pitches.pitch_id = ?", pitch_id}
+  scope :correct_pitch, ->(pitch_id){where("sub_pitches.pitch_id = ?", pitch_id).order id: :desc}
 
   delegate :name, to: :sub_pitch_type, prefix: true
 end
