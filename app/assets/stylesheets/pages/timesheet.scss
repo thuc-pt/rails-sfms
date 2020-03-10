@@ -1,0 +1,26 @@
+input[type=time]::-webkit-datetime-edit-hour-field, input[type=time]::-webkit-datetime-edit-minute-field, input[type=time]::-webkit-datetime-edit-ampm-field {
+  border-radius: 0.15rem;
+  padding: 0 0.5rem;
+  color: black;
+}
+input[type=time]::-webkit-inner-spin-button {
+  display: none;
+}
+th.price {
+  width: 33%;
+}
+th.action {
+  width: 17%;
+}
+th.time {
+  width: 25%;
+}
+td .link-action {
+  margin: 0 1rem;
+  color: #6c757d;
+}
+.form-timeline {
+  border: 1px solid $border;
+  border-bottom: none;
+  padding: 1rem;
+}

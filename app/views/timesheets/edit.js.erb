@@ -1,0 +1,1 @@
+$('#time-form-<%= @timesheet.sub_pitch_id %>').html('<%= j render "timesheets/form", timesheet: @timesheet, url: timesheet_path(@timesheet), sp_id: @timesheet.sub_pitch_id %>');

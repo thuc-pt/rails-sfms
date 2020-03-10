@@ -1,0 +1,8 @@
+<% if @timesheet.valid? %>
+  $('<%= escape_javascript(render @timesheet) %>').prependTo('#list-timesheet-<%= @sub_pitch_id %>');
+  $('#time-form-<%= @timesheet.sub_pitch_id %>').html('<%= j render "timesheets/form", timesheet: Timesheet.new, url: timesheets_path, sp_id: @sub_pitch_id %>');
+<% else %>
+  $('#err_start_at_<%= @sub_pitch_id %>').html('<%= @timesheet.errors["start_at"][0] %>')
+  $('#err_end_at_<%= @sub_pitch_id %>').html('<%= @timesheet.errors["end_at"][0] %>')
+  $('#err_price_<%= @sub_pitch_id %>').html('<%= @timesheet.errors["price"][0] %>')
+<% end %>

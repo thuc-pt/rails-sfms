@@ -7,6 +7,7 @@ vi:
   sign_in_success: Xác thực danh tính thành công
   sign_in_failure: Không thể xác thực danh tính của bạn
   must_greater_than_open_at: phải sau giờ mở cửa
+  must_greater_than_start_at: Giờ kết thúc phải lớn hơn giờ bắt đầu
   confirm_delete: Bạn chắc chắn muốn xóa?
   activerecord:
     attributes:
@@ -177,8 +178,14 @@ vi:
       type: Chọn loại sân
       is_new: là sân mới
       active: hoạt động ngay
-    sub_pitch:
-      add_timeline: Thêm khung giờ
     links:
       sub_pitch_page: Quản lý sân
       booking: Đặt sân
+  timesheets:
+    table:
+      start_at: Giờ vào
+      end_at: Giờ ra
+      price: Giá giờ
+      action: Hoạt động
+    form:
+      price: Nhập giá giờ

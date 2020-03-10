@@ -1,0 +1,24 @@
+<div class="form-timeline">
+  <%= form_for timesheet, url: url, remote: true do |f| %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.time_field :start_at, class: "form-control text-center" %>
+        <div id="err_start_at_<%= sp_id %>" class="has-error"></div>
+      </div>
+      <div class="col-md-3">
+        <%= f.time_field :end_at, class: "form-control text-center" %>
+        <div id="err_end_at_<%= sp_id %>" class="has-error"></div>
+      </div>
+      <div class="col-md-4">
+        <%= f.number_field :price, class: "form-control text-center", placeholder: t(".price") %>
+        <div id="err_price_<%= sp_id %>" class="has-error"></div>
+      </div>
+      <%= f.hidden_field :sub_pitch_id, value: sp_id %>
+      <div class="col-md-2">
+        <%= f.button type: "submit", class: "btn btn-success btn-block" do %>
+          <i class="fas fa-save"></i><%= t "#{timesheet.new_record? ? "new" : "edit"}" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

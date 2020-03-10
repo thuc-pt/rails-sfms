@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     get :toggle_activation, on: :member
     resources :sub_pitches, except: [:show, :new]
   end
+  resources :timesheets, except: [:index, :show, :new]
 end

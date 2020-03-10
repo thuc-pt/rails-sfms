@@ -1,0 +1,14 @@
+<tr class="text-center">
+  <td><%= timesheet.start_at.strftime("%H:%M") %></td>
+  <td><%= timesheet.end_at.strftime("%H:%M") %></td>
+  <td><%= number_to_currency timesheet.price %></td>
+  <td>
+    <%= link_to edit_timesheet_path(timesheet), class: "link-action", remote: :true do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+    <%= link_to timesheet, method: :delete, class: "link-action destroy-timesheet",
+      data: {confirm: t("confirm_delete")}, remote: :true do %>
+      <i class="fa fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

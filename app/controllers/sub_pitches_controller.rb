@@ -6,6 +6,7 @@ class SubPitchesController < ApplicationController
 
   def index
     @sub_pitches = SubPitch.correct_pitch(@pitch.id).includes :pitch
+    @timesheet = Timesheet.new
   end
 
   def edit; end
