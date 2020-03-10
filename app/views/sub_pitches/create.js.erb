@@ -6,3 +6,14 @@
   $('#error-type').html('<%= @sub_pitch.errors["sub_pitch_type_id"][0] %>');
 <% end %>
 $('#sub_pitch_sub_pitch_type_id').select2({width: '100%'});
+$('#sub_pitch_sub_pitch_type_id').on('change', function() {
+  var text = $(this).find('option:selected').text();
+  if (parseInt($(this).val()) > 0)
+    $('#sub_pitch_name').val(text);
+  else
+    $('#sub_pitch_name').val('');
+  condition_disable();
+});
+$('#sub_pitch_name').on('input', function() {
+  condition_disable();
+});

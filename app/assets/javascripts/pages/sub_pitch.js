@@ -14,7 +14,7 @@ $(document).ready(function() {
     if ($(window).scrollTop() > 200)
       $([document.documentElement, document.body]).animate({
           scrollTop: 0
-      }, 500);
+      }, 1000);
   })
 });
 function condition_disable() {

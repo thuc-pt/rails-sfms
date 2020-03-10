@@ -1,12 +1,11 @@
 class SubPitchesController < ApplicationController
   before_action :authenticate_user!, :load_pitch
   before_action :load_sub_pitch_types, except: %i(update destroy)
-  before_action :init_sub_pitch, only: %i(index create)
+  before_action :init_sub_pitch, :init_timesheet, only: %i(index create)
   before_action :load_sub_pitch, only: %i(edit update destroy)
 
   def index
     @sub_pitches = SubPitch.correct_pitch(@pitch.id).includes :pitch
-    @timesheet = Timesheet.new
   end
 
   def edit; end
@@ -65,5 +64,9 @@ class SubPitchesController < ApplicationController
 
   def load_sub_pitch_types
     @sub_pitch_types = SubPitchType.order(:id).pluck :name, :id
+  end
+
+  def init_timesheet
+    @timesheet = Timesheet.new
   end
 end
