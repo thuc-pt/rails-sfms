@@ -9,6 +9,10 @@ vi:
   must_greater_than_open_at: phải sau giờ mở cửa
   must_greater_than_start_at: Giờ kết thúc phải lớn hơn giờ bắt đầu
   confirm_delete: Bạn chắc chắn muốn xóa?
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
   activerecord:
     attributes:
       pitch:

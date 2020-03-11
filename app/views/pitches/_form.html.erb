@@ -27,7 +27,7 @@
             </label>
           </div>
           <div class="col-12 col-md-6">
-            <%= f.select :province_id, load_provinces, {}, {class: "form-control"} %>
+            <%= f.select :province_id, Province.availability.pluck(:name, :id), {}, {class: "form-control"} %>
           </div>
         </div>
         <br>
@@ -38,7 +38,7 @@
             </label>
           </div>
           <div class="col-12 col-md-6">
-            <%= f.grouped_collection_select :district_id, load_districts,
+            <%= f.grouped_collection_select :district_id, Province.includes(:districts),
               :districts, :name, :id, :name, {}, {class: "form-control"} %>
           </div>
         </div>

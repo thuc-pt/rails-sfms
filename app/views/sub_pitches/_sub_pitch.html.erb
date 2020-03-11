@@ -1,3 +1,4 @@
+<% @timesheets = Timesheet.correct_sub_pitch sub_pitch.id %>
 <div class="component-sub-pitch">
   <div class="sub-pitch">
     <div class="row">
@@ -21,8 +22,7 @@
     </div>
   </div>
   <div id="time-form-<%= sub_pitch.id %>">
-    <%= render "timesheets/form", timesheet: @timesheet, url: timesheets_path, sp_id: sub_pitch.id %>
+  <%= render "timesheets/form", timesheet: @timesheet, url: timesheets_path, sp_id: sub_pitch.id %>
   </div>
-  <%= render "timesheets/table", sp_id: sub_pitch.id,
-    timesheets: Timesheet.correct_sub_pitch(sub_pitch.id) %>
+  <%= render "timesheets/table", sp_id: sub_pitch.id, timesheets: @timesheets %>
 </div>
