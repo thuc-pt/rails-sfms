@@ -22,12 +22,4 @@ module ApplicationHelper
     return image_tag pitch.image.url, class: text if pitch.image.present?
     image_tag "pitch_default.jpg", class: text
   end
-
-  def load_provinces
-    Province.availability.pluck :name, :id
-  end
-
-  def load_districts
-    Province.includes :districts
-  end
 end

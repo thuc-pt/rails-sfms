@@ -1,0 +1,13 @@
+.pagination {
+  .page, .first, .last {
+    padding: 0.5rem 1rem;
+  }
+  .prev, .next {
+    display: none;
+  }
+  .current {
+    color: purple;
+    border: 1px solid purple;
+    border-radius: 0.25rem;
+  }
+}
