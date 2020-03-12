@@ -1,0 +1,3 @@
+$('#list-pitches').html('<%= j render "list_pitches" %>');
+$('#paginator-top').html('<%= j paginate @list_pitches, remote: true %>');
+$('#paginator-bottom').html('<%= j paginate @list_pitches, remote: true %>');

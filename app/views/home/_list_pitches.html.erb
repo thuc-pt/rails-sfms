@@ -1,0 +1,28 @@
+<% @list_pitches.each do |pitch| %>
+  <div class="sidebar sidebar-pitch">
+    <div class="row">
+      <div class="col-md-5">
+        <%= image_of pitch, "image-pitch" %>
+      </div>
+      <div class="col-md-7">
+        <div class="name"><%= pitch.name %></div>
+        <p class="address"><i class="fas fa-map"></i><%= pitch.full_address %></p>
+        <div class="component-center">
+          <p><strong><%= pitch.sub_pitch_name %></strong></p>
+          <div class="price-group">
+            <p><%= pitch.timesheet_sub_pitch %></p>
+            <p class="price"><%= number_to_currency pitch.timesheet_price %></p>
+          </div>
+        </div>
+        <p class="contact">
+          <i class="fas fa-phone-square"></i>
+          <%= pitch.user_name + " - " + pitch.phone_number %>
+        </p>
+        <%= link_to pitch, class: "btn btn-outline-black" do %>
+          <i class="fas fa-share"></i>
+          <%= t ".detail" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

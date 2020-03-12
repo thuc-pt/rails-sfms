@@ -1,0 +1,50 @@
+#screen-loading {
+  display: none;
+  .load-content {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(91,93,91);
+    background: radial-gradient(circle, rgba(91,93,91,0.4) 0%, rgba(148,187,233,0) 100%);
+    z-index: 1000;
+    .spiner {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .spiner div {
+      display: inline-block;
+      position: absolute;
+      left: 8px;
+      width: 16px;
+      background: $nav;
+      animation: spiner 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+    .spiner div:nth-child(1) {
+      left: 8px;
+      animation-delay: -0.24s;
+    }
+    .spiner div:nth-child(2) {
+      left: 32px;
+      animation-delay: -0.12s;
+    }
+    .spiner div:nth-child(3) {
+      left: 56px;
+      animation-delay: 0;
+    }
+    @keyframes spiner {
+      0% {
+        top: 8px;
+        height: 64px;
+      }
+      50%, 100% {
+        top: 24px;
+        height: 32px;
+      }
+    }
+  }
+}
