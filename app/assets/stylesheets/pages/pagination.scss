@@ -1,11 +1,14 @@
 .pagination {
-  .page, .first, .last {
-    padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  .page a, .first a, .last a {
+    padding: 0.3rem 0.8rem;
   }
-  .prev, .next {
+  .prev, .next, .gap {
     display: none;
   }
   .current {
+    padding: 0.3rem 0.8rem;
     color: purple;
     border: 1px solid purple;
     border-radius: 0.25rem;

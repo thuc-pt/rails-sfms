@@ -1,0 +1,109 @@
+#home {
+  font-size: 14px;
+  color: #545b62;
+  input, button, .btn {
+    font-size: 14px;
+  }
+  .title-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .no-data {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+  }
+  #paginator-bottom .pagination {
+    margin-bottom: 1.5rem;
+  }
+  .sidebar {
+    box-shadow: 0 1px 6px 1px rgba(0,0,0,.2);
+    padding: 1rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    margin: 1.5rem 0;
+    .nav .nav-item {
+      .nav-link {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        color: #545b62;
+        &:hover {
+          color: purple;
+        }
+      }
+      .active {
+        border: 1px solid purple;
+        border-radius: 0.25rem;
+        color: purple;
+      }
+    }
+    .district-checkbox {
+      .district-name-count {
+        margin-left: 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+      }
+      .container-checkbox .checkmark {
+        top: 5px;
+      }
+      label {
+        font-weight: unset;
+        cursor: pointer;
+      }
+    }
+  }
+  .sidebar-pitch {
+    padding: 1rem;
+  }
+  .field-address, .title {
+    color: $nav;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .field-address {
+    text-transform: uppercase;
+    margin: 1.5rem 0 1rem;
+    font-weight: bold;
+  }
+  .image-pitch {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  .component-center {
+    border-top: 1px dotted $border;
+    border-bottom: 1px dotted $border;
+    padding-top: 0.5rem;
+    .price-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    .price {
+      color: $error;
+      font-weight: bold;
+    }
+  }
+  .address {
+    font-size: 12.5px;
+  }
+  .name {
+    font-size: 18px;
+    color: $nav;
+  }
+  .contact {
+    color: $nav;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  .btn-center {
+    padding: 0;
+  }
+}

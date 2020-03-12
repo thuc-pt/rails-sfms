@@ -22,9 +22,10 @@ class Pitch < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   scope :correct_pitches, ->(user_id){where user_id: user_id}
-  scope :on_the_same_area, (lambda do |pitch|
-    where province_id: pitch.province_id, district_id: pitch.district_id
-  end)
+  scope :on_the_same_area, ->(pitch){where province_id: pitch.province_id, district_id: pitch.district_id}
+  scope :is_active, ->{where active: true}
+  scope :in_province, ->(province_id){where province_id: province_id if province_id.positive?}
+  scope :in_district, ->(district_id){where district_id: district_id if district_id.present?}
 
   delegate :name, :email, to: :user, prefix: true
   delegate :name, to: :district, prefix: true, allow_nil: true
@@ -32,6 +33,24 @@ class Pitch < ApplicationRecord
 
   def full_address
     address << " - " << district_name << " - " << province_name
+  end
+
+  def sub_pitch_name
+    return sub_pitches.first.name if sub_pitches.present?
+    I18n.t "none_sub_pitch"
+  end
+
+  def timesheet_sub_pitch
+    if sub_pitches.present? && sub_pitches.first.timesheets.present?
+      sub_pitches.first.timesheets.first.start_at.strftime("%H:%M %p") + " ---> " +
+        sub_pitches.first.timesheets.first.end_at.strftime("%H:%M %p")
+    else
+      I18n.t "none_timesheet"
+    end
+  end
+
+  def timesheet_price
+    sub_pitches.present? && sub_pitches.first.timesheets.present? ? sub_pitches.first.timesheets.first.price : 0
   end
 
   private

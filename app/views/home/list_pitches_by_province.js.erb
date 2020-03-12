@@ -1,0 +1,4 @@
+$('#list-pitches').html('<%= j render "list_pitches" %>');
+$('#paginator-top').html('<%= j paginate @list_pitches, remote: true %>');
+$('#paginator-bottom').html('<%= j paginate @list_pitches, remote: true %>');
+$('#district-area').html('<%= j @list_districts.present? ? render("districts") : t("home.none_province") %>');

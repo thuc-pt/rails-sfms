@@ -1,0 +1,47 @@
+<% provide :page_name, t(".home_page") %>
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="sidebar">
+          <div class="title"><i class="fas fa-map-marker-alt"></i><%= t ".province" %></div>
+          <ul class="nav flex-column" role="tablist">
+            <li class="nav-item">
+              <%= link_to "#all", "data-toggle": "tab", class: "nav-link active tabs-province" do %>
+                <div><%= t ".all" %></div>
+                <div><%= Pitch.is_active.size %></div>
+              <% end %>
+            </li>
+            <% @list_provinces.each do |item| %>
+              <li class="nav-item">
+                <%= link_to "##{item[1]}", "data-toggle": "tab",
+                  class: "nav-link tabs-province", id: "load-#{item[1]}" do %>
+                  <div></i><%= item[0] %></div>
+                  <div><%= item[2] %></div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="sidebar">
+          <div class="title"><i class="fas fa-map-marker-alt"></i><%= t ".district" %></div>
+          <div id="district-area"><%= t "home.none_province" %></div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="title-top">
+          <div class="field-address"><i class="fas fa-futbol"></i><%= t ".all_pitches" %></div>
+          <div id="paginator-top"><%= paginate @list_pitches, remote: true %></div>
+        </div>
+        <%= render "shared/search", object: @pitches, url: root_path,
+          attributes: :name_or_address_or_province_name_or_district_name_or_user_name_cont %>
+        <% if @list_pitches.present? %>
+          <div id="list-pitches"><%= render "list_pitches" %></div>
+        <% else %>
+          <div class="no-data"><%= t "home.no_data" %></div>
+        <% end %>
+        <div id="paginator-bottom"><%= paginate @list_pitches, remote: true %></div>
+      </div>
+    </div>
+  </div>
+</div>

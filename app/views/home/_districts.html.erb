@@ -1,0 +1,12 @@
+<% @list_districts.each do |item| %>
+  <div class="district-checkbox">
+    <label class="container-checkbox">
+      <input type="checkbox" class="checkbox-district" data-id="<%= item[1] %>" id="home-district-<%= item[1] %>">
+      <span class="checkmark"></span>
+    </label>
+    <label class="district-name-count" for="home-district-<%= item[1] %>">
+      <div><%= item[0] %></div>
+      <div><%= item[2] %></div>
+    </label>
+  </div>
+<% end %>

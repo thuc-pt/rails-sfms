@@ -9,4 +9,7 @@ class Province < ApplicationRecord
     uniqueness: {case_sensitive: false}
 
   scope :availability, ->{where "provinces.id in (?)", District.pluck(:province_id).uniq}
+  scope :has_pitches, (lambda do
+    joins(:pitches).where "provinces.id in (?) and pitches.active = true", Pitch.pluck(:province_id).uniq
+  end)
 end

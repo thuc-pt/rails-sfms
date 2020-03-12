@@ -9,6 +9,8 @@ vi:
   must_greater_than_open_at: phải sau giờ mở cửa
   must_greater_than_start_at: Giờ kết thúc phải lớn hơn giờ bắt đầu
   confirm_delete: Bạn chắc chắn muốn xóa?
+  none_sub_pitch: Chưa có sân
+  none_timesheet: Chưa có khung giờ
   views:
     pagination:
       first: "&laquo;"
@@ -83,8 +85,16 @@ vi:
       author: <strong>Phan Trọng Thức</strong> - Đề tài khóa luận tốt nghiệp
       copy: Bản quyền năm 2020
   home:
+    none_province: Vui lòng chọn tỉnh hoặc thành phố
+    no_data: Không có dữ liệu
     index:
       home_page: Trang chủ
+      province: Tỉnh / thành phố
+      all: Tất cả
+      district: Quận / huyện
+      all_pitches: Tất cả sân bóng
+    list_pitches:
+      detail: Chi tiết
   shared:
     search:
       search: Tìm kiếm

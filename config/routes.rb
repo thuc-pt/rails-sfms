@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resources :sub_pitches, except: [:show, :new]
   end
   resources :timesheets, except: [:index, :show, :new]
+  get "home", to: "home#index"
+  get "list_pitches_by_province", to: "home#list_pitches_by_province"
+  get "list_pitches_by_district", to: "home#list_pitches_by_district"
 end
