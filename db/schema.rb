@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
     t.boolean "is_fixed"
     t.text "passing_note"
     t.date "date"
-    t.integer "price"
     t.integer "status", default: 0
     t.bigint "timesheet_id"
     t.bigint "user_id"

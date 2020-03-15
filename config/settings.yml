@@ -1,6 +1,7 @@
 length:
   max_name: 30
-  phone: 10
+  max_phone: 16
+  min_phone: 10
   max_district_name: 50
   max_ward_name: 50
   max_province_name: 30

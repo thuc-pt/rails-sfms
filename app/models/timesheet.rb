@@ -9,6 +9,11 @@ class Timesheet < ApplicationRecord
   PARAMS = %i(start_at end_at price sub_pitch_id).freeze
 
   scope :correct_sub_pitch, ->(sp_id){where(sub_pitch_id: sp_id).order id: :desc}
+  scope :in_pitch, (lambda do |pitch_id|
+    joins(:sub_pitch).where "timesheets.sub_pitch_id in (?)", SubPitch.where(pitch_id: pitch_id).pluck(:id)
+  end)
+
+  delegate :name, to: :sub_pitch, prefix: true
 
   def end_at_must_after_start_at
     errors.add(:end_at, I18n.t(".must_greater_than_start_at")) if

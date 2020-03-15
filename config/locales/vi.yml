@@ -49,6 +49,7 @@ vi:
     delete_success: Xóa thành công
     delete_failure: Không thể xóa
     not_found: Không tìm thấy tài nguyên
+    booking_success: Yêu cầu đặt sân của bạn đã được ghi nhận, chúng tôi sẽ xem xét và phản hồi trong ít phút nữa
   number:
     currency:
       format:
@@ -177,10 +178,18 @@ vi:
       pitch_info: Thông tin sân bóng
       contact: Liên hệ đặt sân
       introduce: Giới thiệu
-      time_open: Mở cửa từ
+      time_open: "Thời gian mở cửa %{open} <i class='fa fa-arrows-alt-h'></i> %{close}"
       on_the_same: Sân bóng trên cùng địa bàn
     edit:
       edit_pitch: Chỉnh sửa thông tin sân bóng
+    booking_modal:
+      date: Thời gian
+      booking: Đặt sân
+      select_team: Chọn đội
+      passing_note: Nhập ghi chú
+      name: Tên của bạn
+      phone_number: Số điện thoại
+      is_fixed: Đặt lịch cố định
   sub_pitches:
     index:
       page_title: Quản lý sân
