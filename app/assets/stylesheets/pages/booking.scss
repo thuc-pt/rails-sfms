@@ -1,0 +1,28 @@
+#booking_team_id {
+  text-align-last: center;
+}
+.booking-modal {
+  .time-field, .price-field, .date-field {
+    font-size: 14px;
+    background: #eeeeee;
+    cursor: default;
+  }
+  label {
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+  }
+  .fixed-label {
+    margin-left: 2.5rem;
+    margin-top: 1px;
+    cursor: pointer;
+  }
+  .container-checkbox .checkmark {
+    top: -1px;
+  }
+  .col-time-field {
+    padding: 0;
+  }
+  .col-fixed-field {
+    padding-left: 0;
+  }
+}

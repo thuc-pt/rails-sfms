@@ -24,3 +24,34 @@ td .link-action {
   border-bottom: none;
   padding: 1rem;
 }
+.timesheet-component {
+  .sub-pitch-name {
+    margin-bottom: 0.25rem;
+    margin-top: 0.8rem;
+    font-weight: bold;
+    color: $nav;
+  }
+  .price {
+    font-size: 11px;
+    color: $error;
+  }
+  .time {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  .btn-booking {
+    border: 1px solid $border;
+    padding: 0.3rem 0.9rem;
+    margin: 0.25rem;
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      background: #e9ecef;
+    }
+  }
+  .timesheet-close {
+    background: #e9ecef;
+    cursor: default;
+  }
+}

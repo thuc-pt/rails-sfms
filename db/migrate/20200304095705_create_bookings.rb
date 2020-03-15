@@ -6,7 +6,6 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.boolean :is_fixed
       t.text :passing_note
       t.date :date
-      t.integer :price
       t.integer :status, default: 0
       t.references :timesheet, foreign_key: true
       t.references :user, foreign_key: true

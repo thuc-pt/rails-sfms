@@ -3,7 +3,7 @@ FactoryBot.define do
     name{Faker::Name.name}
     logo{Faker::Avatar.image}
     image{Faker::Avatar.image}
-    average_age{Faker::Number.number(from: 10, to: 50)}
+    average_age{Faker::Number.between(from: 10, to: 50)}
     win{0}
     lost{0}
     description{Faker::Lorem.paragraph}

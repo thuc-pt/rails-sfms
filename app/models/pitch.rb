@@ -14,8 +14,9 @@ class Pitch < ApplicationRecord
   validates :name, presence: true, length: {maximum: Settings.length.max_pitch_name}
   validates :province_id, :district_id, :user_id, presence: true
   validates :address, presence: true, length: {maximum: Settings.length.max_address}
-  validates :phone_number, numericality: true, length: {is: Settings.length.phone}
-  validates :email, format: {with: EMAIL}
+  validates :phone_number, presence: true, numericality: true,
+    length: {maximum: Settings.length.max_phone, minimum: Settings.length.min_phone}
+  validates :email, presence: true, format: {with: EMAIL}
   validates :open_at, :close_at, presence: true
   validate :close_at_must_after_open_at
 
@@ -42,7 +43,7 @@ class Pitch < ApplicationRecord
 
   def timesheet_sub_pitch
     if sub_pitches.present? && sub_pitches.first.timesheets.present?
-      sub_pitches.first.timesheets.first.start_at.strftime("%H:%M %p") + " ---> " +
+      sub_pitches.first.timesheets.first.start_at.strftime("%H:%M %p") + " - " +
         sub_pitches.first.timesheets.first.end_at.strftime("%H:%M %p")
     else
       I18n.t "none_timesheet"

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get "home", to: "home#index"
   get "list_pitches_by_province", to: "home#list_pitches_by_province"
   get "list_pitches_by_district", to: "home#list_pitches_by_district"
+  resources :bookings, except: [:show, :new, :edit]
 end

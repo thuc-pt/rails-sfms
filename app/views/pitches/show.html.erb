@@ -1,36 +1,42 @@
 <% provide :page_name, @pitch.name %>
 <div class="container">
   <div class="row">
+    <!-- Information -->
     <div class="col-md-8">
       <div class="pitches-page">
         <div class="title">
           <i class="fas fa-info-circle"></i><%= t ".pitch_info" %>
         </div>
         <div class="info">
-          <h4 class="pitch-name"><i class="fas fa-futbol"></i><%= @pitch.name %></h4>
+          <h5 class="pitch-name"><i class="fas fa-futbol"></i><%= @pitch.name %></h5>
           <p class="address">
             <i class="fas fa-map-marker-alt"></i>
             <%= @pitch.full_address %>
           </p>
           <div class="clock">
             <i class="fas fa-clock"></i>
-            <%= t ".time_open" %> <%= @pitch.open_at.strftime("%H:%M %p")<<" ---> "<<
-              @pitch.close_at.strftime("%H:%M %p") %>
+            <%= t(".time_open", open: @pitch.open_at.strftime("%H:%M"),
+              close: @pitch.close_at.strftime("%H:%M")).html_safe %>
           </div>
         </div>
+        <!-- Timesheet -->
+        <%= render "timesheets" %>
+        <!-- Timesheet -->
         <div class="info-contact">
           <p class="contact"><%= t ".contact" %></p>
           <h5 class="pitch-name">
             <i class="fas fa-phone-square-alt">
             </i><%= @pitch.user_name << " - " << @pitch.phone_number %>
           </h5>
-          <div><i class="fas fa-envelope"></i><%= @pitch.email %></div>
+          <div class="email"><i class="fas fa-envelope"></i><%= @pitch.email %></div>
         </div>
         <p class="introduce"><%= t ".introduce" %></p>
         <%= image_of @pitch, "show-image" %>
         <div class="paragraph"><%= @pitch.description %></div>
       </div>
     </div>
+    <!-- Information -->
+    <!-- Slide -->
     <div class="col-md-4">
       <div class="pitches-page">
         <div class="title-slide">
@@ -55,7 +61,7 @@
                       <i class="fas fa-phone-square-alt">
                       </i><%= field.user_name << " - " << field.phone_number %>
                     </h5>
-                    <div><i class="fas fa-envelope"></i><%= field.email %></div>
+                    <div class="email"><i class="fas fa-envelope"></i><%= field.email %></div>
                   </div>
                 </div>
               <% end %>
@@ -70,5 +76,6 @@
         <% end %>
       </div>
     </div>
+    <!-- Slide -->
   </div>
 </div>

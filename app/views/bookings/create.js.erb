@@ -1,0 +1,3 @@
+$('#err-name-<%= params[:booking][:timesheet_id] %>').html('<%= @booking.errors["name"][0] %>');
+$('#err-phone-<%= params[:booking][:timesheet_id] %>').html('<%= @booking.errors["phone_number"][0] %>');
+$('err-team-<%= params[:booking][:timesheet_id] %>').html('<%= @booking.errors["team"][0] %>');
