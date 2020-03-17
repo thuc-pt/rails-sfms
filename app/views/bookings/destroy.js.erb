@@ -1,0 +1,11 @@
+$('.destroy-booking').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+});
+$('#select-pitch-booking').html('<%= j select_tag :pitch_booking, options_for_select(Pitch.booking_request(current_user.id).map{|key, value| [key[0] << " [ " << value.to_s << " ]", key[1]]}), class: "form-control" %>');
+$('#total-booking-request').html('<%= Pitch.booking_request(current_user.id)&.sum{|x| x[1]} %>');
+$('#pitch_booking').select2();
+if ($('#pitch_booking option').length == 0)
+  $.ajax({
+    method: 'GET',
+    url: '/booking_requests/list_booking_by_params?pitch_id=0'
+  });

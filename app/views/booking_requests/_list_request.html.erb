@@ -1,0 +1,16 @@
+<% if @booking_request.present? %>
+  <% @booking_request.each_with_index do |booking, index| %>
+    <tr class="text-center">
+      <td><%= index + 1 %></td>
+      <td><%= booking.timesheet_sub_pitch_name %></td>
+      <td><%= booking.name %></td>
+      <td><%= booking.phone_number %></td>
+      <td><%= booking.full_time %></td>
+      <td id="action-<%= booking.id %>">
+        <%= render "action", booking: booking %>
+      </td>
+    </tr>
+  <% end %>
+<% else %>
+  <%= t "booking_requests.none" %>
+<% end %>

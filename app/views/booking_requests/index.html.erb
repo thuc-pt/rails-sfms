@@ -1,0 +1,14 @@
+<% provide :page_name, t(".booking_request") %>
+<div class="container">
+  <div class="booking-require-page">
+    <%= render "pitches/links" %><br>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-5" id="select-pitch-booking">
+        <%= select_tag :pitch_booking, options_for_select(@pitch_bookings), class: "form-control" %>
+      </div>
+      <div class="col-md-3"></div>
+    </div><br>
+    <div id="booking-request-table"><%= render "table" %></div>
+  </div>
+</div>

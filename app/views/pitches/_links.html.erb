@@ -9,9 +9,17 @@
     </div>
     <div class="col-md-3">
       <li class="nav-item">
-        <%= link_to "", class: "nav-link" do %>
+        <%= link_to booking_requests_path, class: "nav-link #{"active" if current_page? booking_requests_path}" do %>
           <i class="fas fa-running"></i><%= t ".booking_request" %>
-          <span class="badge badge-danger">0</span>
+          <span class="badge badge-danger" id="total-booking-request">
+            <%= Pitch.booking_request(current_user.id)&.sum{|x| x[1]} %></span>
+        <% end %>
+      </li>
+    </div>
+    <div class="col-md-3">
+      <li class="nav-item">
+        <%= link_to "", class: "nav-link" do %>
+          <i class="fas fa-calculator"></i><%= t ".statistic" %>
         <% end %>
       </li>
     </div>
