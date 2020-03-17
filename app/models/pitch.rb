@@ -27,6 +27,10 @@ class Pitch < ApplicationRecord
   scope :is_active, ->{where active: true}
   scope :in_province, ->(province_id){where province_id: province_id if province_id.positive?}
   scope :in_district, ->(district_id){where district_id: district_id if district_id.present?}
+  scope :booking_request, (lambda do |user_id, date = Date.current, status = Booking.statuses[:place]|
+    joins(sub_pitches: [timesheets: :bookings]).where("pitches.user_id = ? and bookings.date >= ?
+      and bookings.status = ?", user_id, date, status).group("pitches.name").group("pitches.id").count
+  end)
 
   delegate :name, :email, to: :user, prefix: true
   delegate :name, to: :district, prefix: true, allow_nil: true

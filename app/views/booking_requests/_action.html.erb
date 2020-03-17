@@ -1,0 +1,8 @@
+<% if booking.place? %>
+  <%= link_to t(".confirm"), confirm_request_booking_path(booking), class: "btn btn-outline-black", remote: :true %>
+  &nbsp;&nbsp;&nbsp;
+  <%= link_to t(".cancel"), booking, method: :delete, class: "btn btn-outline-black destroy-booking",
+    data: {confirm: t("confirm_delete")}, remote: true %>
+<% else %>
+  <span class="text-success"><%= t ".is_confirm" %></span>
+<% end %>

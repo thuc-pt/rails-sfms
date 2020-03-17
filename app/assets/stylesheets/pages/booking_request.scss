@@ -1,0 +1,28 @@
+.booking-require-page {
+  padding: 1rem;
+  background: white;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px 1px rgba(0,0,0,0.2);
+  font-size: 14px;
+  border-radius: 0.25rem;
+  .select2 .selection .select2-selection {
+    height: 3rem;
+    font-size: 1rem;
+    &:focus {
+      border-color: #ced4da;
+    }
+  }
+  .select2-selection__arrow {
+    top: 6px !important;
+    right: 3px !important;
+  }
+  table {
+    th, td {
+      vertical-align: unset;
+    }
+    .action {
+      width: 19%;
+    }
+  }
+}

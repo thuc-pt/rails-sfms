@@ -150,6 +150,7 @@ vi:
       list_pitches: Danh sách sân
       booking_request: Yêu cầu đặt sân
       new_pitches: Thêm sân mới
+      statistic: Thống kê
     index:
       list_pitches: Sân bóng của tôi
       image: Ảnh đại diện
@@ -212,3 +213,17 @@ vi:
       action: Hoạt động
     form:
       price: Nhập giá giờ
+  booking_requests:
+    none: Không có yêu cầu đặt sân nào
+    index:
+      booking_request: Yêu cầu đặt sân
+    table:
+      name_booking: Người đặt
+      sub_pitch: Sân con
+      phone_number: Số điện thoại
+      time: Thời gian
+      action: Hoạt động
+    action:
+      confirm: Xác nhận
+      cancel: Hủy bỏ
+      is_confirm: Đã xác nhận
