@@ -7,20 +7,24 @@
       </div>
       <div class="modal-body">
         <%= form_for booking, url: bookings_path, remote: true do |f| %>
-          <label><%= t ".date" %></label>
+          <div class="form-group">
+            <label><%= t ".date" %></label>
+            <label id="err-date-<%= timesheet.id %>" class="has-error"><%= t ".cant_booking" if timesheet.start_at.strftime("%H:%M") < Time.now.strftime("%H:%M") || @bookings[timesheet.id].present? %></label>
+            <%= f.text_field :date, value: Date.current.strftime("%Y-%m-%d"), "data-id": timesheet.id,
+              class: "form-control text-center booking-date", id: "booking-date-#{timesheet.id}" %>
+          </div>
           <div class="row">
-            <div class="col-md-4">
-              <div class="form-control text-center date-field">
-                <%= Date.current.strftime "%d/%m/%Y" %>
-              </div>
-            </div>
-            <div class="col-md-4 col-time-field">
-              <div class="form-control text-center time-field">
-                <%= timesheet.start_at.strftime("%H:%M") + " - " + timesheet.end_at.strftime("%H:%M") %>
-              </div>
-            </div>
-            <div class="col-md-4">
+            <div class="col-6">
               <div class="form-group">
+                <label><%= t ".time" %></label>
+                <div class="form-control text-center time-field">
+                  <%= timesheet.start_at.strftime("%H:%M") + " - " + timesheet.end_at.strftime("%H:%M") %>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label><%= t ".price" %></label>
                 <div class="form-control text-center price-field"><%= number_to_currency timesheet.price %></div>
               </div>
             </div>
@@ -35,30 +39,9 @@
             <label id="err-phone-<%= timesheet.id %>" class="has-error"></label>
             <%= f.text_field :phone_number, value: current_user.phone_number, class: "form-control text-center" %>
           </div>
-          <div class="row">
-            <div class="col-md-8">
-              <div class="form-group">
-                <%= f.select :team_id, @current_user_team, {prompt: t(".select_team")},
-                  {class: "form-control booking_team_id", id: "booking_team_#{timesheet.id}"} %>
-              </div>
-            </div>
-            <div class="col-md-4 col-fixed-field">
-              <div class="form-group">
-                <label class="container-checkbox">
-                  <%= f.check_box :is_fixed, id: "box-#{timesheet.id}" %>
-                  <span class="checkmark"></span>
-                </label>
-                <label for="box-<%= timesheet.id %>" class="fixed-label"><%= t ".is_fixed" %></label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :passing_note, class: "form-control", placeholder: t(".passing_note"), rows: 4 %>
-          </div>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :timesheet_id, value: timesheet.id %>
-          <%= f.hidden_field :date, value: Date.current.strftime("%d/%m/%Y") %>
-          <%= f.button type: "submit", class: "btn btn-success btn-block" do %>
+          <%= f.button type: "submit", class: "btn btn-success btn-block", id: "booking-btn" do %>
             <i class="fas fa-save"></i><%= t "#{booking.new_record? ? ".booking" : "edit"}" %>
           <% end %>
         <% end %>

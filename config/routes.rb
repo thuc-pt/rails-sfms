@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "list_pitches_by_district", to: "home#list_pitches_by_district"
   resources :bookings, except: [:show, :new, :edit] do
     get :confirm_request, on: :member
+    get :check_condition, on: :collection
   end
   resources :booking_requests, only: :index do
     get :list_booking_by_params, on: :collection

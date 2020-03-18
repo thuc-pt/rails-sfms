@@ -2,25 +2,14 @@
   <% @timesheets.each do |sub_pitch, timesheets| %>
     <div class="sub-pitch-name"><%= sub_pitch %></div>
     <% timesheets.each do |timesheet| %>
-      <% if timesheet.start_at.strftime("%H:%M") < Time.now.strftime("%H:%M") || @bookings[timesheet.id].present? %>
-        <%= link_to "javascript:", class: "btn btn-booking timesheet-close" do %>
-          <div class="time">
-            <i class="far fa-clock"></i>
-            <%= timesheet.start_at.strftime("%H:%M") + " - " + timesheet.end_at.strftime("%H:%M") %>
-          </div>
-          <div class="price"><%= number_to_currency timesheet.price %></div>
-        <% end %>
-      <% else %>
-        <%= link_to "javascript:", class: "btn btn-booking", "data-toggle": "modal",
-          "data-target": "#booking-#{timesheet.id}" do %>
-          <div class="time">
-            <i class="far fa-clock"></i>
-            <%= timesheet.start_at.strftime("%H:%M") + " - " + timesheet.end_at.strftime("%H:%M") %>
-          </div>
-          <div class="price"><%= number_to_currency timesheet.price %></div>
-        <% end %>
-        <%= render "booking_modal", timesheet: timesheet, booking: @booking if user_signed_in? %>
+      <%= link_to "javascript:", class: "btn btn-booking #{"cant-booking-today" if timesheet.start_at.strftime("%H:%M") < Time.now.strftime("%H:%M") || @bookings[timesheet.id].present?}", "data-toggle": "modal", "data-target": "#booking-#{timesheet.id}" do %>
+        <div class="time">
+          <i class="far fa-clock"></i>
+          <%= timesheet.start_at.strftime("%H:%M") + " - " + timesheet.end_at.strftime("%H:%M") %>
+        </div>
+        <div class="price"><%= number_to_currency timesheet.price %></div>
       <% end %>
+      <%= render "booking_modal", timesheet: timesheet, booking: @booking if user_signed_in? %>
     <% end %>
   <% end %>
 </div>

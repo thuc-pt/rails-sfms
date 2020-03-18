@@ -33,7 +33,7 @@ td .link-action {
   }
   .price {
     font-size: 11px;
-    color: $error;
+    color: #6c757d;
   }
   .time {
     color: #6c757d;
@@ -53,5 +53,11 @@ td .link-action {
   .timesheet-close {
     background: #e9ecef;
     cursor: default;
+  }
+  .cant-booking-today {
+    border-color: $error;
+    .time, .price {
+      color: $error;
+    }
   }
 }

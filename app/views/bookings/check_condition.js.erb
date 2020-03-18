@@ -1,0 +1,1 @@
+$('#err-date-<%= params[:timesheet_id] %>').html('<%= j t "pitches.booking_modal.cant_booking" if @booking.present? || params[:date].to_date <= Date.current && @timesheet.start_at.strftime("%H:%M") < Time.now.strftime("%H:%M") %>');
