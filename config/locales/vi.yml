@@ -49,7 +49,8 @@ vi:
     delete_success: Xóa thành công
     delete_failure: Không thể xóa
     not_found: Không tìm thấy tài nguyên
-    booking_success: Yêu cầu đặt sân của bạn đã được ghi nhận, chúng tôi sẽ xem xét và phản hồi trong ít phút nữa
+    booking_success: Yêu cầu của bạn được ghi nhận, chúng tôi sẽ xác nhận nhanh nhất có thể
+    cant_booking: Rất xin lỗi, bạn không thể đặt khung giờ này, vui lòng chọn ngày hoặc khung giờ khác
   number:
     currency:
       format:
@@ -184,13 +185,13 @@ vi:
     edit:
       edit_pitch: Chỉnh sửa thông tin sân bóng
     booking_modal:
-      date: Thời gian
+      date: Ngày
+      time: Thời gian
+      price: Giá giờ
       booking: Đặt sân
-      select_team: Chọn đội
-      passing_note: Nhập ghi chú
       name: Tên của bạn
       phone_number: Số điện thoại
-      is_fixed: Đặt lịch cố định
+      cant_booking: không thể đặt sân, vui lòng chọn ngày hoặc khung giờ khác
   sub_pitches:
     index:
       page_title: Quản lý sân

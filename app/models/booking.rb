@@ -1,7 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :timesheet
   belongs_to :user
-  belongs_to :team, required: false
 
   validates :name, presence: true, length: {maximum: Settings.length.max_name}
   validates :phone_number, presence: true, numericality: true,
@@ -12,11 +11,12 @@ class Booking < ApplicationRecord
 
   enum status: {place: 0, confirm: 1, playing: 2, finish: 3, cancel: 4}
 
-  scope :booking_in_date, ->(date = Date.current){where("date = ?", date).confirm}
+  scope :booking_in_date, ->(date = Date.current){where("date = ?", date).place}
   scope :correct_condition, (lambda do |pitch_id, date = Date.current, place = Booking.statuses[:place]|
     joins(timesheet: [sub_pitch: :pitch]).where "pitches.id = ?
       and bookings.date >= ? and bookings.status = ?", pitch_id, date, place
   end)
+  scope :already_exist, ->(date, timesheet_id){where "date = ? and timesheet_id = ?", date, timesheet_id}
 
   delegate :start_at, :end_at, :sub_pitch_name, to: :timesheet, prefix: true, allow_nil: true
 
