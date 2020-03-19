@@ -24,10 +24,6 @@ a {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
 }
-#notification-error {
-  font-size: 13px;
-  color: $error;
-}
 .custom-tabs {
   display: unset;
   border: none;
@@ -64,7 +60,7 @@ a {
     border-color: purple;
   }
 }
-.has-error {
-  font-size: 13px;
+#notification-error, .has-error {
   color: $error;
+  font-size: 14px;
 }

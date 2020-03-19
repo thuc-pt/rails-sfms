@@ -1,7 +1,7 @@
-#booking_team_id {
-  text-align-last: center;
-}
 .booking-modal {
+  #booking-btn, .pitch-booking-date, #booking_name, #booking_phone_number {
+    font-size: 14px;
+  }
   .time-field, .price-field, .date-field {
     font-size: 14px;
     background: #eeeeee;
@@ -13,5 +13,16 @@
   }
   #booking-btn {
     margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  h5 {
+    margin-bottom: 0;
+  }
+  .close {
+    font-size: 18px;
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
   }
 }

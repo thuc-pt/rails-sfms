@@ -10,7 +10,8 @@ class Timesheet < ApplicationRecord
 
   scope :correct_sub_pitch, ->(sp_id){where(sub_pitch_id: sp_id).order id: :desc}
   scope :in_pitch, (lambda do |pitch_id|
-    joins(:sub_pitch).where "timesheets.sub_pitch_id in (?)", SubPitch.where(pitch_id: pitch_id).pluck(:id)
+    joins(:sub_pitch).where "timesheets.sub_pitch_id in (?) and sub_pitches.active = true",
+      SubPitch.where(pitch_id: pitch_id).pluck(:id)
   end)
 
   delegate :name, to: :sub_pitch, prefix: true

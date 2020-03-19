@@ -128,9 +128,9 @@ Province.where.not(id: [hn, hp, dn, bd, hcm, ct]).pluck(:id).each do |province_i
 end
 puts "Created district"
 SubPitchType.create([
-  {name: "Sân 5 người", description: Faker::Lorem.paragraph},
-  {name: "Sân 7 người", description: Faker::Lorem.paragraph},
-  {name: "Sân 9 người", description: Faker::Lorem.paragraph},
+  {name: "Sân 05 người", description: Faker::Lorem.paragraph},
+  {name: "Sân 07 người", description: Faker::Lorem.paragraph},
+  {name: "Sân 09 người", description: Faker::Lorem.paragraph},
   {name: "Sân 11 người", description: Faker::Lorem.paragraph}
 ])
 puts "Created sub pitch type"

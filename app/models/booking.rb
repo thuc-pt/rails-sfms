@@ -6,6 +6,7 @@ class Booking < ApplicationRecord
   validates :phone_number, presence: true, numericality: true,
     length: {maximum: Settings.length.max_phone, minimum: Settings.length.min_phone}
   validates :date, :status, :user_id, :timesheet_id, presence: true
+  validate :date_must_correct
 
   PARAMS = %i(name phone_number is_fixed passing_note date timesheet_id user_id team_id).freeze
 
@@ -23,5 +24,11 @@ class Booking < ApplicationRecord
   def full_time
     timesheet_start_at.strftime("%H:%M") << " - " << timesheet_end_at.strftime("%H:%M") << " ngày " <<
       date.strftime("%d/%m/%Y")
+  end
+
+  private
+
+  def date_must_correct
+    errors.add :date, I18n.t("date_incorrect") if date.present? && date < Date.current
   end
 end

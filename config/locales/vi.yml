@@ -8,9 +8,11 @@ vi:
   sign_in_failure: Không thể xác thực danh tính của bạn
   must_greater_than_open_at: phải sau giờ mở cửa
   must_greater_than_start_at: Giờ kết thúc phải lớn hơn giờ bắt đầu
+  date_incorrect: phải lớn hơn hoặc bằng ngày hiện tại
   confirm_delete: Bạn chắc chắn muốn xóa?
   none_sub_pitch: Chưa có sân
   none_timesheet: Chưa có khung giờ
+  signin_before: Vui lòng đăng nhập để tiếp tục
   views:
     pagination:
       first: "&laquo;"
@@ -184,14 +186,6 @@ vi:
       on_the_same: Sân bóng trên cùng địa bàn
     edit:
       edit_pitch: Chỉnh sửa thông tin sân bóng
-    booking_modal:
-      date: Ngày
-      time: Thời gian
-      price: Giá giờ
-      booking: Đặt sân
-      name: Tên của bạn
-      phone_number: Số điện thoại
-      cant_booking: không thể đặt sân, vui lòng chọn ngày hoặc khung giờ khác
   sub_pitches:
     index:
       page_title: Quản lý sân
@@ -214,6 +208,15 @@ vi:
       action: Hoạt động
     form:
       price: Nhập giá giờ
+  bookings:
+    new:
+      cant_booking: không thể đặt sân, vui lòng chọn ngày hoặc khung giờ khác
+      date: Ngày
+      time: Thời gian
+      price: Giá giờ
+      booking: Đặt sân
+      name: Tên của bạn
+      phone_number: Số điện thoại
   booking_requests:
     none: Không có yêu cầu đặt sân nào
     index:
