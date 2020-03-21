@@ -46,12 +46,9 @@ class Pitch < ApplicationRecord
   end
 
   def timesheet_sub_pitch
-    if sub_pitches.present? && sub_pitches.first.timesheets.present?
-      sub_pitches.first.timesheets.first.start_at.strftime("%H:%M %p") + " - " +
-        sub_pitches.first.timesheets.first.end_at.strftime("%H:%M %p")
-    else
-      I18n.t "none_timesheet"
-    end
+    return I18n.t "none_timesheet" if sub_pitches.blank? || sub_pitches.first.timesheets.blank?
+    sub_pitches.first.timesheets.first.start_at.strftime("%H:%M %p") + " - " +
+      sub_pitches.first.timesheets.first.end_at.strftime("%H:%M %p")
   end
 
   def timesheet_price

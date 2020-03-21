@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#sub_pitch_sub_pitch_type_id').on('change', function() {
+  $(document).on('change', '#sub_pitch_sub_pitch_type_id', function() {
     var text = $(this).find('option:selected').text();
     if (parseInt($(this).val()) > 0)
       $('#sub_pitch_name').val(text);
@@ -7,10 +7,10 @@ $(document).ready(function() {
       $('#sub_pitch_name').val('');
     condition_disable();
   });
-  $('#sub_pitch_name').on('input', function() {
+  $(document).on('input', '#sub_pitch_name', function() {
     condition_disable();
   });
-  $('.edit-sub-pitch').on('click', function() {
+  $(document).on('click', '.edit-sub-pitch', function() {
     if ($(window).scrollTop() > 200)
       $([document.documentElement, document.body]).animate({
           scrollTop: 0

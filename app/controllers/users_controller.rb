@@ -11,7 +11,9 @@ class UsersController < ApplicationController
       flash[:success] = t "flash.update_success"
       redirect_to @user
     else
-      render :edit
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

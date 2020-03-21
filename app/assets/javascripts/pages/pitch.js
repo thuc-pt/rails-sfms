@@ -4,7 +4,7 @@ $(document).ready(function() {
   district = $('#pitch_district_id :selected').text();
   opt_district = $(district_id).filter('optgroup[label=\"'+province+'\"]').html();
   $('#pitch_district_id').html(opt_district);
-  $('#pitch_province_id').on("change", function() {
+  $(document).on('change', '#pitch_province_id', function() {
     province = $('#pitch_province_id :selected').text();
     opt_district = $(district_id).filter('optgroup[label=\"'+province+'\"]').html();
     $('#pitch_district_id').html(opt_district);
@@ -19,7 +19,7 @@ $(document).ready(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $('#pitch_image').on("change", function() {
+  $(document).on('change', '#pitch_image', function() {
     readImage(this);
   });
   $('#pitch_open_at, #pitch_close_at').timepicker();

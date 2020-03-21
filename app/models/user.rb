@@ -14,8 +14,8 @@ class User < ApplicationRecord
   PARAMS = %i(name email phone_number address birthday gender).freeze
 
   validates :name, presence: true, length: {maximum: Settings.length.max_name}
-  validates :phone_number, length: {maximum: Settings.length.max_phone, minimum: Settings.length.min_phone},
-    numericality: true, allow_nil: true
+  validates :phone_number, presence: true, numericality: true,
+    length: {maximum: Settings.length.max_phone, minimum: Settings.length.min_phone}, allow_nil: true
   validates :role, presence: true
 
   mount_uploader :image, ImageUploader

@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  $('#user_image').on('change', function () {
+  $(document).on('change', '#user_image', function () {
      $('#update_avatar').submit();
   });
-  $('#user_current_password, #user_password, #user_password_confirmation').on('input', function() {
+  $(document).on('input', '#user_current_password, #user_password, #user_password_confirmation', function() {
     if ($('#user_current_password').val().length > 5 && $('#user_password').val().length > 5 && $('#user_password_confirmation').val().length > 5)
       $('#change-password').removeAttr('disabled');
     else

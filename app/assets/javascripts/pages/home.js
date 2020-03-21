@@ -25,6 +25,12 @@ $(document).ready(function() {
     }
     requestServerByParams('list_pitches_by_district?district=' + arrDistrict, dataLink)
   });
+  $(document).on('click', '.page', function() {
+    if ($(window).scrollTop() > 200)
+      $([document.documentElement, document.body]).animate({
+          scrollTop: 0
+      }, 500);
+  });
 });
 function requestServerByParams(url, data) {
   $('#screen-loading').show();
@@ -38,9 +44,3 @@ function loadTabs() {
     window.location.hash = e.target.hash
   });
 }
-$(document).on('click', '.page', function() {
-  if ($(window).scrollTop() > 200)
-    $([document.documentElement, document.body]).animate({
-        scrollTop: 0
-    }, 500);
-});

@@ -1,7 +1,7 @@
 class PitchesController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :load_pitch, except: %i(index new create)
-  before_action :load_timesheets, :load_pitches_on_the_same_area, :load_for_booking, only: :show
+  before_action :load_timesheets, :load_pitches_on_the_same_area, only: :show
 
   def index
     @pitches = Pitch.correct_pitches(current_user.id).includes :province, :district
@@ -21,7 +21,9 @@ class PitchesController < ApplicationController
       flash[:success] = t "flash.create_success"
       redirect_to pitches_path
     else
-      render :new
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -30,7 +32,9 @@ class PitchesController < ApplicationController
       flash[:success] = t "flash.update_success"
       redirect_to pitches_path
     else
-      render :edit
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -73,11 +77,6 @@ class PitchesController < ApplicationController
 
   def load_timesheets
     @timesheets = Timesheet.in_pitch(@pitch.id).includes(:sub_pitch).group_by(&:sub_pitch_name)
-  end
-
-  def load_for_booking
-    @booking = Booking.new
-    @bookings = Booking.booking_in_date.group_by(&:timesheet_id)
-    @current_user_team = current_user.teams.pluck :name, :id if user_signed_in?
+    @placed = Booking.booking_in_date.group_by(&:timesheet_id)
   end
 end

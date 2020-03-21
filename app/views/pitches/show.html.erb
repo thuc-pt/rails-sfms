@@ -20,7 +20,7 @@
           </div>
         </div>
         <!-- Timesheet -->
-        <%= render "timesheets" %>
+        <%= render "timesheets", timesheets: @timesheets, placed: @placed %>
         <!-- Timesheet -->
         <div class="info-contact">
           <p class="contact"><%= t ".contact" %></p>
@@ -60,7 +60,7 @@
                     <p class="pitch-name">
                       <i class="fas fa-phone-square-alt">
                       </i><%= field.user_name << " - " << field.phone_number %>
-                    </h5>
+                    </p>
                     <div class="email"><i class="fas fa-envelope"></i><%= field.email %></div>
                   </div>
                 </div>
