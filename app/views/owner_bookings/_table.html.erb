@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <tr class="text-center">
+      <% timesheets.keys.each do |sub_pitch| %>
+        <th><%= sub_pitch[0] %></th>
+      <% end %>
+      <% timesheets.values.map{|x| x.size}.max.to_i.times do |i| %>
+        <tr>
+          <% timesheets.values.each do |timesheet| %>
+            <% if timesheet[i].present? %>
+              <td>
+                <div class="row-timesheet">
+                  <div><%= timesheet[i].full_time %></div>
+                  <% if placed.present? && placed[timesheet[i].id].present? %>
+                    <div><%= link_to t(".placed"), "javascript:", class: "text-danger btn-edit-booking",
+                      "data-id": "#{timesheet[i].id}", "data-pid": "#{pitch.id}" %></div>
+                    <div><%= link_to t(".booking"), "javascript:", class: "text-success btn-show-booking-form",
+                      "data-id": "#{timesheet[i].id}", "data-pid": "#{pitch.id}" %></div>
+                  <% else %>
+                    <div><%= link_to t(".booking"), "javascript:", class: "text-success btn-show-booking-form",
+                      "data-id": "#{timesheet[i].id}", "data-pid": "#{pitch.id}" %></div>
+                  <% end %>
+                </div>
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tr>
+  </table>
+</div>

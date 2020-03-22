@@ -16,6 +16,12 @@ class Timesheet < ApplicationRecord
 
   delegate :name, to: :sub_pitch, prefix: true
 
+  def full_time
+    start_at.strftime("%H:%M") << " - " << end_at.strftime("%H:%M")
+  end
+
+  private
+
   def end_at_must_after_start_at
     errors.add(:end_at, I18n.t(".must_greater_than_start_at")) if
       start_at.present? && end_at.present? && end_at <= start_at

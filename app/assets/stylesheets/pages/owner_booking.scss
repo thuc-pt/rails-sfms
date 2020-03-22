@@ -1,0 +1,16 @@
+.owner-booking {
+  .row-timesheet {
+    display: flex;
+    justify-content: space-between;
+  }
+  .table {
+    table-layout: fixed;
+  }
+}
+.pitch-edit-booking-date {
+  font-size: 14px;
+}
+#btn-update-booking {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}

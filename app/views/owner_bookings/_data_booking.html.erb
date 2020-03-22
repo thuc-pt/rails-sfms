@@ -1,0 +1,5 @@
+<% if @timesheets.present? %>
+  <%= render "table", timesheets: timesheets, placed: placed, pitch: pitch %>
+<% else %>
+  <%= t ".none_time" %>
+<% end %>

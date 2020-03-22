@@ -10,9 +10,17 @@
     </div>
     <div class="col-md-3">
       <li class="nav-item">
-        <%= link_to "",
-          class: "nav-link" do %>
+        <%= link_to pitch_owner_bookings_path,
+          class: "nav-link #{"active" if current_page? pitch_owner_bookings_path}" do %>
           <i class="fas fa-dollar-sign"></i><%= t ".booking" %>
+        <% end %>
+      </li>
+    </div>
+    <div class="col-md-3">
+      <li class="nav-item">
+        <%= link_to pitches_path,
+          class: "nav-link #{"active" if current_page? pitches_path}" do %>
+          <i class="fas fa-sign-out-alt"></i><%= t ".back" %>
         <% end %>
       </li>
     </div>

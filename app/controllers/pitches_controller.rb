@@ -76,7 +76,7 @@ class PitchesController < ApplicationController
   end
 
   def load_timesheets
-    @timesheets = Timesheet.in_pitch(@pitch.id).includes(:sub_pitch).group_by(&:sub_pitch_name)
+    @timesheets = Timesheet.in_pitch(@pitch.id).includes(:sub_pitch).group_by{|x| [x.sub_pitch_name, x.sub_pitch_id]}
     @placed = Booking.booking_in_date.group_by(&:timesheet_id)
   end
 end

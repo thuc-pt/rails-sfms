@@ -1,0 +1,25 @@
+<% provide :page_name, t(".page_title") %>
+<div class="container-fluid">
+  <div class="pitches-page owner-booking">
+    <div class="container">
+      <%= render "sub_pitches/links" %>
+      <br>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-2"><span><%= t ".date" %></span></div>
+            <div class="col-md-10">
+              <input type="text" name="date_booking" value="<%= Date.current.strftime("%Y-%m-%d") %>" class=" form-control form-control-lg text-center" id="owner-date-booking-index" data-pid="<%= @pitch.id %>">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+    <br>
+    <div id="table-booking-owner">
+      <%= render "data_booking", timesheets: @timesheets, placed: @placed, pitch: @pitch %>
+    </div>
+  </div>
+</div>

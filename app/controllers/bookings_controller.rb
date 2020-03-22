@@ -62,10 +62,10 @@ class BookingsController < ApplicationController
   end
 
   def correct_conditions exist, timesheet
-    exist.blank? && timesheet.start_at.strftime("%H:%M") > Time.now.strftime("%H:%M") ||
+    exist.blank? && (timesheet.start_at.strftime("%H:%M") > Time.now.strftime("%H:%M") ||
       params[:booking][:date].to_date > Date.current ||
       params[:booking][:date].to_date == Date.current &&
-        timesheet.start_at.strftime("%H:%M") > Time.now.strftime("%H:%M") && exist.blank?
+        timesheet.start_at.strftime("%H:%M") > Time.now.strftime("%H:%M"))
   end
 
   def load_timesheet
