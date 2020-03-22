@@ -1,6 +1,6 @@
 <div class="timesheet-component">
   <% timesheets.each do |sub_pitch, timesheets| %>
-    <div class="sub-pitch-name"><%= sub_pitch %></div>
+    <div class="sub-pitch-name"><%= sub_pitch[0] %></div>
     <% timesheets.each do |timesheet| %>
       <% if user_signed_in? %>
         <%= link_to "javascript:", class: "btn pitch-btn-booking #{"cant-booking-today" if

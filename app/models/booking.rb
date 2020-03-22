@@ -8,18 +8,19 @@ class Booking < ApplicationRecord
   validates :date, :status, :user_id, :timesheet_id, presence: true
   validate :date_must_correct
 
-  PARAMS = %i(name phone_number is_fixed passing_note date timesheet_id user_id team_id).freeze
+  PARAMS = %i(name phone_number date timesheet_id user_id status).freeze
 
   enum status: {place: 0, confirm: 1, playing: 2, finish: 3, cancel: 4}
 
   scope :booking_in_date, ->(date = Date.current){where("date = ?", date).place}
+  scope :confirm_in_date, ->(date = Date.current){where("date = ?", date).confirm}
   scope :correct_condition, (lambda do |pitch_id, date = Date.current, place = Booking.statuses[:place]|
     joins(timesheet: [sub_pitch: :pitch]).where "pitches.id = ?
       and bookings.date >= ? and bookings.status = ?", pitch_id, date, place
   end)
   scope :already_exist, ->(date, timesheet_id){where "date = ? and timesheet_id = ?", date, timesheet_id}
 
-  delegate :start_at, :end_at, :sub_pitch_name, to: :timesheet, prefix: true, allow_nil: true
+  delegate :start_at, :end_at, :full_time, :price, :sub_pitch_name, to: :timesheet, prefix: true, allow_nil: true
 
   def full_time
     timesheet_start_at.strftime("%H:%M") << " - " << timesheet_end_at.strftime("%H:%M") << " ngày " <<

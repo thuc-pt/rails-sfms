@@ -53,6 +53,7 @@ vi:
     not_found: Không tìm thấy tài nguyên
     booking_success: Yêu cầu của bạn được ghi nhận, chúng tôi sẽ xác nhận nhanh nhất có thể
     cant_booking: Rất xin lỗi, bạn không thể đặt khung giờ này, vui lòng chọn ngày hoặc khung giờ khác
+    booking_susc: Đặt sân thành công
   number:
     currency:
       format:
@@ -200,6 +201,7 @@ vi:
     links:
       sub_pitch_page: Quản lý sân
       booking: Đặt sân
+      back: Quay lại
   timesheets:
     table:
       start_at: Giờ vào
@@ -231,3 +233,27 @@ vi:
       confirm: Xác nhận
       cancel: Hủy bỏ
       is_confirm: Đã xác nhận
+  owner_bookings:
+    index:
+      page_title: Đặt sân
+      date: Ngày đặt
+    new:
+      cant_booking: không thể đặt sân, vui lòng chọn ngày hoặc khung giờ khác
+      date: Ngày
+      time: Thời gian
+      price: Giá giờ
+      booking: Đặt sân
+      name: Tên nguời đặt
+      phone_number: Số điện thoại liên hệ
+    table:
+      placed: Đã đặt
+      booking: Đặt sân
+    edit:
+      date: Ngày
+      time: Thời gian
+      price: Giá giờ
+      edit_booking: Chỉnh sửa thông tin
+      name: Tên nguời đặt
+      phone_number: Số điện thoại liên hệ
+    data_booking:
+      none_time: Vui lòng tạo sân con và thêm khung giờ

@@ -1,0 +1,3 @@
+$('body').append('<%= j render "edit", object: @booking %>');
+$('#booking-edit-<%= @booking.timesheet_id %>').modal('show');
+$('.pitch-edit-booking-date').datepicker({dateFormat: 'yy-mm-dd', minDate: 0});
