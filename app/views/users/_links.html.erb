@@ -2,15 +2,15 @@
   <ul class="nav flex-column">
     <div class="info">
       <%= image_for current_user %>
-      <strong><%= @user.name %></strong>
+      <strong><%= current_user.name %></strong>
     </div>
     <li class="nav-items">
-      <%= link_to current_user, class: "nav-link #{"active" if current_user}" do %>
+      <%= link_to current_user, class: "nav-link #{"active" if current_page? current_user}" do %>
         <i class="fas fa-user"></i><%= t ".info" %>
       <% end %>
     </li>
     <li class="nav-items">
-      <%= link_to "", class: "nav-link" do %>
+      <%= link_to booking_histories_path, class: "nav-link #{"active" if current_page? booking_histories_path}" do %>
         <i class="fas fa-history"></i><%= t ".history_booking" %>
       <% end %>
     </li>

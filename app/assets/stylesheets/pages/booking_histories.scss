@@ -1,0 +1,82 @@
+.booking-history {
+  box-shadow: 0 1px 6px 1px rgba(0,0,0,.2);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  margin: 1.5rem 0;
+  .image-pitch {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  .far {
+    margin-right: 0.5rem;
+  }
+  .booking-detail {
+    font-size: 13px;
+    padding: 0.35rem 0;
+    border-top: 1px dotted gray;
+  }
+  .booking-address {
+    font-size: 13px;
+    padding: 0.35rem 0;
+  }
+  .pitch-name {
+    font-weight: bold;
+    color: #43a047;
+  }
+  .status-place, .status-confirm, .status-finish {
+    color: white;
+    background: orange;
+    position: absolute;
+    padding: 0.15rem 0.7rem;
+    font-size: 13px;
+    border-radius: 0.25rem;
+    box-shadow: 1px 2px 3px 1px rgba(0,0,0,0.2);
+    right: 1rem;
+  }
+  .status-confirm {
+    background: #06b4d0;
+  }
+  .status-finish {
+    background: #43a047;
+  }
+  .detroy-booking-history {
+    color: #adb5bd;
+    position: absolute;
+    padding: 0.3rem 0.6rem;
+    font-size: 13px;
+    border-radius: 50%;
+    border: 1px solid #adb5bd;
+    right: 0;
+    bottom: -1rem;
+    transition: 0.3s;
+    &:hover {
+      border: none;
+      background: #dc3545;
+      color: white;
+    }
+  }
+}
+.component-title-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .booking-history-title {
+    text-transform: uppercase;
+    color: #43a047;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+}
+.paginate-bottom {
+  margin-bottom: 1.5rem;
+}
+.none-booking {
+  padding: 3rem;
+  background: #b8f7b8;
+  margin-top: 1.5rem;
+  text-align: center;
+  border-radius: 5rem;
+}

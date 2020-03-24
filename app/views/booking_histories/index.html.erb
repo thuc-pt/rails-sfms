@@ -1,0 +1,59 @@
+<% provide :page_name, t(".booking_history") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><%= render "users/links" %></div>
+    <div class="col-md-9">
+      <br>
+      <div class="component-title-page">
+        <h5 class="booking-history-title"><i class="fas fa-futbol"></i><%= t ".your_booking_history" %></h5>
+        <%= paginate @bookings %>
+      </div>
+      <% if @bookings.present? %>
+        <% @bookings.each do |booking| %>
+          <div class="booking-history">
+            <div class="row">
+              <div class="col-md-4">
+                <%= image_of booking.timesheet.sub_pitch.pitch, "image-pitch" %>
+              </div>
+              <div class="col-md-8">
+                <div class="status-<%= booking.status %>"><%= t "booking_status.#{booking.status}" %></div>
+                <div>
+                  <h6 class="pitch-name"><%= booking.timesheet.sub_pitch.pitch.name %></h6>
+                  <div class="booking-address"><i class="fas fa-map-marker-alt"></i><%= booking.timesheet.sub_pitch.pitch.full_address %></div>
+                </div>
+                <div class="booking-detail">
+                  <i class="far fa-clock"></i>
+                  <strong><%= t ".time" %></strong><%= booking.full_time %>
+                </div>
+                <div class="booking-detail">
+                  <i class="fas fa-dollar-sign"></i>
+                  <strong><%= t ".price" %></strong>
+                  <%= number_to_currency booking.timesheet.price %>
+                </div>
+                <div class="booking-detail">
+                  <i class="fas fa-user"></i>
+                  <strong><%= t ".name" %></strong>
+                  <%= booking.name %>
+                </div>
+                <div class="booking-detail">
+                  <i class="fas fa-phone"></i>
+                  <strong><%= t ".phone" %></strong>
+                  <%= booking.phone_number %>
+                </div>
+                <% if booking.place? %>
+                  <%= link_to booking_history_path(booking), method: :delete, remote: true,
+                    class: "detroy-booking-history", data: {confirm: t("confirm_delete")} do %>
+                    <i class="fa fa-times"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="none-booking"><%= t ".none_booking_histories" %></div>
+      <% end %>
+      <div class="paginate-bottom"><%= paginate @bookings %></div>
+    </div>
+  </div>
+</div>
