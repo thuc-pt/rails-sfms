@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
 
   PARAMS = %i(name phone_number date timesheet_id user_id status).freeze
 
-  enum status: {place: 0, confirm: 1, playing: 2, finish: 3, cancel: 4}
+  enum status: {place: 0, confirm: 1, finish: 2}
 
   scope :booking_in_date, ->(date = Date.current){where("date = ?", date).place}
   scope :confirm_in_date, ->(date = Date.current){where("date = ?", date).confirm}
@@ -19,6 +19,7 @@ class Booking < ApplicationRecord
       and bookings.date >= ? and bookings.status = ?", pitch_id, date, place
   end)
   scope :already_exist, ->(date, timesheet_id){where "date = ? and timesheet_id = ?", date, timesheet_id}
+  scope :of_user, ->(user_id){where(user_id: user_id).order id: :desc}
 
   delegate :start_at, :end_at, :full_time, :price, :sub_pitch_name, to: :timesheet, prefix: true, allow_nil: true
 

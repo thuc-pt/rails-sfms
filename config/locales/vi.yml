@@ -13,6 +13,10 @@ vi:
   none_sub_pitch: Chưa có sân
   none_timesheet: Chưa có khung giờ
   signin_before: Vui lòng đăng nhập để tiếp tục
+  booking_status:
+    place: Chờ xác nhận
+    confirm: Đã xác nhận
+    finish: Đã xong
   views:
     pagination:
       first: "&laquo;"
@@ -257,3 +261,8 @@ vi:
       phone_number: Số điện thoại liên hệ
     data_booking:
       none_time: Vui lòng tạo sân con và thêm khung giờ
+  booking_histories:
+    index:
+      booking_history: Lịch sử đặt sân
+      your_booking_history: Lịch sử đặt sân của bạn
+      none_booking_histories: Không có lịch sử đặt sân nào

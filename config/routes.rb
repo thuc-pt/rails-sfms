@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :booking_requests, only: :index do
     get :list_booking_by_params, on: :collection
   end
+  resources :booking_histories, only: [:index, :destroy]
 end
