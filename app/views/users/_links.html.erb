@@ -20,7 +20,7 @@
       <% end %>
     </li>
     <li class="nav-items">
-      <%= link_to "", class: "nav-link" do %>
+      <%= link_to teams_path, class: "nav-link #{"active" if current_page? teams_path}" do %>
         <i class="fas fa-users"></i><%= t ".my_team" %>
       <% end %>
     </li>

@@ -180,17 +180,3 @@ SubPitch.pluck(:id).each do |sub_pitch_id|
     price: Faker::Number.number(digits: 6), sub_pitch_id: sub_pitch_id)
 end
 puts "Created timesheet"
-[hn, hp, dn, bd, hcm, ct].each do |province_id|
-  District.where("province_id = ?", province_id).pluck(:id).each do |district_id|
-    Pitch.where("province_id = ? and district_id = ?", province_id, district_id).pluck(:id).each do |pitch_id|
-      user_id = Faker::Number.between(from: 1, to: 1110)
-      list_member = user_id.to_s
-      20.times{list_member << ", #{Faker::Number.between(from: 1, to: 1110)}"}
-      Team.create!(name: Faker::Name.name, average_age: Faker::Number.between(from: 10, to: 60),
-        member: list_member, win: Faker::Number.between(from: 0, to: 100), description: Faker::Lorem.paragraph,
-        lost: Faker::Number.between(from: 0, to: 100), user_id: user_id, province_id: province_id,
-        level_id: Faker::Number.between(from: 1, to: 4), district_id: district_id, pitch_id: pitch_id)
-    end
-  end
-end
-puts "Created team"

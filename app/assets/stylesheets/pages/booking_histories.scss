@@ -74,9 +74,11 @@
   margin-bottom: 1.5rem;
 }
 .none-booking {
-  padding: 3rem;
-  background: #b8f7b8;
+  padding: 1.75rem;
+  background: rgb(32,245,9);
+  background: linear-gradient(0deg, rgba(32,245,9,0.5) 0%, rgba(2,142,14,0.5) 100%, rgba(0,255,27,0) 100%);
   margin-top: 1.5rem;
   text-align: center;
   border-radius: 5rem;
+  font-size: 1.25rem;
 }
