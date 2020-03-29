@@ -1,0 +1,25 @@
+<% provide :page_name, t(".team") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "users/links" %>
+    </div>
+    <div class="col-md-9">
+      <div class="team-pages">
+        <div class="row">
+          <div class="col-md-9"></div>
+          <div class="col-md-3">
+            <%= link_to new_team_path, class: "btn btn-outline-black btn-block" do %>
+              <i class="fas fa-plus-square"></i><%= t ".add_team" %>
+            <% end %><br>
+          </div>
+        </div>
+        <% if @teams.present? %>
+          <%= render "table", teams: @teams %>
+        <% else %>
+          <div class="none-booking"><%= t ".none_team" %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

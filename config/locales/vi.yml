@@ -38,6 +38,18 @@ vi:
         province: Tỉnh / thành phố
         district: Quận / huyện
         active: Hoạt động
+      team:
+        name: Tên đội
+        level: Cấp độ
+        member: Thành viên
+        province: Tỉnh / thành phố
+        district: Quận / huyện
+        pitch: Sân nhà
+        average_age: Độ tuổi trung bình
+        win: Số trận thắng
+        logo: Logo đội
+        image: Ảnh nhóm
+        description: Mô tả
     errors:
       messages:
         required: được yêu cầu
@@ -47,6 +59,7 @@ vi:
         wrong_length: không chính xác
         not_an_integer: không chính xác
         greater_than: phải lớn hơn
+        taken: đã tồn tại
   flash:
     create_success: Tạo mới thành công
     create_failure: Tạo mới thất bại
@@ -266,3 +279,34 @@ vi:
       booking_history: Lịch sử đặt sân
       your_booking_history: Lịch sử đặt sân của bạn
       none_booking_histories: Không có lịch sử đặt sân nào
+  teams:
+    index:
+      none_team: Bạn chưa có đội bóng nào
+      add_team: Tạo đội bóng
+      team: Đội bóng của bạn
+    table:
+      logo: Logo
+      name: Tên đội
+      level: Cấp độ
+      win: Thắng
+      member: Số thành viên
+    new:
+      new_team: Thêm đội bóng mới
+    edit:
+      edit_team: Chỉnh sửa thông tin đội bóng
+    form:
+      team_name: Tên đội
+      province: Tỉnh / thành phố
+      district: Quận / huyện
+      level: Cấp độ
+      pitch: Sân nhà
+      win: Số trận thắng
+      lost: Số trận thua
+      average_age: Độ tuổi trung bình
+      member: Thêm thành viên
+      logo: Logo đội
+      image: Ảnh nhóm
+      description: Mô tả sơ lược
+      name: Nhập tên đội bóng
+      select_level: Chọn cấp độ
+      select_pitch: Chọn sân nhà của đội

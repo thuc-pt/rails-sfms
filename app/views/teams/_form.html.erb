@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="pitches-page">
+    <div class="title">
+      <i class="fas fa-info-circle"></i><%= yield :page_name %>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-12 col-md-6" id="error-pitch"></div>
+    </div>
+    <%= form_for @team, remote: true do |f| %>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9"><div id="team-error"></div></div>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="team_name">
+              <%= t ".team_name" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.text_field :name, class: "form-control text-center", placeholder: t(".name") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_address">
+              <%= t ".level" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.select :level_id, Level.pluck(:name, :id), {prompt: t(".select_level")}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><label><%= t ".member" %></label></div>
+          <div class="col-12 col-md-9">
+            <%= f.select :member, User.pluck(:name, :id), {}, {multiple: true, size: 25, class: "form-control"} %>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_province_id">
+              <%= t ".province" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.select :province_id, Province.availability.pluck(:name, :id), {}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_district_id">
+              <%= t ".district" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.grouped_collection_select :district_id, Province.includes(:districts),
+              :districts, :name, :id, :name, {}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12">
+            <label for="pitch_phone_number">
+              <%= t ".pitch" %> <span class="require">*</span>
+            </label>
+          </div>
+          <div class="col-12 col-md-6">
+            <%= f.select :pitch_id, Pitch.pluck(:name, :id), {prompt: t(".select_pitch")}, {class: "form-control"} %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><label><%= t ".average_age" %> <span class="require">*</span></label></div>
+          <div class="col-12 col-md-6">
+            <%= f.number_field :average_age, min: 10, max: 60, class: "form-control text-center" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :win %></div>
+          <div class="col-12 col-md-6">
+            <%= f.number_field :win, min: 0, class: "form-control text-center" %>
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="col-md-3 col-12"><label><%= t ".logo" %></label></div>
+          <div class="col-12 col-md-6">
+            <img id="preview_logo", class="img-fluid">
+            <%= f.file_field :logo, class: "file-input" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><label><%= t ".image" %></label></div>
+          <div class="col-12 col-md-6">
+            <img id="preview_image", class="img-fluid">
+            <%= f.file_field :image, class: "file-input" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3 col-12"><%= f.label :description %></div>
+          <div class="col-12 col-md-9">
+            <%= f.text_area :description, class: "form-control", placeholder: t(".description"), rows: 5 %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-3 col-6">
+          <%= f.button type: :submit, class: "btn btn-success btn-block pitch-btn-submit" do %>
+            <i class="fas fa-save"></i><%= t "#{@team.new_record? ? "new" : "edit"}" %>
+          <% end %>
+        </div>
+        <div class="col-md-3 col-6">
+          <%= link_to t("back"), teams_path, class: "btn btn-outline-black btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

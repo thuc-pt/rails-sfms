@@ -16,3 +16,10 @@ span.select2-selection.select2-selection--single {
     border: 1px solid purple;
   }
 }
+.select2-container--default .select2-selection--multiple {
+  padding: 0.1rem 0;
+  border-color: #ced4da;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px solid purple;
+}

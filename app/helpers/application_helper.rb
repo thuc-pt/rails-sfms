@@ -22,4 +22,9 @@ module ApplicationHelper
     return image_tag pitch.image.url, class: text if pitch.image.present?
     image_tag "pitch_default.jpg", class: text
   end
+
+  def logo_for team, text
+    return image_tag team.logo.url, class: text if team.logo.present?
+    image_tag "logo-football.png", class: text
+  end
 end
