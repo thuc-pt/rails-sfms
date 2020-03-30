@@ -310,3 +310,25 @@ vi:
       name: Nhập tên đội bóng
       select_level: Chọn cấp độ
       select_pitch: Chọn sân nhà của đội
+    links:
+      new_feed: Bảng tin
+      member: Thành viên
+      edit_infor: Chỉnh sửa thông tin
+      introduce: Giới thiệu
+    show:
+      match_todo: Trận đấu sắp diễn ra
+      add_match: Tạo trận đấu mới
+      vote_match: Điểm danh đi khách
+      vote: Thăm dò ý kiến
+      captain: (Đội trưởng)
+      introduce: Giới thiệu đội bóng
+      date_create: Ngày thành lập
+      member: Số thành viên
+      address: Địa điểm
+      win: Số trận thắng
+      average_age: Độ tuổi trung bình
+      level: Cấp độ
+      description: Mô tả sơ lược
+      logo: Logo đội
+      image: Ảnh nhóm
+      member_list: Danh sách thành viên

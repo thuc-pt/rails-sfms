@@ -5,13 +5,81 @@
   background: white;
   box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  .table-show-infor {
+    th {
+      width: 30%;
+      padding: 1rem 0;
+    }
+    .table-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0.25rem;
+    }
+    .table-logo {
+      width: 100%;
+      height: auto;
+      border-radius: 0.25rem;
+    }
+  }
   .team-logo-index {
     width: 50px;
     height: 50px;
-    object-fit: center;
+    object-fit: cover;
     border-radius: 0.25rem;
   }
   .table th, .table td {
     vertical-align: unset;
   }
+  .title {
+    font-weight: bold;
+    color: $nav;
+    border-bottom: 1px dotted gray;
+  }
+  .create-match-link {
+    font-size: 13px;
+    margin-top: 1.5rem;
+  }
+  .introduce {
+    color: $nav;
+    font-style: italic;
+    text-shadow: rgba(0,0,0,0.2) 0.1em 0.1em 0.2em;
+  }
+  .member-infor {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    .avatar {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 1rem;
+      border-radius: 0.25rem;
+    }
+  }
 }
+.team-cover-photo {
+  width: 100%;
+  height: 176px;
+  object-fit: cover;
+}
+.logo-infor-page {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  margin-top: -100px;
+}
+.tabs-in-team-page {
+  margin-left: 160px;
+  margin-top: -42px;
+}
+.infor-team {
+  margin: -135px 0 65px 16%;
+  color: white;
+  .captain {
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 0.5rem;
+  }
+}
+

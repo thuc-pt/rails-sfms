@@ -34,4 +34,10 @@ $(document).ready(function() {
   $(document).on('change', '#team_logo', function() {
     readLogo(this);
   });
+  // Load tabs
+  $(document).on('click', '.tabs-link-team', function() {
+    let dataLink = {element: $(this).attr('href')};
+    let urlTab = $(this).attr('href');
+    window.history.pushState('', '', urlTab);
+  });
 });
