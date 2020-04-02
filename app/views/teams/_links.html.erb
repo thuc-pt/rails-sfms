@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs tabs-in-team-page" role="tab-list">
+  <li class="nav-item">
+    <%= link_to "#new-feed", class: "nav-link active tabs-link-team", "data-toggle": "tab", id: "load-new-feed" do %>
+      <i class="fas fa-newspaper"></i><%= t ".new_feed"%>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "#member", class: "nav-link tabs-link-team", "data-toggle": "tab", id: "load-member" do %>
+      <i class="fas fa-users"></i><%= t ".member" %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "#introduce", class: "nav-link tabs-link-team", "data-toggle": "tab", id: "load-introduce" do %>
+      <i class="fas fa-info"></i><%= t ".introduce" %>
+    <% end %>
+  </li>
+</ul>

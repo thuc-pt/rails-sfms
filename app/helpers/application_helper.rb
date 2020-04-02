@@ -27,4 +27,9 @@ module ApplicationHelper
     return image_tag team.logo.url, class: text if team.logo.present?
     image_tag "logo-football.png", class: text
   end
+
+  def cover_photo_for team, text
+    return image_tag team.image.url, class: text if team.image.present?
+    image_tag "team-cover-photo.jpg", class: text
+  end
 end

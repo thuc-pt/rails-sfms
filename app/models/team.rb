@@ -4,6 +4,7 @@ class Team < ApplicationRecord
   belongs_to :user
   belongs_to :level
   belongs_to :province
+  belongs_to :district
   belongs_to :pitch
 
   serialize :member, Array
@@ -20,4 +21,7 @@ class Team < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   delegate :name, to: :level, prefix: true
+  delegate :name, to: :user, prefix: true
+  delegate :name, to: :province, prefix: true
+  delegate :name, to: :district, prefix: true
 end
