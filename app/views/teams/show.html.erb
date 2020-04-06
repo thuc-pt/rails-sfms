@@ -11,7 +11,10 @@
     <div class="col-md-9">
       <div class="team-pages tab-content">
         <div class="tab-pane active" id="new-feed">
-          <h1>NEW FEED</h1>
+          <div id="post-form"><%= render "posts/form", post: @post, url: team_posts_path(@team) %></div>
+          <div id="posts-area">
+            <%= render @posts, team: @team %>
+          </div>
         </div>
         <div class="tab-pane fade" id="member">
           <h4 class="introduce"><i class="fas fa-users"></i><%= t ".member_list" %></h4>

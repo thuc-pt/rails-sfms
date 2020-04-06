@@ -1,0 +1,20 @@
+<div class="action-title"><%= t ".#{post.new_record? ? "create_post" : "update_post"}" %></div>
+<%= form_for post, url: url, remote: true do |f| %>
+  <div class="avatar-centent">
+    <div><%= image_for current_user %></div>
+    <div class="form-input">
+      <%= f.text_area :content, class: "form-control", rows: 3 %>
+      <div class="image-and-btn">
+        <div>
+          <%= image_tag post.image.url, id: "preview_image" if post.image.present? %>
+          <img id="preview_image">
+          <%= f.file_field :image %>
+        </div>
+        <div>
+          <label for="post_image" class="input-image"><i class="fas fa-images"></i><%= t ".image" %></label><br><br>
+          <%= f.submit t("#{post.new_record? ? "new" : "edit"}"), class: "btn btn-success", disabled: true, id: "btn-form-post" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

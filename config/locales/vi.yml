@@ -1,4 +1,7 @@
 vi:
+  datetime:
+    distance_in_words:
+      x_minutes: phút
   base: Sân bóng đá
   back: Quay lại
   new: Tạo mới
@@ -332,3 +335,7 @@ vi:
       logo: Logo đội
       image: Ảnh nhóm
       member_list: Danh sách thành viên
+  posts:
+    form:
+      create_post: Tạo bài viết
+      update_post: Cập nhật bài viết
