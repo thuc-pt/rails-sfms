@@ -10,17 +10,17 @@ $(document).ready(function() {
     $('#pitch_district_id').html(opt_district);
   });
   // Preview image when upload
-  function readImage(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $('#preview_image').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
   $(document).on('change', '#pitch_image', function() {
     readImage(this);
   });
   $('#pitch_open_at, #pitch_close_at').timepicker();
 });
+function readImage(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#preview_image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}

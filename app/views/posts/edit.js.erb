@@ -1,0 +1,4 @@
+$('#post-form').html('<%= j render "posts/form", post: @post, url: team_post_path(@post.team_id, @post.id) %>')
+$([document.documentElement, document.body]).animate({
+    scrollTop: 0
+}, 1000);

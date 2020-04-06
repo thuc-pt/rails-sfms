@@ -1,0 +1,26 @@
+<div class="post-content">
+  <div class="author">
+    <div><%= image_for post.user %></div>
+    <div class="author-name">
+      <div class="author-top">
+        <div><strong><%= post.user_name %></strong></div>
+        <div class="dropdown">
+          <a data-toggle="dropdown" href=""><i class="fas fa-ellipsis-h"></i></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to edit_team_post_path(team, post), class: "dropdown-item", remote: true, id: "post-#{post.id}" do %>
+              <i class="fas fa-edit"></i><%= t ".edit_post" %>
+            <% end %>
+            <%= link_to team_post_path(team, post), method: :delete, data: {confirm: t("confirm_delete")}, class: "dropdown-item delete-post", remote: :true do %>
+              <i class="fas fa-trash-alt"></i><%= t ".delete_post" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div><i class="fas fa-globe-americas"></i><%= post.created_at.strftime "%H:%M %d-%m-%Y" %></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="paragraph"><%= post.content %></div>
+    <%= image_tag post.image.url, class: "image" if post.image.present? %>
+  </div>
+</div>

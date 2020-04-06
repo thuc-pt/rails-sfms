@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_team, except: %i(index new create)
-  before_action :load_members, only: :show
+  before_action :load_members, :load_posts, only: :show
 
   def index
     @teams = Team.includes(:level).order(id: :desc).select do |team|
@@ -65,5 +65,10 @@ class TeamsController < ApplicationController
 
   def load_members
     @members = User.where id: @team.member
+  end
+
+  def load_posts
+    @post = Post.new
+    @posts = Post.update_later
   end
 end
