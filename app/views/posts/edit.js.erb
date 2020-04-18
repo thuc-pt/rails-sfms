@@ -2,3 +2,4 @@ $('#post-form').html('<%= j render "posts/form", post: @post, url: team_post_pat
 $([document.documentElement, document.body]).animate({
     scrollTop: 0
 }, 1000);
+$('#btn-form-post').removeAttr('disabled');

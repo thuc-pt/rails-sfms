@@ -1,26 +1,48 @@
-<div class="post-content">
-  <div class="author">
-    <div><%= image_for post.user %></div>
-    <div class="author-name">
-      <div class="author-top">
-        <div><strong><%= post.user_name %></strong></div>
-        <div class="dropdown">
-          <a data-toggle="dropdown" href=""><i class="fas fa-ellipsis-h"></i></a>
-          <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to edit_team_post_path(team, post), class: "dropdown-item", remote: true, id: "post-#{post.id}" do %>
-              <i class="fas fa-edit"></i><%= t ".edit_post" %>
-            <% end %>
-            <%= link_to team_post_path(team, post), method: :delete, data: {confirm: t("confirm_delete")}, class: "dropdown-item delete-post", remote: :true do %>
-              <i class="fas fa-trash-alt"></i><%= t ".delete_post" %>
-            <% end %>
-          </div>
+<div class="post-item post-<%= post.id %>">
+  <div class="post-content">
+    <div class="author">
+      <div><%= image_for post.user %></div>
+      <div class="author-name">
+        <div class="author-top">
+          <div><strong><%= post.user_name %></strong></div>
+          <% if current_user == post.user %>
+            <div class="dropdown">
+              <a data-toggle="dropdown" href=""><i class="fa fa-ellipsis-h"></i></a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to edit_team_post_path(team, post), class: "dropdown-item", remote: true, id: "post-#{post.id}" do %>
+                  <i class="fas fa-edit"></i><%= t ".edit_post" %>
+                <% end %>
+                <%= link_to team_post_path(team, post), method: :delete, data: {confirm: t("confirm_delete")}, class: "dropdown-item delete-post", remote: :true do %>
+                  <i class="fas fa-trash-alt"></i><%= t ".delete_post" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="post-created-at">
+          <i class="fas fa-globe-americas"></i><%= post.created_at.strftime "%d tháng %m, %Y lúc %H:%M" %>
         </div>
       </div>
-      <div><i class="fas fa-globe-americas"></i><%= post.created_at.strftime "%H:%M %d-%m-%Y" %></div>
+    </div>
+    <div class="content">
+      <div class="paragraph"><%= post.content %></div>
+      <%= image_tag post.image.url, class: "image" if post.image.present? %>
     </div>
   </div>
-  <div class="content">
-    <div class="paragraph"><%= post.content %></div>
-    <%= image_tag post.image.url, class: "image" if post.image.present? %>
+  <div class="row">
+    <div class="col-6 col-like">
+      <%= link_to "", class: "btn btn-block btn-like" do %>
+        <i class="fa fa-heart"></i>
+      <% end %>
+    </div>
+    <div class="col-6 col-cmt">
+      <%= link_to new_comment_path(post_id: post.id), class: "btn btn-block btn-cmt", remote: true do %>
+        <%= t ".comment" %>
+      <% end %>
+    </div>
   </div>
+  <div id="list-cmt-post-<%= post.id %>">
+    <%= render "comments/comment", comments: comments, post_id: post.id %>
+  </div>
+  <div id="form-cmt-post-<%= post.id %>"></div>
 </div>

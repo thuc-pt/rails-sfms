@@ -1,5 +1,8 @@
 <% if @post.valid? %>
-  $('#post-<%= @post.id %>').closest('.post-content').hide();
-  $('<%= escape_javascript(render @post, team: @post.team_id) %>').prependTo('#posts-area');
+  $('#post-<%= @post.id %>').closest('.post-<%= @post.id %>').hide();
+  $('<%= escape_javascript(render @post, team: @post.team_id, comments: nil) %>').prependTo('#posts-area');
   $('#post-form').html('<%= j render "posts/form", post: Post.new, url: team_posts_path(@post.team) %>');
 <% end %>
+$('html, body').animate({
+  scrollTop: $("#posts-area").offset().top
+}, 1000);

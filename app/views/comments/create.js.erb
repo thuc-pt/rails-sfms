@@ -1,0 +1,9 @@
+<% if @comment.valid? %>
+  if ($('.list-cmt-post-<%= @comment.post_id %>').length > 0) {
+    $('<%= escape_javascript(render "cmt", cmt: @comment) %>').appendTo('.list-cmt-post-<%= @comment.post_id %>');
+    $(".list-cmt-post-<%= @comment.post_id %>").animate({ scrollTop: $('.list-cmt-post-<%= @comment.post_id %>').prop("scrollHeight")}, 1000);
+  }
+  else
+    $('#list-cmt-post-<%= @comment.post_id %>').html('<%= j render "comment", comments: {@comment.post_id => [@comment]}, post_id: @comment.post_id %>');
+<% end %>
+$('#form-cmt-post-<%= @comment.post_id %>').html('<%= j render "form", comment: Comment.new, url: comments_path, tbl_id: params[:comment][:post_id] %>');

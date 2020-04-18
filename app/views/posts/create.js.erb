@@ -1,4 +1,7 @@
 <% if @post.valid? %>
-  $('<%= escape_javascript(render @post, team: @post.team_id) %>').prependTo('#posts-area');
+  $('<%= escape_javascript(render @post, team: @post.team_id, comments: nil) %>').prependTo('#posts-area');
   $('#post-form').html('<%= j render "posts/form", post: Post.new, url: team_posts_path(@post.team) %>');
 <% end %>
+$('html, body').animate({
+  scrollTop: $("#posts-area").offset().top
+}, 1000);

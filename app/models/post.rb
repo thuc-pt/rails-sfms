@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  has_many :comments, as: :tbl_cmt
-  has_many :likes, as: :tbl_like
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   belongs_to :user
   belongs_to :team
 
@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   scope :update_later, ->{order updated_at: :desc}
+  scope :of_team, ->(team){where team: team}
 
   delegate :name, to: :user, prefix: true
 end

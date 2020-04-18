@@ -40,4 +40,8 @@ $(document).ready(function() {
     let urlTab = $(this).attr('href');
     window.history.pushState('', '', urlTab);
   });
+  // Data link tr
+  $(document).on('click', '.link-to-detail', function() {
+    window.location = $(this).closest('tr').data('link');
+  });
 });
