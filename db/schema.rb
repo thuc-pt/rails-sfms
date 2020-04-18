@@ -15,18 +15,14 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
-    t.boolean "is_fixed"
-    t.text "passing_note"
     t.date "date"
     t.integer "status", default: 0
     t.bigint "timesheet_id"
     t.bigint "user_id"
-    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_bookings_on_created_at"
     t.index ["status"], name: "index_bookings_on_status"
-    t.index ["team_id"], name: "index_bookings_on_team_id"
     t.index ["timesheet_id"], name: "index_bookings_on_timesheet_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -34,12 +30,13 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.string "image"
-    t.string "tbl_name"
-    t.integer "tbl_id"
+    t.integer "parent_id", default: 0, null: false
+    t.bigint "post_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_comments_on_created_at"
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -80,11 +77,12 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "tbl_name"
-    t.integer "tbl_id"
-    t.datetime "deleted_at"
+    t.bigint "post_id"
+    t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -182,10 +180,9 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
     t.string "name"
     t.string "logo"
     t.string "image"
-    t.integer "average_age"
+    t.integer "average_age", default: 20
     t.string "member"
     t.integer "win", default: 0
-    t.integer "lost", default: 0
     t.text "description"
     t.bigint "user_id"
     t.bigint "level_id"
@@ -248,9 +245,9 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "bookings", "teams"
   add_foreign_key "bookings", "timesheets"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "districts", "provinces"
   add_foreign_key "getting_matches", "districts"
@@ -259,6 +256,8 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
   add_foreign_key "getting_matches", "provinces"
   add_foreign_key "getting_matches", "teams"
   add_foreign_key "getting_matches", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "matches", "districts"
   add_foreign_key "matches", "levels"

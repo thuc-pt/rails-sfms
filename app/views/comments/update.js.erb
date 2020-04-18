@@ -1,0 +1,5 @@
+<% if @comment.valid? %>
+  $('.comment-<%= @comment.id %>').hide();
+  $('<%= escape_javascript(render "cmt", cmt: @comment) %>').appendTo('.list-cmt-post-<%= @comment.post_id %>');
+  $('#form-cmt-post-<%= @comment.post_id %>').html('<%= j render "form", comment: Comment.new, url: comments_path, tbl_id: params[:comment][:post_id] %>');
+<% end %>

@@ -24,11 +24,14 @@
   .team-logo-index {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    object-fit: cover !important;
     border-radius: 0.25rem;
   }
   .table th, .table td {
     vertical-align: unset;
+  }
+  .link-to-detail {
+    cursor: pointer;
   }
   .title {
     font-weight: bold;
@@ -51,7 +54,7 @@
     .avatar {
       width: 50px;
       height: 50px;
-      object-fit: cover;
+      object-fit: cover !important;
       margin-right: 1rem;
       border-radius: 0.25rem;
     }
@@ -60,12 +63,12 @@
 .team-cover-photo {
   width: 100%;
   height: 176px;
-  object-fit: cover;
+  object-fit: cover !important;
 }
 .logo-infor-page {
   width: 150px;
   height: 150px;
-  object-fit: cover;
+  object-fit: cover !important;
   border-radius: 0.25rem;
   margin-top: -100px;
 }

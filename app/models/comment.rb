@@ -1,8 +1,14 @@
 class Comment < ApplicationRecord
-  has_many :comments, as: :tbl_cmt, dependent: :destroy
-  has_many :likes, as: :tbl_like, dependent: :destroy
+  has_many :likes, dependent: :destroy
   belongs_to :user
-  belongs_to :tbl_cmt, polymorphic: true
 
-  validates :content, :tbl_name, :tbl_id, :user_id, presence: true
+  PARAMS = %i(content image parent_id post_id user_id).freeze
+
+  validates :content, :post_id, :user_id, presence: true
+
+  mount_uploader :image, ImageUploader
+
+  scope :of_posts, ->(ids){where post_id: ids}
+
+  delegate :name, to: :user, prefix: true
 end

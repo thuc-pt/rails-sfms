@@ -1,0 +1,29 @@
+<div class="text-cmt">
+  <div><%= image_for cmt.user %></div>
+  <div class="cmt-content">
+    <div class="cmt-txt"><strong><%= cmt.user_name %></strong> <span><%= cmt.content %></span></div>
+    <% if cmt.image.present? %>
+      <div><%= image_tag cmt.image.url, class: "image-comment" %></div>
+    <% end %>
+    <%= link_to t(".like"), "" %>
+    <%= link_to t(".reply"), "" %>
+    <span class="post-created-at">
+      <%= cmt.created_at.strftime "%d tháng %m, %Y lúc %H:%M" %>
+    </span>
+  </div>
+  <div>
+    <% if current_user == cmt.user %>
+      <div class="dropdown">
+        <a data-toggle="dropdown" href=""><i class="fa fa-ellipsis-h"></i></a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to edit_comment_path(cmt), class: "dropdown-item", remote: true, id: "cmt-post-#{cmt.post_id}" do %>
+            <i class="fas fa-edit"></i><%= t "edit" %>
+          <% end %>
+          <%= link_to cmt, method: :delete, data: {confirm: t("confirm_delete")}, class: "dropdown-item delete-comment", remote: :true do %>
+            <i class="fas fa-trash-alt"></i><%= t "delete" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

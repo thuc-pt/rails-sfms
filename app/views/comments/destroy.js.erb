@@ -1,0 +1,6 @@
+$('.delete-comment').bind('ajax:success', function() {
+  $(this).closest('.text-cmt').fadeOut();
+});
+<% if @comments.blank? %>
+  $('#list-cmt-post-<%= @comment.post_id %>').html('');
+<% end %>
