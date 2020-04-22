@@ -2,12 +2,12 @@
   <div class="comment-area">
     <div class="comment-form">
       <div><%= image_for current_user %></div>
-      <div class="content-fields"><%= f.text_field :content, class: "form-control", rows: 1 %></div>
+      <div class="content-fields"><%= f.text_field :content, class: "form-control" %></div>
       <div class="file-fields">
         <%= f.file_field :image %>
         <label for="comment_image" class="btn btn-outline-black"><i class="fa fa-image"></i></label>
       </div>
-      <%= f.hidden_field :post_id, value: tbl_id %>
+      <%= f.hidden_field :post_id, value: post_id %>
       <div>
         <%= f.button type: :submit, class: "btn btn-outline-black" do %>
           <i class="fa fa-paper-plane"></i>

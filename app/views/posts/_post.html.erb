@@ -32,12 +32,12 @@
   <div class="row">
     <div class="col-6 col-like">
       <%= link_to "", class: "btn btn-block btn-like" do %>
-        <i class="fa fa-heart"></i>
+        <i class="far fa-heart"></i>
       <% end %>
     </div>
     <div class="col-6 col-cmt">
       <%= link_to new_comment_path(post_id: post.id), class: "btn btn-block btn-cmt", remote: true do %>
-        <%= t ".comment" %>
+        <i class="far fa-comment-alt"></i>
       <% end %>
     </div>
   </div>
