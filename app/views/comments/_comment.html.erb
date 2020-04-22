@@ -8,8 +8,8 @@
           <% if cmt.image.present? %>
             <div><%= image_tag cmt.image.url, class: "image-comment" %></div>
           <% end %>
-          <%= link_to t(".like"), "" %>
-          <%= link_to t(".reply"), "" %>
+          <%= link_to t("comments.cmt.like"), "" %>
+          <%= link_to t("comments.cmt.reply"), new_comment_path(post_id: cmt.post_id), remote: true %>
           <span class="post-created-at"><%= cmt.created_at.strftime "%d tháng %m, %Y lúc %H:%M" %></span>
         </div>
         <div>

@@ -340,13 +340,9 @@ vi:
       create_post: Tạo bài viết
       update_post: Cập nhật bài viết
     post:
-      comment: Bình luận
       edit_post: Chỉnh sửa
       delete_post: Xóa
   comments:
-    comment:
-      like: Thích
-      reply: Trả lời
     cmt:
       like: Thích
       reply: Trả lời
