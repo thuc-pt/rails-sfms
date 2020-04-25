@@ -1,0 +1,16 @@
+<% count_like_of_post = (@like_posts.blank? || @like_posts[post_id].blank?)  ? 0 : @like_posts[post_id].size %>
+<% if @like_of_user.present? && @like_of_user[[post_id, nil]].present? %>
+  <%= link_to @like_of_user[[post_id, nil]], method: :delete, class: "btn btn-block btn-like post-liked", remote: true do %>
+    <i class="fa fa-heart"></i>
+    <% if count_like_of_post > 0 %>
+      <span class="count-like-post"><%= count_like_of_post %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to likes_path(like: {post_id: post_id}), method: :post, class: "btn btn-block btn-like", remote: :true do %>
+    <i class="far fa-heart"></i>
+    <% if count_like_of_post > 0 %>
+      <span class="count-like-post"><%= count_like_of_post %></span>
+    <% end %>
+  <% end %>
+<% end %>

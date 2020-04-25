@@ -1,0 +1,5 @@
+<% if @like_of_user.present? && @like_of_user[[nil, comment_id]].present? %>
+  <%= link_to t("comments.cmt.like"), @like_of_user[[nil, comment_id]], method: :delete, remote: true, class: "liked" %>
+<% else %>
+  <%= link_to t("comments.cmt.like"), likes_path(like: {comment_id: comment_id}), method: :post, remote: :true %>
+<% end %>
