@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_team, except: %i(index new create)
-  before_action :load_members, :load_posts, :load_comment, only: :show
+  before_action :load_members, :load_posts, :load_comment, :load_likes, only: :show
 
   def index
     @teams = Team.includes(:level).order(id: :desc).select do |team|
@@ -74,5 +74,11 @@ class TeamsController < ApplicationController
 
   def load_comment
     @comments = Comment.of_posts(@team.post_ids).group_by(&:post_id)
+  end
+
+  def load_likes
+    @like_posts = Like.where(post_id: @team.post_ids).group_by(&:post_id)
+    @like_comments = Like.where(comment_id: Comment.where(post_id: @team.post_ids).pluck(:id)).group_by(&:comment_id)
+    @like_of_user = Like.where(user: current_user).group_by{|x| [x.post_id, x.comment_id]}
   end
 end

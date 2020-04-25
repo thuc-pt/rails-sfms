@@ -2,10 +2,11 @@
   <div><%= image_for cmt.user %></div>
   <div class="cmt-content">
     <div class="cmt-txt"><strong><%= cmt.user_name %></strong> <span><%= cmt.content %></span></div>
+    <span class="count-like-comment" id="count-like-comment-<%= cmt.id %>"></span>
     <% if cmt.image.present? %>
       <div><%= image_tag cmt.image.url, class: "image-comment" %></div>
     <% end %>
-    <%= link_to t(".like"), "" %>
+    <span id="like-comment-<%= cmt.id %>"><%= render "likes/form_like_comment", comment_id: cmt.id %></span>
     <%= link_to t(".reply"), new_comment_path(post_id: cmt.post_id), remote: true %>
     <span class="post-created-at">
       <%= cmt.created_at.strftime "%d tháng %m, %Y lúc %H:%M" %>

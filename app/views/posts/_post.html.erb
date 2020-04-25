@@ -30,10 +30,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6 col-like">
-      <%= link_to "", class: "btn btn-block btn-like" do %>
-        <i class="far fa-heart"></i>
-      <% end %>
+    <div class="col-6 col-like" id="like-post-<%= post.id %>">
+      <%= render "likes/form_like_post", post_id: post.id %>
     </div>
     <div class="col-6 col-cmt">
       <%= link_to new_comment_path(post_id: post.id), class: "btn btn-block btn-cmt", remote: true do %>

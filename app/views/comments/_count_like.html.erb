@@ -1,0 +1,3 @@
+<% if @like_comments.present? && @like_comments[cmt_id].present? %>
+  <i class="far fa-heart"></i><%= @like_comments[cmt_id].size %>
+<% end %>

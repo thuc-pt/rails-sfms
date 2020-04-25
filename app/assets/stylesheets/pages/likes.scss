@@ -1,0 +1,27 @@
+.liked {
+  color: purple;
+  font-weight: bold;
+  &:hover {
+    color: purple;
+  }
+}
+.post-liked {
+  color: $error !important;
+}
+.count-like-post {
+  font-size: 13px;
+}
+.count-like-comment {
+  position: absolute;
+  font-size: 13px;
+  padding: 0 0.5rem;
+  background: #f8f9fa;
+  right: 20px;
+  margin-top: -10px;
+  color: $error;
+  border-radius: 0.5rem;
+  .fa-heart {
+    font-size: 12px;
+    margin-right: 0.25rem;
+  }
+}

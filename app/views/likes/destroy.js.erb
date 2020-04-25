@@ -1,0 +1,6 @@
+<% if @like.post_id.present? %>
+  $('#like-post-<%= @like.post_id %>').html('<%= j render "form_like_post", post_id: @like.post_id %>');
+<% elsif @like.comment_id.present? %>
+  $('#like-comment-<%= @like.comment_id %>').html('<%= j render "form_like_comment", comment_id: @like.comment_id %>');
+  $('#count-like-comment-<%= @like.comment_id %>').html('<%= j render "comments/count_like", cmt_id: @like.comment_id %>');
+<% end %>
