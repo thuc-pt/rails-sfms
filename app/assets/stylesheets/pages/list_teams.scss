@@ -1,0 +1,47 @@
+.list-teams {
+  .sidebar {
+    margin-top: 0 !important;
+  }
+}
+.filter-title {
+  color: $nav;
+  padding: 1rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.search-form {
+  input {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 13px;
+  }
+}
+.team-component {
+  font-size: 14px;
+  .team-item {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2);
+    .img-fluid {
+      border-radius: 0.25rem;
+    }
+    .has-border, .none-border {
+      padding: 0.5rem 0;
+    }
+    .has-border {
+      border-bottom: 1px dotted gray;
+    }
+    .fab {
+      margin-right: 0.5rem;
+    }
+    .team-name {
+      text-transform: uppercase;
+      color: $nav;
+      font-weight: bold;
+    }
+  }
+}

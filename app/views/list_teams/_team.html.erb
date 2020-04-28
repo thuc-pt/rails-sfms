@@ -1,0 +1,22 @@
+﻿<% if @list_teams.present? %>
+  <% @list_teams.each do |team| %>
+    <div class="team-item">
+      <div class="row">
+        <div class="col-2">
+          <%= logo_for team, "img-fluid" %>
+        </div>
+        <div class="col-10">
+          <div class="none-border team-name"><%= team.name %></div>
+          <div class="has-border"><i class="fas fa-user"></i><%= t(".captain", captain_name: team.user_name).html_safe %></div>
+          <div class="has-border"><i class="fab fa-shirtsinbulk"></i><%= t(".level", level_name: team.level_name).html_safe %></div>
+          <div class="has-border"><i class="fab fa-shirtsinbulk"></i><%= t(".avg_age", avg: team.average_age).html_safe %></div>
+          <div class="has-border"><i class="fab fa-shirtsinbulk"></i><%= t(".pitch", pitch_name: team.pitch_name).html_safe %></div>
+          <div class="has-border"><i class="fas fa-users"></i><%= t(".amount_member", member: team.member.size).html_safe %></div>
+          <div class="none-border"><i class="fas fa-map-marker-alt"></i><%= t(".address", address: team.full_address).html_safe %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="no-data"><%= t ".none_team"%></div>
+<% end %>

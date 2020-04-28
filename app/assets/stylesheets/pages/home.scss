@@ -9,13 +9,6 @@
     justify-content: space-between;
     align-items: center;
   }
-  .no-data {
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
-  }
   #paginator-bottom .pagination {
     margin-bottom: 1.5rem;
   }
@@ -106,4 +99,12 @@
   .btn-center {
     padding: 0;
   }
+}
+.no-data {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #545b62;
 }
