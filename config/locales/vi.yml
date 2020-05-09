@@ -347,3 +347,16 @@ vi:
       like: Thích
       reply: Trả lời
       liked: Đã thích
+  list_teams:
+    index:
+      province: Tỉnh / thành phố
+      filter_result: Lọc kết quả
+      team_in: "Đội bóng tại %{province}"
+    team:
+      captain: "<strong>Đội trưởng:</strong> %{captain_name}"
+      level: "<strong>Trình độ:</strong> %{level_name}"
+      avg_age: "<strong>Độ tuổi trung bình:</strong> %{avg}"
+      pitch: "<strong>Sân nhà:</strong> %{pitch_name}"
+      amount_member: "<strong>Số thành viên:</strong> %{member}"
+      address: "<strong>Địa chỉ:</strong> %{address}"
+      none_team: Không có dữ liệu

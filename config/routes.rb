@@ -30,4 +30,7 @@ Rails.application.routes.draw do
   end
   resources :comments, except: [:index, :show]
   resources :likes, only: [:create, :destroy]
+  resources :list_teams, only: [:index] do
+    get :list_teams_by_params, on: :collection
+  end
 end

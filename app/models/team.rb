@@ -20,8 +20,20 @@ class Team < ApplicationRecord
   mount_uploader :logo, ImageUploader
   mount_uploader :image, ImageUploader
 
+  scope :in_province, ->(province_id){where province_id: province_id}
+  scope :in_level, (lambda do |level_id|
+    return if level_id.blank?
+
+    where level_id: level_id
+  end)
+
   delegate :name, to: :level, prefix: true
   delegate :name, to: :user, prefix: true
   delegate :name, to: :province, prefix: true
   delegate :name, to: :district, prefix: true
+  delegate :name, to: :pitch, prefix: true
+
+  def full_address
+    district_name + " - " + province_name
+  end
 end
