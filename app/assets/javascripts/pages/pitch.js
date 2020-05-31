@@ -1,7 +1,6 @@
 $(document).ready(function() {
-  district_id = $('#pitch_district_id').html();
+  var district_id = $('#pitch_district_id').html();
   province = $('#pitch_province_id :selected').text();
-  district = $('#pitch_district_id :selected').text();
   opt_district = $(district_id).filter('optgroup[label=\"'+province+'\"]').html();
   $('#pitch_district_id').html(opt_district);
   $(document).on('change', '#pitch_province_id', function() {

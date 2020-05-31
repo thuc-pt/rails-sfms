@@ -46,4 +46,15 @@
   .none-border {
     border: none;
   }
+  .link-to-user {
+    position: relative;
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.25rem;
+      object-fit: cover !important;
+      position: absolute;
+      top: 15%;
+    }
+  }
 }

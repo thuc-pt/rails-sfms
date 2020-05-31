@@ -36,10 +36,11 @@
               <div class="dropdown-item none-border"><%= t ".no_notification" %></div>
             </div>
           </li>
-          <li class="nav-items dropdown">
+          <li class="nav-items dropdown link-to-user">
             <%= link_to current_user,
               class: "nav-link #{"active" if current_page? current_user}" do %>
-              <i class="fas fa-cog"></i>
+              <%= image_for current_user %>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <%= current_user.name %>
             <% end %>
             <div class="dropdown-menu">
