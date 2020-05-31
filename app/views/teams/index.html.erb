@@ -15,7 +15,7 @@
           </div>
         </div>
         <% if @teams.present? %>
-          <%= render "table", teams: @teams %>
+          <div class="table-responsive"><%= render "table", teams: @teams %>
         <% else %>
           <div class="none-booking"><%= t ".none_team" %></div>
         <% end %>

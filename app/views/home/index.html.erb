@@ -2,7 +2,7 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-lg-3">
         <div class="sidebar">
           <div class="title"><i class="fas fa-map-marker-alt"></i><%= t ".province" %></div>
           <ul class="nav flex-column" role="tablist">
@@ -28,7 +28,7 @@
           <div id="district-area"><%= t "home.none_province" %></div>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-lg-9">
         <div class="title-top">
           <div class="field-address"><i class="fas fa-futbol"></i><%= t ".all_pitches" %></div>
           <div id="paginator-top"><%= paginate @list_pitches, remote: true %></div>
