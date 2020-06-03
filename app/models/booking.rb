@@ -12,7 +12,7 @@ class Booking < ApplicationRecord
 
   enum status: {place: 0, confirm: 1, finish: 2}
 
-  scope :booking_in_date, ->(date = Date.current){where("date = ?", date).place}
+  scope :booking_in_date, ->(date = Date.current){where "date = ?", date}
   scope :confirm_in_date, ->(date = Date.current){where("date = ?", date).confirm}
   scope :correct_condition, (lambda do |pitch_id, date = Date.current, place = Booking.statuses[:place]|
     joins(timesheet: [sub_pitch: :pitch]).where "pitches.id = ?
