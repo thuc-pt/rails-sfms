@@ -5,5 +5,6 @@
 //= require jquery-ui
 //= require bootstrap-timepicker
 //= require select2
+//= require jquery.timeago
 //= require activestorage
 //= require turbolinks

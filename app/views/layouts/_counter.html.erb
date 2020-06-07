@@ -1,0 +1,3 @@
+<%= link_to "javascript:", class: "nav-link notification-header #{"active" if current_page? notifications_path}" do %>
+  <i class="fa fa-bell"><sup class="badge badge-pill badge-notification-header" id="notification-counter-<%= @receiver_id %>"><%= @number_notices %></sup></i>
+<% end %>

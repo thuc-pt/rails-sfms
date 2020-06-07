@@ -1,0 +1,3 @@
+$('#notification-list-<%= @notice.receiver_id %>').html('<%= j render "layouts/notifications" %>');
+$('#notification-counter-<%= @notice.receiver_id %>').html('<%= @number_notices - 1 %>');
+$("time.timeago").timeago();

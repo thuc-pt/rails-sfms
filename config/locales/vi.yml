@@ -1,7 +1,4 @@
 vi:
-  datetime:
-    distance_in_words:
-      x_minutes: phút
   base: Sân bóng đá
   back: Quay lại
   new: Tạo mới
@@ -82,6 +79,9 @@ vi:
         delimiter: "."
         format: "%n %u"
   layouts:
+    notifications:
+      all_notice: xem tất cả thông báo
+      no_notification: Không có thông báo
     header:
       find_team: Tìm đối thủ
       booking: Đặt sân nhanh
@@ -89,7 +89,6 @@ vi:
       waiting: Đối đang chờ
       list_team: Danh sách đội bóng
       invite: Mời đấu giao lưu
-      no_notification: Không có thông báo
       account_info: Thông tin tài khoản
       history_booking: Lịch sử đặt sân
       catching: Đang chờ bắt đối
@@ -360,3 +359,6 @@ vi:
       amount_member: "<strong>Số thành viên:</strong> %{member}"
       address: "<strong>Địa chỉ:</strong> %{address}"
       none_team: Không có dữ liệu
+  notifications:
+    index:
+      all_notifications: Tất cả thông báo

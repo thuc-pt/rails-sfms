@@ -1,0 +1,11 @@
+<div class="dropdown-item not-seen" data-receiver-id="<%= notification.receiver_id %>">
+  <%= link_to update_seen_notice_notification_path(notification), remote: true, class: "link-in-dropdown" do %>
+    <div><%= notification.action %></div>
+    <div class="text-right time-created"><i><%= timeago notification.created_at %></i></div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $("time.timeago").timeago();
+  });
+</script>

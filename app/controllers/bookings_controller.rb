@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_timesheet, only: %i(audit_conditions new)
   before_action :load_booking, only: %i(destroy confirm_request)
   before_action :rollback_booking, only: :create
@@ -15,6 +16,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new booking_params
     if @booking.save
+      Notification.create user_id: @booking.user_id,
+        receiver_id: @booking.timesheet_sub_pitch_pitch_user_id,
+        action: "Có yêu cầu đặt sân mới, vui lòng kiểm tra"
       flash[:success] = t "flash.booking_success"
       redirect_back fallback_location: root_path
     else
@@ -26,6 +30,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
+    Notification.create user_id: current_user.id, receiver_id: @booking.user_id,
+                        action: "Yêu cầu đặt sân của bạn đã bị hủy"
     respond_to do |format|
       format.js
     end
@@ -33,6 +39,8 @@ class BookingsController < ApplicationController
 
   def confirm_request
     @booking.confirm!
+    Notification.create user_id: current_user.id, receiver_id: @booking.user_id,
+                        action: "Yêu cầu đặt sân của bạn đã được chấp nhận"
     respond_to do |format|
       format.js
     end
