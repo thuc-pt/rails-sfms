@@ -14,7 +14,7 @@ class Timesheet < ApplicationRecord
       SubPitch.where(pitch_id: pitch_id).pluck(:id)
   end)
 
-  delegate :name, to: :sub_pitch, prefix: true
+  delegate :name, :pitch_user_id, to: :sub_pitch, prefix: true
 
   def full_time
     start_at.strftime("%H:%M") << " - " << end_at.strftime("%H:%M")

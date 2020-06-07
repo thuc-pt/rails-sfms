@@ -12,4 +12,5 @@ class SubPitch < ApplicationRecord
   scope :is_active, ->{where active: true}
 
   delegate :name, to: :sub_pitch_type, prefix: true
+  delegate :user_id, to: :pitch, prefix: true
 end

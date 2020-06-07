@@ -30,6 +30,7 @@
     border: none;
     border-top: 3px solid #04f73c;
     box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    font-size: 14px;
   }
   .dropdown-item {
     padding: 0.75rem;
@@ -44,8 +45,21 @@
   .dropdown:hover .dropdown-menu {
     display: block;
   }
-  .none-border {
+  .not-seen {
     border: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background: #f8f9fa;
+    margin-bottom: 0.5rem;
+    &:hover {
+      background: #f8f9fa;
+    }
+  }
+  .seen {
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
   }
   .link-to-user {
     position: relative;
@@ -63,5 +77,17 @@
   }
   .badge-notification-header {
     background-color: #495057a8;
+  }
+  .time-created {
+    font-size: 12px;
+    margin-top: 0.25rem;
+  }
+  .notification-header:hover, .notification-header.active {
+    .badge-notification-header {
+      color: white;
+    }
+  }
+  .link-in-dropdown {
+    padding: 0;
   }
 }

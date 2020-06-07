@@ -33,4 +33,8 @@ Rails.application.routes.draw do
   resources :list_teams, only: [:index] do
     get :list_teams_by_params, on: :collection
   end
+  resources :notifications, only: :index do
+    get :update_seen_notice, on: :member
+  end
+  mount ActionCable.server => "/cable"
 end

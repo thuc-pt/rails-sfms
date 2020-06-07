@@ -1,13 +1,13 @@
-10.times do |i|
+2.times do |i|
   User.create(name: Faker::Name.name, email: "example#{i}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 0, confirmed_at: Time.now)
 end
-100.times do |i|
-  User.create(name: Faker::Name.name, email: "example#{11 + i}@gmail.com", password: "123456",
+10.times do |i|
+  User.create(name: Faker::Name.name, email: "example#{2 + i}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 1, confirmed_at: Time.now)
 end
-1000.times do |i|
-  User.create(name: Faker::Name.name, email: "example#{111 + i}@gmail.com", password: "123456",
+10.times do |i|
+  User.create(name: Faker::Name.name, email: "example#{12 + i}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 2, confirmed_at: Time.now)
 end
 puts "Created user"
@@ -145,7 +145,7 @@ puts "Created level"
   District.where("province_id = ?", province_id).pluck(:id).each do |district_id|
     Pitch.create!(name: "Sân bóng #{Faker::Name.name}", phone_number: "0123456789", active: true,
       open_at: "04:00", close_at: "22:00", email: "example@gmail.com", description: Faker::Lorem.paragraph,
-      address: Faker::Address.street_address, user_id: Faker::Number.between(from: 11, to: 110),
+      address: Faker::Address.street_address, user_id: Faker::Number.between(from: 3, to: 12),
       province_id: province_id, district_id: district_id)
   end
 end

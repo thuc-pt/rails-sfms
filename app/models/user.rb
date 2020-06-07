@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :teams, dependent: :destroy
   has_many :matches, dependent: :destroy
   has_many :getting_matches, dependent: :destroy
+  has_many :notifications, as: :receiver
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable,
     :rememberable, :validatable, :lockable, :timeoutable, :trackable, :omniauthable

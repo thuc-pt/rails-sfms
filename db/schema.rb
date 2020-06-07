@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_121015) do
+ActiveRecord::Schema.define(version: 2020_06_03_154601) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -111,6 +111,16 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
     t.index ["status"], name: "index_matches_on_status"
     t.index ["team_id"], name: "index_matches_on_team_id"
     t.index ["user_id"], name: "index_matches_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "receiver_id"
+    t.string "action"
+    t.boolean "seen"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "pitches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -264,6 +274,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_121015) do
   add_foreign_key "matches", "provinces"
   add_foreign_key "matches", "teams"
   add_foreign_key "matches", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "pitches", "districts"
   add_foreign_key "pitches", "provinces"
   add_foreign_key "pitches", "users"

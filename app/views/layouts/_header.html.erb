@@ -29,11 +29,9 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-items dropdown">
-            <%= link_to "", class: "nav-link" do %>
-              <i class="fa fa-bell"><sup class="badge badge-pill badge-notification-header">10</sup></i>
-            <% end %>
-            <div class="dropdown-menu">
-              <div class="dropdown-item none-border"><%= t ".no_notification" %></div>
+            <%= render "layouts/counter" %>
+            <div class="dropdown-menu dropdown-menu-right" id="notification-list-<%= @receiver_id %>">
+              <%= render "layouts/notifications" %>
             </div>
           </li>
           <li class="nav-items dropdown link-to-user">

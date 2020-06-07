@@ -21,7 +21,8 @@ class Booking < ApplicationRecord
   scope :already_exist, ->(date, timesheet_id){where "date = ? and timesheet_id = ?", date, timesheet_id}
   scope :of_user, ->(user_id){where(user_id: user_id).order id: :desc}
 
-  delegate :start_at, :end_at, :full_time, :price, :sub_pitch_name, to: :timesheet, prefix: true, allow_nil: true
+  delegate :start_at, :end_at, :full_time, :price, :sub_pitch_name, :sub_pitch_pitch_user_id,
+    to: :timesheet, prefix: true, allow_nil: true
 
   def full_time
     timesheet_start_at.strftime("%H:%M") << " - " << timesheet_end_at.strftime("%H:%M") << " ngày " <<
