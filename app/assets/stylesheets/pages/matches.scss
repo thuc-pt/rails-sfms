@@ -1,0 +1,38 @@
+.match-category {
+  display: flex;
+  .combo-radio {
+    width: 200px;
+  }
+}
+.match-item {
+  background: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  .item {
+    border-bottom: 1px gray dotted;
+    padding: 0.5em 0;
+    .team-name {
+      display: flex;
+      align-items: center;
+      .teamName {
+        font-weight: bold;
+        color: $nav;
+      }
+      .in-center {
+        margin: 0 1rem;
+        flex-grow: 1;
+      }
+    }
+    .captain {
+      display: flex;
+      .talk {
+        margin: 0 1rem;
+      }
+    }
+  }
+  .fab {
+    margin-right: 0.5rem;
+  }
+}

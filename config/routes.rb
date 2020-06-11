@@ -37,4 +37,7 @@ Rails.application.routes.draw do
     get :update_seen_notice, on: :member
   end
   mount ActionCable.server => "/cable"
+  resources :matches, except: :show do
+    get :list_matches_by_params, on: :collection
+  end
 end

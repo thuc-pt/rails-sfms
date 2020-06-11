@@ -13,4 +13,5 @@ class Province < ApplicationRecord
     joins(:pitches).where "provinces.id in (?) and pitches.active = true", Pitch.pluck(:province_id).uniq
   end)
   scope :has_team, ->{where id: Team.pluck(:province_id).uniq}
+  scope :has_match, ->{where id: Match.pluck(:province_id).uniq}
 end

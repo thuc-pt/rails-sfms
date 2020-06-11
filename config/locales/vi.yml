@@ -362,3 +362,37 @@ vi:
   notifications:
     index:
       all_notifications: Tất cả thông báo
+  matches:
+    new:
+      create_match: Tạo trận đấu
+    form:
+      time: Thời gian
+      team: Chọn đội bóng
+      category: Loại hình
+      had_pitch: Đã có sân
+      find_match: Đi khách
+      province: Tỉnh / thành phố
+      district: Quận / huyện
+      pitch: Tên sân
+      level: Trình độ mong muốn
+      betting: Kèo
+      invition: Lời mời
+    index:
+      filter_result: Lọc kết quả
+      match_in: "Tìm đối đá tại %{province}"
+    match:
+      has_pitch: Có sân nhà
+      search_match: Tìm đối
+      not_yet: Đang chờ
+      had: Đã có đối
+      time_up: Qúa hạn
+      cancel: Đã hủy
+      time: Thời gian
+      getting_match: Bắt đối
+      talk: Nói chuyện
+      time: Thời gian
+      pitch: Sân nhà
+      address: Địa chỉ
+      level: Trình độ
+      betting: Kèo
+      status: Trạng thái

@@ -1,0 +1,91 @@
+<% if @list_matches.present? %>
+  <% @list_matches.each do |match| %>
+    <div class="match-item">
+      <div class="item">
+        <div class="team-name">
+          <div class="teamName"><%= match.team_name %></div>
+          <div class="text-danger in-center"><i class="fas fa-tag"></i><%= match.invition? ? t(".has_pitch") : t(".search_match") %></div>
+          <div>
+            <%= link_to "javascript:", class: "btn btn-success" do %>
+              <i class="fas fa-share"></i><%= t ".getting_match" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="captain">
+          <div><i class="fas fa-user"></i><%= match.captain_name %></div>
+          <div class="talk">
+            <%= link_to "javascript:", class: "messenger" do %>
+              <i class="fas fa-comments"></i><%= t ".talk" %>
+            <% end %>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fas fa-calendar"></i><%= t ".time" %></strong>
+          </div>
+          <div class="col-9">
+            <strong><%= match.time.strftime("%d/%m/%Y %H:%M") %></strong>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fab fa-shirtsinbulk"></i><%= t ".pitch" %></strong>
+          </div>
+          <div class="col-9">
+            <%= match.pitch_name %>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fab fa-shirtsinbulk"></i><%= t ".address" %></strong>
+          </div>
+          <div class="col-9">
+            <%= match.full_address %>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fab fa-shirtsinbulk"></i><%= t ".level" %></strong>
+          </div>
+          <div class="col-9">
+            <%= match.level_name %>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fab fa-shirtsinbulk"></i><%= t ".betting" %></strong>
+          </div>
+          <div class="col-9">
+            <%= match.betting %>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row">
+          <div class="col-3">
+            <strong><i class="fab fa-shirtsinbulk"></i><%= t ".status" %></strong>
+          </div>
+          <div class="col-9">
+            <span class="text-danger"><%= t ".#{match.status}" %></span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <%= match.invition %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="no-data"><%= t ".none_match"%></div>
+<% end %>
