@@ -11,13 +11,13 @@
             <i class="fas fa-compass"></i><%= t ".find_team" %>
           <% end %>
           <div class="dropdown-menu">
-            <%= link_to "", class: "dropdown-item" do %>
+            <%= link_to matches_path, class: "dropdown-item" do %>
               <i class="fas fa-rss"></i><%= t ".waiting" %>
             <% end %>
             <%= link_to list_teams_path, class: "dropdown-item" do %>
               <i class="fas fa-list-ul"></i><%= t ".list_team" %>
             <% end %>
-            <%= link_to "", class: "dropdown-item" do %>
+            <%= link_to new_match_path, class: "dropdown-item" do %>
               <i class="fas fa-handshake"></i><%= t ".invite" %>
             <% end %>
           </div>

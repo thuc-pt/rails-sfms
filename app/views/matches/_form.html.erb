@@ -1,0 +1,137 @@
+<div class="pitches-page">
+  <div class="title">
+    <i class="fas fa-futbol"></i><%= yield :page_name %>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-12 col-md-6" id="error-pitch"><%= render "shared/errors", object: @match %></div>
+  </div>
+  <%= form_for @match do |f| %>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="match_time">
+          <%= t ".time" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.text_field :time, class: "form-control text-center", value: (Date.current + 3.days).strftime("%Y-%m-%d 17:00") %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label>
+          <%= t ".team" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.select :team_id, @teams, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label>
+          <%= t ".category" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <div class="match-category">
+          <div>
+            <label class="combo-radio">
+              <%= t ".had_pitch" %>
+              <%= f.radio_button :category, "invition", checked: true %>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div>
+            <label class="combo-radio">
+              <%= t ".find_match" %>
+              <%= f.radio_button :category, "searching" %>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="pitch_province_id">
+          <%= t ".province" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.select :province_id, Province.availability.pluck(:name, :id), {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="pitch_district_id">
+          <%= t ".district" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.grouped_collection_select :district_id, Province.includes(:districts),
+          :districts, :name, :id, :name, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label>
+          <%= t ".pitch" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.select :pitch_id, @pitches, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label>
+          <%= t ".level" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.select :level_id, @levels, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="match_time">
+          <%= t ".betting" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.text_field :betting, class: "form-control text-center", value: "Share 4 - 6 và nước" %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-12">
+        <label for="match_time">
+          <%= t ".invition" %> <span class="require">*</span>
+        </label>
+      </div>
+      <div class="col-12 col-md-9">
+        <%= f.text_area :invition, class: "form-control text-center", rows: 3, value: "Đá cho vui anh em ơi" %>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-3 col-6">
+        <%= f.button type: :submit, class: "btn btn-success btn-block pitch-btn-submit" do %>
+          <i class="fas fa-save"></i><%= t "#{@match.new_record? ? "new" : "edit"}" %>
+        <% end %>
+      </div>
+      <div class="col-md-3 col-6">
+        <%= link_to t("back"), matches_path, class: "btn btn-outline-black btn-block" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,13 +1,13 @@
 2.times do |i|
-  User.create(name: Faker::Name.name, email: "example#{i}@gmail.com", password: "123456",
+  User.create(name: Faker::Name.name, email: "example#{i + 1}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 0, confirmed_at: Time.now)
 end
 10.times do |i|
-  User.create(name: Faker::Name.name, email: "example#{2 + i}@gmail.com", password: "123456",
+  User.create(name: Faker::Name.name, email: "example#{3 + i}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 1, confirmed_at: Time.now)
 end
 10.times do |i|
-  User.create(name: Faker::Name.name, email: "example#{12 + i}@gmail.com", password: "123456",
+  User.create(name: Faker::Name.name, email: "example#{13 + i}@gmail.com", password: "123456",
     password_confirmation: "123456", role: 2, confirmed_at: Time.now)
 end
 puts "Created user"
@@ -180,3 +180,20 @@ SubPitch.pluck(:id).each do |sub_pitch_id|
     price: Faker::Number.number(digits: 6), sub_pitch_id: sub_pitch_id)
 end
 puts "Created timesheet"
+User.pluck(:id).each do |user_id|
+  member = []
+  10.times do
+    member.push Faker::Number.between(from: 1, to: 22)
+  end
+  Team.create(name: Faker::Name.name, member: member, user_id: user_id,
+    level_id: Faker::Number.between(from: 1, to: 4), province_id: [hn, hp, dn, bd, hcm, ct].sample,
+    district_id: Faker::Number.between(from: 1, to: 95), pitch_id: Faker::Number.between(from: 1, to: 95))
+end
+puts "Created team"
+User.pluck(:id).each do |user_id|
+  Match.create(time: (Time.now + 5.days), team_id: Faker::Number.between(from: 1, to: 23), user_id: user_id,
+    level_id: Faker::Number.between(from: 1, to: 4), province_id: [hn, hp, dn, bd, hcm, ct].sample,
+    district_id: Faker::Number.between(from: 1, to: 95), pitch_id: Faker::Number.between(from: 1, to: 95),
+    betting: Faker::Lorem.paragraph, invition: Faker::Lorem.paragraph, captain_name: Faker::Name.name)
+end
+puts "Created match"
